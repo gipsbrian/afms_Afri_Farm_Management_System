@@ -44,7 +44,7 @@ include('database/db_conection.php');
                             <div class="row">
     							<div class="col-xs-12">
     								<div class="page-title-box">
-                                        <h4 class="page-title">Pig Feed Consumption Monitoring Form </h4>
+                                        <h4 class="page-title">Pig Movement</h4>
                                         <ol class="breadcrumb p-0 m-0">
                                             <li>
                                                 <a href="#">Zircos</a>
@@ -67,7 +67,7 @@ include('database/db_conection.php');
                                                             <select name="animal_ID" class="form-control" placeholder="Litres of water">
                                                             <option></option>
                                                                 <?php
-                                                                $select="SELECT * FROM `Animal`";
+                                                                $select="SELECT * FROM `animal`";
                                                                 $sel_query=mysqli_query($dbcon,$select);
                                                                 while ($rw=mysqli_fetch_array($sel_query)) {
                                                                     ?>
@@ -91,11 +91,11 @@ include('database/db_conection.php');
                                                             <select name="Original_Location" class="form-control">
                                                             <option></option>
                                                                 <?php
-                                                                $select1="SELECT * FROM `Animal_Location`";
+                                                                $select1="SELECT * FROM `animal_location`";
                                                                 $sel_query1=mysqli_query($dbcon,$select1);
                                                                 while ($rw1=mysqli_fetch_array($sel_query1)) {
                                                                     ?>
-                                                                    <option value="<?php echo $rw1[0]; ?>" parsley-trigger="change" required><?php echo $rw1[1], $rw2[2] ; ?></option>
+                                                                    <option value="<?php echo $rw1[0]; ?>" parsley-trigger="change" required><?php echo $rw1[1], $rw1[2]; ?></option>
 
                                                             <?php
                                                                 }
@@ -110,11 +110,11 @@ include('database/db_conection.php');
                                                             <select name="new_Location" class="form-control">
                                                             <option></option>
                                                                 <?php
-                                                                $select2="SELECT * FROM `Animal_Location`";
+                                                                $select2="SELECT * FROM `animal_location`";
                                                                 $sel_query2=mysqli_query($dbcon,$select2);
                                                                 while ($rw2=mysqli_fetch_array($sel_query2)) {
                                                                     ?>
-                                                                    <option value="<?php echo $rw2[0]; ?>" parsley-trigger="change" required><?php echo $rw2[1], $rw2[2] ; ?></option>
+                                                                    <option value="<?php echo $rw2[0]; ?>" parsley-trigger="change" required><?php echo $rw2[1], $rw2[2]; ?></option>
 
                                                             <?php
                                                                 }

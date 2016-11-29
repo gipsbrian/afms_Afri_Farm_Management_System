@@ -92,7 +92,7 @@
                  ?>
                    <tr>
                     <td><?php echo $row['Animal_ID']; ?></td>
-					<td><?php echo $row['Date_Of_Birth']; ?></td>
+					           <td><?php echo $row['Date_Of_Birth']; ?></td>
                     <td><?php echo $row['Breed_Of_Animal']; ?></td>
                     <td><?php echo $row['Location_ID']; ?></td>
 				    <td><a href ='pigfull2.php?p_id=<?php echo $row['Animal_ID']; ?>'><button class="btn btn-success">FULL DETAILS</button></td>

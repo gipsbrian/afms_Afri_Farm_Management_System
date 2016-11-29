@@ -86,14 +86,47 @@
                                                       <th>
                                                           
                                                         </th>
-                                                    
+
                                                         <td><center><?php echo $rw_move['Date_Of_Transfer']; ?></center></td>
-                                                        <td><center><?php echo $rw_move['Animal_ID']; ?></center></td>
-                                                        <td><center><?php echo $rw_move['Location_ID']; ?></center></td>
-                                                        <td><center><?php echo $rw_move['New_Location_ID']; ?></center></td>
-                                                        <td><center><?php echo $rw_move['Purpose_Of_Transfer']; ?></center></td>
+
+                                                        <td><?php 
+
+                                                        $aniId=$rw_move['Animal_ID']; 
+                                                        $sel_ani="select * from animal where Animal_ID='$aniId' ";
+                                                         $query_ani =mysqli_query($dbcon,$sel_ani) or die('QUERY FAILED'.mysqli_error($dbcon));
+                                                         while ( $rw_ani=mysqli_fetch_array($query_ani)){
+                                                            echo $rw_ani[0];
+                                                         }
+                                                         
+
+                                                        ?></td>
+
+                                                        <td><?php 
+
+                                                        $aniLoc=$rw_move['Location_ID']; 
+                                                        $sel_loc="select * from animal_location where Location_ID='$aniLoc' ";
+                                                         $select_loc =mysqli_query($dbcon,$sel_loc) or die('QUERY FAILED'.mysqli_error($dbcon));
+                                                         while ( $rw_Loc=mysqli_fetch_array($select_loc)){
+                                                            echo $rw_Loc[1], $rw_Loc[2];
+                                                         }
+                                                         
+
+                                                        ?></td>
+
+                                                        <td><?php 
+
+                                                        $animalLoc=$rw_move['New_Location_ID']; 
+                                                        $sel_locat="select * from animal_location where Location_ID='$animalLoc' ";
+                                                         $select_locat =mysqli_query($dbcon,$sel_locat) or die('QUERY FAILED'.mysqli_error($dbcon));
+                                                         while ( $rw_Locat=mysqli_fetch_array($select_locat)){
+                                                            echo $rw_Locat[1], $rw_Locat[2];
+                                                         }
+                                                         
+
+                                                        ?></td>
                                                        
-                                                    
+                                                        <td><center><?php echo $rw_move['Purpose_Of_Transfer']; ?></center></td>
+                                                                                                      
                                                     <?php } ?>
                                                     
                                                 </tbody>

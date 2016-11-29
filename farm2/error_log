@@ -1,0 +1,139 @@
+[14-Nov-2016 05:06:29 America/New_York] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/underscore/public_html/farm2/database/db_conection.php on line 9
+[14-Nov-2016 05:06:29 America/New_York] PHP Warning:  mysqli_select_db() expects parameter 1 to be mysqli, boolean given in /home/underscore/public_html/farm2/database/db_conection.php on line 11
+[14-Nov-2016 05:06:29 America/New_York] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home/underscore/public_html/farm2/index.php on line 74
+[14-Nov-2016 05:06:29 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/underscore/public_html/farm2/index.php on line 77
+[14-Nov-2016 05:06:29 America/New_York] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home/underscore/public_html/farm2/index.php on line 89
+[14-Nov-2016 05:06:29 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/underscore/public_html/farm2/index.php on line 92
+[14-Nov-2016 05:06:29 America/New_York] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home/underscore/public_html/farm2/index.php on line 104
+[14-Nov-2016 05:06:29 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/underscore/public_html/farm2/index.php on line 107
+[14-Nov-2016 05:06:29 America/New_York] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home/underscore/public_html/farm2/index.php on line 119
+[14-Nov-2016 05:06:29 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/underscore/public_html/farm2/index.php on line 122
+[14-Nov-2016 05:06:29 America/New_York] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, boolean given in /home/underscore/public_html/farm2/index.php on line 296
+[14-Nov-2016 05:06:29 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/underscore/public_html/farm2/index.php on line 310
+[14-Nov-2016 05:09:25 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 77
+[14-Nov-2016 05:09:25 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 92
+[14-Nov-2016 05:09:25 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 107
+[14-Nov-2016 05:09:25 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 122
+[14-Nov-2016 05:09:25 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 310
+[14-Nov-2016 05:10:07 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 77
+[14-Nov-2016 05:10:07 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 92
+[14-Nov-2016 05:10:07 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 107
+[14-Nov-2016 05:10:07 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 122
+[14-Nov-2016 05:10:07 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 310
+[14-Nov-2016 05:10:42 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 77
+[14-Nov-2016 05:10:42 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 92
+[14-Nov-2016 05:10:42 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 107
+[14-Nov-2016 05:10:42 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 122
+[14-Nov-2016 05:10:42 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 310
+[14-Nov-2016 05:11:29 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 77
+[14-Nov-2016 05:11:29 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 92
+[14-Nov-2016 05:11:29 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 107
+[14-Nov-2016 05:11:29 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 122
+[14-Nov-2016 05:11:29 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 310
+[14-Nov-2016 05:12:33 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/index.php on line 310
+[14-Nov-2016 05:14:22 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/newpig.php on line 90
+[14-Nov-2016 05:30:46 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/newpig.php on line 90
+[14-Nov-2016 05:31:07 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/newpig.php on line 90
+[14-Nov-2016 06:44:05 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/newpig.php on line 90
+[14-Nov-2016 06:45:12 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/pig_sales.php on line 82
+[16-Nov-2016 07:26:43 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/animal_data.php on line 95
+[16-Nov-2016 07:28:12 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/farm_staff_details.php on line 91
+[17-Nov-2016 00:58:47 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedreceipt.php on line 79
+[17-Nov-2016 02:13:13 America/New_York] PHP Parse error:  syntax error, unexpected 'INTO' (T_STRING) in /home/underscore/public_html/farm2/feedreceipt.php on line 261
+[17-Nov-2016 03:21:06 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewusers.php on line 524
+[17-Nov-2016 03:31:01 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewusers.php on line 524
+[18-Nov-2016 02:45:33 America/New_York] PHP Parse error:  syntax error, unexpected 'btn' (T_STRING) in /home/underscore/public_html/farm2/newpig.php on line 250
+[18-Nov-2016 02:46:24 America/New_York] PHP Parse error:  syntax error, unexpected 'btn' (T_STRING) in /home/underscore/public_html/farm2/newpig.php on line 250
+[18-Nov-2016 02:46:26 America/New_York] PHP Parse error:  syntax error, unexpected 'btn' (T_STRING) in /home/underscore/public_html/farm2/newpig.php on line 250
+[18-Nov-2016 02:47:15 America/New_York] PHP Parse error:  syntax error, unexpected 'btn' (T_STRING) in /home/underscore/public_html/farm2/newpig.php on line 250
+[18-Nov-2016 02:51:32 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedsreceivednote.php on line 85
+[18-Nov-2016 02:51:32 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedsreceivednote.php on line 111
+[18-Nov-2016 02:51:36 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedrequisitionform.php on line 79
+[18-Nov-2016 04:49:14 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/farm_discontinued_details.php on line 93
+[18-Nov-2016 04:50:11 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/farm_discontinued_details.php on line 93
+[18-Nov-2016 05:30:38 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/farm_discontinued_details.php on line 93
+[18-Nov-2016 08:20:56 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 239
+[18-Nov-2016 08:25:12 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 239
+[18-Nov-2016 08:26:43 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feed_purchase_record.php on line 80
+[18-Nov-2016 08:35:12 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 239
+[18-Nov-2016 08:37:08 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 239
+[18-Nov-2016 08:37:13 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 239
+[18-Nov-2016 08:39:26 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 239
+[18-Nov-2016 08:39:51 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 239
+[18-Nov-2016 08:43:33 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 239
+[18-Nov-2016 08:43:58 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 239
+[18-Nov-2016 08:45:14 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 236
+[18-Nov-2016 08:46:54 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 239
+[18-Nov-2016 08:47:18 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 239
+[18-Nov-2016 08:49:39 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feeds_recieved_form.php on line 82
+[18-Nov-2016 09:03:10 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 92
+[18-Nov-2016 09:08:32 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 256
+[18-Nov-2016 09:10:17 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 92
+[18-Nov-2016 09:12:47 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 260
+[18-Nov-2016 09:13:27 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedpurchaseorder.php on line 260
+[21-Nov-2016 01:54:07 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedreturnform.php on line 98
+[21-Nov-2016 01:58:27 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedreturnform.php on line 98
+[21-Nov-2016 01:59:18 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feeds_recieved_form.php on line 82
+[21-Nov-2016 03:58:13 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedreceipt.php on line 79
+[21-Nov-2016 07:18:55 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedsreceivednote.php on line 261
+[21-Nov-2016 07:18:58 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedsreceivednote.php on line 261
+[21-Nov-2016 07:19:08 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedsreceivednote.php on line 261
+[21-Nov-2016 07:21:01 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedsreceivednote.php on line 262
+[21-Nov-2016 07:21:05 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedsreceivednote.php on line 262
+[21-Nov-2016 07:21:27 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedsreceivednote.php on line 262
+[21-Nov-2016 07:22:07 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedsreceivednote.php on line 262
+[21-Nov-2016 07:24:31 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedsreceivednote.php on line 265
+[21-Nov-2016 07:24:34 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedsreceivednote.php on line 265
+[21-Nov-2016 07:26:00 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedsreceivednote.php on line 214
+[21-Nov-2016 07:27:55 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedsreceivednote.php on line 211
+[21-Nov-2016 07:27:58 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedsreceivednote.php on line 211
+[21-Nov-2016 07:31:39 America/New_York] PHP Parse error:  syntax error, unexpected end of file in /home/underscore/public_html/farm2/feedsreceivednote.php on line 211
+[21-Nov-2016 07:31:58 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedsreceivednote.php on line 85
+[21-Nov-2016 07:31:58 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedsreceivednote.php on line 111
+[21-Nov-2016 07:33:12 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedrequisitionform.php on line 79
+[21-Nov-2016 07:33:17 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedreceipt.php on line 79
+[21-Nov-2016 07:34:03 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedreceipt.php on line 79
+[21-Nov-2016 23:51:53 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewMedicalRecords.php on line 83
+[21-Nov-2016 23:54:25 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedsreceivednote.php on line 85
+[21-Nov-2016 23:54:25 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedsreceivednote.php on line 111
+[21-Nov-2016 23:54:47 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedreceipt.php on line 79
+[21-Nov-2016 23:55:44 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewMedicalRecords.php on line 83
+[22-Nov-2016 00:02:46 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewMedicalRecords.php on line 83
+[22-Nov-2016 00:04:37 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewMedicalRecords.php on line 86
+[22-Nov-2016 00:07:46 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewMedicalRecords.php on line 88
+[22-Nov-2016 00:09:54 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewMedicalRecords.php on line 88
+[22-Nov-2016 00:10:17 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 72
+[22-Nov-2016 00:10:17 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 94
+[22-Nov-2016 00:10:17 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 144
+[22-Nov-2016 00:10:17 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 162
+[22-Nov-2016 00:14:48 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewMedicalRecords.php on line 88
+[22-Nov-2016 00:15:34 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewMedicalRecords.php on line 88
+[22-Nov-2016 00:16:30 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 72
+[22-Nov-2016 00:16:30 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 94
+[22-Nov-2016 00:16:30 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 144
+[22-Nov-2016 00:16:30 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 162
+[22-Nov-2016 00:32:15 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedsreceivednote.php on line 85
+[22-Nov-2016 00:32:15 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedsreceivednote.php on line 111
+[22-Nov-2016 01:10:30 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewPigWeight.php on line 85
+[22-Nov-2016 01:11:24 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/weightTracker.php on line 71
+[22-Nov-2016 01:11:24 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/weightTracker.php on line 91
+[22-Nov-2016 04:29:33 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewMedicalRecords.php on line 88
+[22-Nov-2016 04:29:40 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 72
+[22-Nov-2016 04:29:40 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 94
+[22-Nov-2016 04:29:40 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 144
+[22-Nov-2016 04:29:40 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 162
+[22-Nov-2016 04:30:23 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 72
+[22-Nov-2016 04:30:23 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 94
+[22-Nov-2016 04:30:23 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 144
+[22-Nov-2016 04:30:23 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 162
+[22-Nov-2016 04:30:49 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewMedicalRecords.php on line 88
+[22-Nov-2016 05:14:20 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewPigWeight.php on line 85
+[22-Nov-2016 05:15:46 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewMedicalRecords.php on line 88
+[22-Nov-2016 05:15:52 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 72
+[22-Nov-2016 05:15:52 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 94
+[22-Nov-2016 05:15:52 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 144
+[22-Nov-2016 05:15:52 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/medicineAdministration.php on line 162
+[22-Nov-2016 05:30:48 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/viewfeedsreceived.php on line 95
+[22-Nov-2016 05:32:55 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/pig_movement_record.php on line 80
+[22-Nov-2016 05:38:47 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedrequisitionform.php on line 79
+[22-Nov-2016 05:42:28 America/New_York] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/underscore/public_html/farm2/feedrequisitionform.php on line 79

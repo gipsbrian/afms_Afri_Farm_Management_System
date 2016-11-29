@@ -95,7 +95,7 @@ include('database/db_conection.php');
                                                                 $sel_query1=mysqli_query($dbcon,$select1);
                                                                 while ($rw1=mysqli_fetch_array($sel_query1)) {
                                                                     ?>
-                                                                    <option value="<?php echo $rw1[0]; ?>" parsley-trigger="change" required><?php echo $rw1[1]; ?></option>
+                                                                    <option value="<?php echo $rw1[0]; ?>" parsley-trigger="change" required><?php echo $rw1[1], $rw2[2] ; ?></option>
 
                                                             <?php
                                                                 }
@@ -114,7 +114,7 @@ include('database/db_conection.php');
                                                                 $sel_query2=mysqli_query($dbcon,$select2);
                                                                 while ($rw2=mysqli_fetch_array($sel_query2)) {
                                                                     ?>
-                                                                    <option value="<?php echo $rw2[0]; ?>" parsley-trigger="change" required><?php echo $rw2[1]; ?></option>
+                                                                    <option value="<?php echo $rw2[0]; ?>" parsley-trigger="change" required><?php echo $rw2[1], $rw2[2] ; ?></option>
 
                                                             <?php
                                                                 }

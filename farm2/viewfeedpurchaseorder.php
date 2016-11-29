@@ -103,6 +103,7 @@
                                                         <td><?php echo $rw_att['Time']; ?></td>
                                                         <td><?php echo $rw_att['Item_Purchased']; ?></td>
                                                         <td><?php echo $rw_att['Quantity']; ?></td>
+                                                        
                                                         <td><?php 
                                                         $supId=$rw_att['Supplier_ID']; 
                                                         $sel_supp="select * from Supplier where Supplier_ID='$supId' ";

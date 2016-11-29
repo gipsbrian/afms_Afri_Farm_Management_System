@@ -62,16 +62,21 @@ include('database/db_conection.php');
 
                                                   
                                                     <div class="form-group">
-                                                        <label for="date">Date of Sale <span class="text-danger">*</span></label>
-                                                        <input type="date" name="date" parsley-trigger="change" required
-                                                               placeholder="Enter date of sale" class="form-control" id="=date">
+                                                    <label for="date">Date of Sale<span class="text-danger">*</span></label>
+                                                        <div>
+                                                        <div class="input-group">
+                                                        
+                                                        <input type="text" name="date" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" required="" placeholder="Enter date of employment Start" parsley-trigger="change">
+                                                        <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar text-white"></i></span>
+                                                        </div>
+                                                    </div><!-- input-group -->
                                                     </div>
 
-                                                    <div class="form-group">
+                                                    <!-- <div class="form-group">
                                                         <label for="time">Time of Sale <span class="text-danger">*</span></label>
                                                         <input type="time" name="time" parsley-trigger="change" required
                                                                placeholder="Enter time of sale" class="form-control" id="=time">
-                                                    </div>
+                                                    </div> -->
                                                     
                                                     <div class="form-group">
                                                         <label for="cage">Cage Number<span class="text-danger">*</span></label>
@@ -179,7 +184,7 @@ include('database/db_conection.php');
        
 
         $date  = $_POST['date'];
-        $time  = $_POST['time'];
+        // $time  = $_POST['time'];
         $cage  = $_POST['cage'];
         $hens  = $_POST['hens'];
         $cocks  = $_POST['cocks'];
@@ -191,10 +196,7 @@ include('database/db_conection.php');
        
        
     
-                        //INSERT INTO `undersco_farm2`.`chicken_sales` (`Date_Of_Sale`, `Num_Of_Hens`, `Num_Of_Cocks`, `Customer_Name`, `Total_Amount`, `Attendant_ID`, `Cage_ID`, `Time`) VALUES ('2016-11-24', '2', '2', 'Derrick', '15000', '1', '1', '');
-         //$query = "INSERT INTO `feeds_receipt_acquisition`( 'Date', `Attendant`, `Item`, `Quantity`, `Quantity_After_Grinding`,`Total_Quantity_After_Mixing`) VALUES ('$date','$Full_Names','$item','$quantity','$quantityaftergrinding','$quantityaftermixing')" or die(mysqli_error($dbcon));
-        
-        $query = "INSERT INTO `undersco_farm2`.`chicken_sales` (`Date_Of_Sale`, `Num_Of_Hens`, `Num_Of_Cocks`, `Customer_Name`, `Total_Amount`, `Attendant_ID`, `Cage_ID`, `Time`) VALUES ('$date', '$hens', '$cocks', '$customer', '$total', '$Full_Names', '$cage', '$time')" or die(mysqli_error($dbcon));
+        $query = "INSERT INTO `farm2`.`chicken_sales` (`Date_Of_Sale`, `Original_Cage`,`Num_Of_Hens`, `Num_Of_Cocks`, `Customer_Name`, `Total_Amount`, `Attendant_ID`, `Cage_ID`, `Time`) VALUES ('$date', '$cage','$hens', '$cocks', '$customer', '$total', '$Full_Names', '$cage', '$time')" or die(mysqli_error($dbcon));
          
          $result = mysqli_query($dbcon , $query);
        if  (!$result){

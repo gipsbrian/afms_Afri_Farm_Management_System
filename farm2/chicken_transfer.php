@@ -62,9 +62,14 @@ include('database/db_conection.php');
 
                                                   
                                                     <div class="form-group">
-                                                        <label for="date">Date_Of_Transfer<span class="text-danger">*</span></label>
-                                                        <input type="date" name="date" parsley-trigger="change" required
-                                                               placeholder="Enter date of sale" class="form-control" id="=date">
+                                                    <label for="date">Date of Transfer<span class="text-danger">*</span></label>
+                                                        <div>
+                                                        <div class="input-group">
+                                                        
+                                                        <input type="text" name="date" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" required="" placeholder="Enter date of employment Start" parsley-trigger="change">
+                                                        <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar text-white"></i></span>
+                                                        </div>
+                                                    </div><!-- input-group -->
                                                     </div>
 
                                                     <div class="form-group">
@@ -213,7 +218,7 @@ include('database/db_conection.php');
        
        
     
-        $query = "INSERT INTO `undersco_farm2`.`chicken_transfer_tracker` (`Date_Of_Transfer`, `Num_Of_Hens_Transfered`, `Num_Of_Cocks_Transfered`, `Receiving_Cage_ID`, `Receiving_Attendant_ID`, `Attendant_ID`, `Cage_ID`) VALUES ('$date', '$hens', '$cocks', '$re_cage', '$re_att','$Full_Names', '$cage')" or die(mysqli_error($dbcon));
+        $query = "INSERT INTO `farm2`.`chicken_transfer_tracker` (`Date_Of_Transfer`, `Num_Of_Hens_Transfered`, `Num_Of_Cocks_Transfered`, `Receiving_Cage_ID`, `Receiving_Attendant_ID`, `Attendant_ID`, `Cage_ID`) VALUES ('$date', '$hens', '$cocks', '$re_cage', '$re_att', '$Full_Names', '$cage');" or die(mysqli_error($dbcon));
          
          $result = mysqli_query($dbcon , $query);
        if  (!$result){

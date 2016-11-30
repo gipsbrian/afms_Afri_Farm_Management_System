@@ -204,7 +204,7 @@ include('database/db_conection.php');
        
        
     
-        $query = "INSERT INTO `undersco_farm2`.`chicken_medication_tracker` (`Date_Of_Medication`, `Num_Of_Hens`, `Num_Of_Cocks`, `Type_Of_Medication`, `Dosage`,`Purpose`,`Administered_By`, `Attendant_ID`, `Cage_ID`) VALUES ('$date', '$hens', '$cocks', '$type', '$dosage','$purpose','$by','$Full_Names', '$cage')" or die(mysqli_error($dbcon));
+        $query = "INSERT INTO `farm2`.`chicken_medication_tracker` (`Date_Of_Medication`, `Num_Of_Hens`, `Num_Of_Cocks`, `Type_Of_Medication`, `Dosage`, `Purpose`, `Administered_By`, `Attendant_ID`, `Cage_ID`) VALUES ('$date', '$hens', '$cocks', '$type', '$dosage', '$purpose', '$by', '$Full_Names', '$cage')" or die(mysqli_error($dbcon));
          
          $result = mysqli_query($dbcon , $query);
        if  (!$result){

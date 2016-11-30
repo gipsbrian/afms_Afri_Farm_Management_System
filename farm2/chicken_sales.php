@@ -80,9 +80,23 @@ include('database/db_conection.php');
                                                     
                                                     <div class="form-group">
                                                         <label for="cage">Cage Number<span class="text-danger">*</span></label>
-                                                        <input type="number" name="cage" parsley-trigger="change" required
-                                                               placeholder="Enter cage number" class="form-control" id="=cage">
+                                                        
+                                                        <select name="cage" class="form-control" placeholder="Name of the cage">
+                                                        <option></option>
+                                                            <?php
+                                                            $select="SELECT * FROM `chicken_storage`";
+                                                            $sel_query=mysqli_query($dbcon,$select);
+                                                            while ($rw=mysqli_fetch_array($sel_query)) {
+                                                                ?>
+                                                                <option value="<?php echo $rw[0]; ?>" parsley-trigger="change" required><?php echo $rw[1]; ?></option>
+
+                                                        <?php
+                                                            }
+                                                            ?>
+
+                                                        </select>
                                                     </div>
+
 
                                                     <div class="form-group">
                                                         <label for="hens">Number of Hens Sold <span class="text-danger">*</span></label>
@@ -188,15 +202,17 @@ include('database/db_conection.php');
         $cage  = $_POST['cage'];
         $hens  = $_POST['hens'];
         $cocks  = $_POST['cocks'];
-        $Full_Names = $_POST['Full_Names'];
         $customer = $_POST['customer'];
+        $total = $_POST['total'];
+        $Full_Names = $_POST['Full_Names'];
+        
         $total = $_POST['total'];
         
         
        
        
     
-        $query = "INSERT INTO `farm2`.`chicken_sales` (`Date_Of_Sale`, `Original_Cage`,`Num_Of_Hens`, `Num_Of_Cocks`, `Customer_Name`, `Total_Amount`, `Attendant_ID`, `Cage_ID`, `Time`) VALUES ('$date', '$cage','$hens', '$cocks', '$customer', '$total', '$Full_Names', '$cage', '$time')" or die(mysqli_error($dbcon));
+        $query = "INSERT INTO `farm2`.`chicken_sales` (`Date_Of_Sale`, `Num_Of_Hens`, `Num_Of_Cocks`, `Customer_Name`, `Total_Amount`, `Attendant_ID`, `Cage_ID`) VALUES ('$date', '$hens', '$cocks', '$customer', '$total', '$Full_Names', '$cage')" or die(mysqli_error($dbcon));
          
          $result = mysqli_query($dbcon , $query);
        if  (!$result){

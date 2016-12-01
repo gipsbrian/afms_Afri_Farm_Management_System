@@ -41,8 +41,8 @@ include('database/db_conection.php');
 <?php
   
     
-    if(isset($_GET['p_id'])){
-	$the_pig_id = $_GET ['p_id'];
+    if(isset($_POST['update_pig'])){
+	$the_pig_id = $_POST ['p_id'];
 	
 	 $query = "SELECT * FROM animal WHERE Animal_ID = '$the_pig_id'";
 	 $select_pigs = mysqli_query($dbcon, $query);
@@ -57,7 +57,7 @@ include('database/db_conection.php');
          
     
 
-       if (isset($_POST['update_pig'])){
+       if (isset($_POST['update_pig1'])){
                
 			     $post_birth= $_POST['pig_birth'];
 			     $post_weaning = $_POST['pig_weaning'];
@@ -86,45 +86,46 @@ include('database/db_conection.php');
                                     <div class="clearfix"></div>
                                 </div>
 								 <div class="p-20">
-                                               <form class="form-horizontal " action="pigedit.php" method = "post">
+                                               <form class="form-horizontal " action="#" method = "post">
                                                     <div class="form-group">
                                                         <label>Animal ID</label>
-                                                        <input value="<?php echo $the_pig_id; ?>" type = "text" class="form-control" disabled />
-                                                        <input value="<?php echo $the_pig_id; ?>" type = "hidden" class="form-control"  name="p_id" />
-
+                                                        <input value="<?php echo $the_pig_id; ?>" type = "text" class="form-control" disabled/>
+                                                        <input value="<?php echo $the_pig_id; ?>" type = "hidden" class="form-control" />
                                                     </div>
 
 
                                                 <div class="form-group">
                                                         <label for="dobe">Date of Birth<span class="text-danger">*</span></label>
-                                                        <input value="<?php echo $birth; ?>" type = "text" class="form-control" disabled>
+                                                        <input value="<?php echo $birth; ?>" type = "text" class="form-control">
                                                     </div>
 
                                                 <div class="form-group">
                                                         <label for="emailAddress">Date of Weaning<span class="text-danger">*</span></label>
-                                                        <input value="<?php echo $weaning; ?>" type = "text" class="form-control" disabled>
+                                                        <input value="<?php echo $weaning; ?>" type = "text" class="form-control">
                                                     </div>
 												 <div class="form-group">
                                                         <label for="emailAddress">Breed<span class="text-danger">*</span></label>
-                                                        <input value="<?php echo $breed; ?>" type = "text" class="form-control" disabled>
+                                                        <input value="<?php echo $breed; ?>" type = "text" class="form-control">
                                                     </div>
                                                    <div class="form-group">
                                                         <label for="emailAddress">Breed<span class="text-danger">*</span></label>
-                                                      <input value="<?php echo $breed; ?>" type = "text" class="form-control" disabled>
+                                                      <input value="<?php echo $breed; ?>" type = "text" class="form-control">
                                                     </div>
                                                    <div class="form-group m-b-20">
                                                         <label class="m-b-10">Gender</label>
                                                         <br/>
-                                                    <input value="<?php echo $gender; ?>" type = "text" class="form-control" disabled>
+                                                    <input value="<?php echo $gender; ?>" type = "text" class="form-control">
                                                     </div>
                                                     <div class="form-group" align="center">
                                                         <div>
-                                                            <button type="submit" class="btn btn-primary" name="update_pig" >
-                                                                Edit Pig
+                                                            <button type="submit" class="btn btn-primary waves-effect waves-light" name="update_pig1">
+                                                                Submit
                                                             </button>
-                                                            <button type="reset" class="btn btn-danger">
+
+                                                            
+                                                           <!--  <button type="reset" class="btn btn-danger">
                                                                 Discontinue Pig
-                                                            </button>
+                                                            </button> -->
                                                         </div>
                                                     </div>
                                                 </form>
@@ -144,7 +145,7 @@ include('database/db_conection.php');
 
 
 <?php
-}
+    }
   
     
     if(isset($_POST['submit']))

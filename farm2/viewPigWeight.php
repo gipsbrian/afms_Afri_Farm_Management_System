@@ -58,13 +58,13 @@
                             <div class="col-lg-12">
                                 <div class="panel panel-color panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">Medicine Administration Records</h3>
+                                        <h3 class="panel-title">Animal Weight Records</h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="table-responsive">
                                             <table class="table m-0 table-colored-full table-full-pink table-hover" style="table-layout: fixed">
                                             <?php
-                                                            $selectatt="SELECT * FROM `animal_weight_tracker`";
+                                                            $selectatt="SELECT * FROM `Animal_weight_tracker`";
                                                             $sel_att=mysqli_query($dbcon,$selectatt);
                                                             
                                                             ?>
@@ -84,12 +84,20 @@
                                                 <?php  
                                                  while ( $rw_att= mysqli_fetch_array($sel_att)) {
                                                   
-                                                 
 
                                                  ?>
                                                     <tr>
                                                         <td><?php echo $rw_att['Animal_ID']; ?></td>
-                                                        <td><?php echo $rw_att['Location_ID']; ?></td>
+
+                                                         <td><?php 
+                                                    $location_Id=$rw_att['Location_ID'];
+
+                                                    $selec_loc = "select * from Animal_Location where Location_ID = '$location_Id' ";
+                                                    $query_loc=mysqli_query($dbcon,$selec_loc) or die('QUERY FAILED'.mysqli_error($dbcon));
+                                                    while ( $rw_loc=mysqli_fetch_array($query_loc)){
+                                                        echo $rw_loc[1],$rw_loc[2];
+
+                                                       } ?></td>
                                                         <td><?php echo $rw_att['Current_Weight']; ?></td>
                                                         <td><?php echo $rw_att['Date_Of_Weighin']; ?></td>
                                                         

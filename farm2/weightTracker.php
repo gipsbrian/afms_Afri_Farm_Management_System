@@ -44,7 +44,7 @@ include('database/db_conection.php');
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="page-title-box">
-                                    <h4 class="page-title"><h4>Edit Weight</h4>
+                                    <h4 class="page-title"><h4>Record Weight</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Zircos</a>
@@ -59,11 +59,11 @@ include('database/db_conection.php');
                                     <div class="clearfix"></div>
                                 </div>
                                  <div class="p-20">
-                                                <form action="medicineAdministration.php" method="post" data-parsley-validate novalidate>
+                                                <form action="weightTracker.php" method="post" data-parsley-validate novalidate>
 
                                                       <div class="form-group">
                                                         <label for="location">Animal Name<span class="text-danger">*</span></label>
-                                                        <select class="btn-group bootstrap-select btn dropdown-toggle btn-custom " name="animalName">
+                                                        <select class="btn-group bootstrap-select btn dropdown-toggle btn-custom " name="animalId">
 
                                                              <?php
                                                             $select3="SELECT * FROM `animal`";
@@ -71,7 +71,7 @@ include('database/db_conection.php');
                                                             while ($rw3=mysqli_fetch_array($sel_query3)) {
                                                                 ?>
                                                               
-                                                                <option value="<?php echo $rw3[0]; ?>" parsley-trigger="change" required><?php echo $rw3[1]; ?></option>
+                                                                <option value="<?php echo $rw3[0]; ?>" parsley-trigger="change" required><?php echo $rw3[0]; ?></option>
 
                                                             <?php
                                                             }
@@ -82,23 +82,22 @@ include('database/db_conection.php');
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label for="location">Location<span class="text-danger">*</span></label>
-                                                        <select class="btn-group bootstrap-select btn dropdown-toggle btn-custom " name="location">
-
-                                                             <?php
-                                                            $select2="SELECT * FROM `animal_location`";
+                                                        <label for="emailAddress">Pig Location<span class="text-danger">*</span></label>
+                                                        
+                                                        <select name="location" class="form-control">
+                                                            <option></option>
+                                                            <?php
+                                                            $select2="SELECT * FROM `Animal_Location`";
                                                             $sel_query2=mysqli_query($dbcon,$select2);
                                                             while ($rw2=mysqli_fetch_array($sel_query2)) {
                                                                 ?>
+                                                                <option value="<?php echo $rw2[0]; ?>" parsley-trigger="change" required><?php echo "Sty".$rw2[1]." Pen ".$rw2[2]; ?></option>
 
-                                                                <option value="<?php echo $rw2[0]; ?>" parsley-trigger="change" required><?php echo $rw2[1]; ?></option>
-
-                                                            <?php
+                                                        <?php
                                                             }
                                                             ?>
 
                                                         </select>
-                                                        
                                                     </div>
 
 
@@ -109,10 +108,15 @@ include('database/db_conection.php');
                                                     </div>
 
                                                    
-                                                    <div class="form-group">
-                                                        <label for="dobe">Date of Weigh <span class="text-danger">*</span></label>
-                                                        <input type="date" name="dateOfWeigh" parsley-trigger="change" required
-                                                               placeholder="Enter date of Weigh" class="form-control" id="dateofweigh">
+                                                      <div class="form-group">
+                                                    <label for="date">Date of Weigh<span class="text-danger">*</span></label>
+                                                        <div>
+                                                        <div class="input-group">
+                                                        
+                                                        <input type="text" name="dateOfWeigh" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" required="" placeholder="Enter date of employment Start" parsley-trigger="change">
+                                                        <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar text-white"></i></span>
+                                                        </div>
+                                                    </div><!-- input-group -->
                                                     </div>
 
                                                     
@@ -208,39 +212,21 @@ include('database/db_conection.php');
             var resizefunc = [];
         </script>
 
-        <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/detect.js"></script>
-        <script src="assets/js/fastclick.js"></script>
-        <script src="assets/js/jquery.blockUI.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/jquery.scrollTo.min.js"></script>
-        <script src="../plugins/switchery/switchery.min.js"></script>
-
-        <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
-
-        <!--Added for datepicker -->
-     <script src="assets/js/bootstrap.min.js"></script>
-     <script src="assets/js/moment.js"></script>
-     <script src="assets/js/datetimepicker.js"></script>
-
 <?php
   
     
     if(isset($_POST['submit']))
     {
        $message = "Data Save In Database";
+
        $animalId = $_POST['animalId'];
        $locationId = $_POST['location'];
        $currentWeight = $_POST['currentWeight'];
        $dateOfWeigh = $_POST['dateOfWeigh'];
        
 
-         $query = "INSERT INTO `animal_weight_tracker`(`Animal_ID`, `Date_Of_Weighin`, `Current_Weight`, `Location_ID`) VALUES ('$animalId','$dateOfWeigh','$currentweight','$locationId') " or die(mysqli_error($dbcon));
+         $query = "INSERT INTO `animal_weight_tracker` (`Date_Of_Weighin`, `Current_Weight`, `Animal_ID`, `Location_ID`) VALUES ('$dateOfWeigh', '$currentWeight', '$animalId', '$locationId')";
+         
 
          
          $result = mysqli_query($dbcon , $query);
@@ -265,4 +251,5 @@ include('database/db_conection.php');
   ?>
 
     </body>
+     <?php include "includes/footer.php";?>
 </html>

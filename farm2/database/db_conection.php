@@ -8,6 +8,6 @@
 
 $dbcon=mysqli_connect("localhost","root","");
 
-mysqli_select_db($dbcon,"farm2");
+mysqli_select_db($dbcon,"git_farm_update");
 
 ?>

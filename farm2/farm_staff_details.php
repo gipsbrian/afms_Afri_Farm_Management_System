@@ -114,7 +114,23 @@
                                                  ?>
                                                     <tr>
                                                         <th>
-                                                            <span class="avatar-sm-box bg-success"><?php echo substr($rw_att['Full_Names'],0,1);?></span>
+                                                            <!-- <span class="avatar-sm-box bg-success"><?php echo substr($rw_att['Full_Names'],0,1);?></span> -->
+                                                            <?php
+                                                        if($rw_att['image_location']==null){
+                                                            ?>
+
+                                                            <span class="avatar-sm-box bg-success"><?php echo substr($rw_att['Full_Names'],0,1);?>
+                                                            <?php
+                                                        }else{
+                                                            ?>
+
+                                                            <img src=<?php echo ($rw_att['image_location']);?> alt="user" class="thumb-sm img-circle">
+                                                            <?php
+                                                        }
+
+
+
+                                                        ?>
                                                         </th>
                                                         <td>
                                                             <a href="#"><h5 class="m-0"> <?php echo $rw_att['Full_Names']; ?></h5>

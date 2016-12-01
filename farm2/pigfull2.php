@@ -122,12 +122,20 @@ include('database/db_conection.php');
                                                             <button type="submit" class="btn btn-primary" name="update_pig" >
                                                                 Edit Pig
                                                             </button>
-                                                            <button type="reset" class="btn btn-danger">
-                                                                Discontinue Pig
-                                                            </button>
+
                                                         </div>
                                                     </div>
                                                 </form>
+                                                 <div class="form-group" align="center">
+                                                        <div>
+                                                           
+                                                             <?php echo '<a class="btn btn-danger" href="deletePig.php?id='.$the_pig_id.'">Discontinue Pig</a>'; ?>
+
+                                                        </div>
+
+                                                        
+                                                    </div>
+
                                             </div>
 							</div>
 						</div>

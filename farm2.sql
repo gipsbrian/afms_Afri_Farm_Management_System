@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2016 at 08:29 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.24
+-- Generation Time: Dec 01, 2016 at 09:28 PM
+-- Server version: 5.7.14
+-- PHP Version: 7.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `farm3`
+-- Database: `farm2`
 --
 
 -- --------------------------------------------------------
@@ -40,8 +40,9 @@ CREATE TABLE `animal` (
 --
 
 INSERT INTO `animal` (`Animal_ID`, `Date_Of_Birth`, `Date_Of_Weaning`, `Breed_Of_Animal`, `Gender`, `Location_ID`) VALUES
-('c34', '2016-11-12', '2016-11-18', 'White boar', 'female', 42),
-('lily', '2016-11-07', '2016-11-25', 'daish', 'male', 1);
+('2', '2016-12-02', '2016-12-09', 'greensamey', 'male', 2),
+('4', '2016-12-02', '2016-12-09', 'greensamey', 'male', 2),
+('5', '2016-12-02', '2016-12-09', 'greensamey', 'male', 3);
 
 -- --------------------------------------------------------
 
@@ -55,6 +56,27 @@ CREATE TABLE `animal_death_tracker` (
   `Cause_Of_Death` varchar(100) NOT NULL,
   `Animal_ID` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `animal_discontinue`
+--
+
+CREATE TABLE `animal_discontinue` (
+  `Animal_ID` varchar(40) NOT NULL,
+  `Date_Discontinued` varchar(40) NOT NULL,
+  `Time_Discontinued` varchar(40) NOT NULL,
+  `Reason_Discontinued` varchar(40) NOT NULL,
+  `Verified_by` varchar(40) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `animal_discontinue`
+--
+
+INSERT INTO `animal_discontinue` (`Animal_ID`, `Date_Discontinued`, `Time_Discontinued`, `Reason_Discontinued`, `Verified_by`) VALUES
+('c002', '12/16/2016', '12:30 AM', 'SICK', '1');
 
 -- --------------------------------------------------------
 
@@ -75,6 +97,12 @@ CREATE TABLE `animal_feed_consumption` (
 --
 
 INSERT INTO `animal_feed_consumption` (`Date_Of_Consumption`, `Feed_Composition`, `Meal_Weight`, `Location_ID`, `Attendant_ID`) VALUES
+('0000-00-00', 'kitoko', 34, 4, 1),
+('2016-11-02', 'kitoko', 33, 12, 2),
+('2016-11-07', 'kitoko', 22, 7, 1),
+('2016-11-08', 'kkk', 10, 18, 3),
+('2016-11-15', 'Gud', 12, 10, 1),
+('2016-11-08', 'blu', 35, 34, 3),
 ('0000-00-00', 'kitoko', 34, 4, 1),
 ('2016-11-02', 'kitoko', 33, 12, 2),
 ('2016-11-07', 'kitoko', 22, 7, 1),
@@ -164,7 +192,7 @@ INSERT INTO `animal_location` (`Location_ID`, `Location_Name`, `Pen_Number`, `Lo
 --
 
 CREATE TABLE `animal_medication_tracker` (
-  `Date_Of_Medication` date NOT NULL,
+  `Date_Of_Medication` varchar(40) NOT NULL,
   `Dosage` varchar(100) NOT NULL,
   `Purpose` int(11) NOT NULL,
   `Type_Of_Medication` varchar(100) NOT NULL,
@@ -194,7 +222,7 @@ CREATE TABLE `animal_transfer_schedule` (
 --
 
 CREATE TABLE `animal_weight_tracker` (
-  `Date_Of_Weighin` date NOT NULL,
+  `Date_Of_Weighin` varchar(40) NOT NULL,
   `Current_Weight` int(11) NOT NULL,
   `Animal_ID` varchar(100) NOT NULL,
   `Location_ID` int(11) NOT NULL
@@ -264,6 +292,13 @@ CREATE TABLE `attendant_discontinue` (
   `Verified_discontinued` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `attendant_discontinue`
+--
+
+INSERT INTO `attendant_discontinue` (`Attendant_ID`, `Attendant_Name`, `Date_Discontinued`, `Time_Discontinued`, `Reason_Discontinued`, `Verified_discontinued`) VALUES
+(1, 'Jacob Oloya', '12/01/2016', '10:30 PM', 'sick', 'sick');
+
 -- --------------------------------------------------------
 
 --
@@ -284,6 +319,8 @@ CREATE TABLE `chicken_feed_consumption` (
 --
 
 INSERT INTO `chicken_feed_consumption` (`Date_Of_Consumption`, `Feed_Composition`, `Total_Weight`, `Water_Provided`, `Attendant_ID`, `Cage_ID`) VALUES
+('29/11/16', 'Mukene', 5, 5, 1, 1),
+('11/29/2016', 'Mukene', 4, 4, 1, 1),
 ('29/11/16', 'Mukene', 5, 5, 1, 1),
 ('11/29/2016', 'Mukene', 4, 4, 1, 1);
 
@@ -310,6 +347,9 @@ CREATE TABLE `chicken_medication_tracker` (
 --
 
 INSERT INTO `chicken_medication_tracker` (`Date_Of_Medication`, `Num_Of_Hens`, `Num_Of_Cocks`, `Type_Of_Medication`, `Dosage`, `Purpose`, `Administered_By`, `Attendant_ID`, `Cage_ID`) VALUES
+('30/11/16', 11, 11, 'Asprin', 2, 'Fever', 'Derrick', 1, 1),
+('30/11/16', 1, 1, 'Panadol', 1, 'Hay Fever', 'Brian', 1, 1),
+('11/30/2016', 2, 2, 'Penicillin', 2, 'Diarrhoea', 'Samuel', 1, 1),
 ('30/11/16', 11, 11, 'Asprin', 2, 'Fever', 'Derrick', 1, 1),
 ('30/11/16', 1, 1, 'Panadol', 1, 'Hay Fever', 'Brian', 1, 1),
 ('11/30/2016', 2, 2, 'Penicillin', 2, 'Diarrhoea', 'Samuel', 1, 1);
@@ -351,6 +391,9 @@ CREATE TABLE `chicken_sales` (
 --
 
 INSERT INTO `chicken_sales` (`Date_Of_Sale`, `Num_Of_Hens`, `Num_Of_Cocks`, `Customer_Name`, `Total_Amount`, `Attendant_ID`, `Cage_ID`) VALUES
+('2016-11-29', 22, 22, 'Bukenya and Sons', 15000, 1, 1),
+('2016-11-30', 22, 22, 'Derrick', 15000, 1, 1),
+('11/30/2016', 11, 11, 'Derrick', 10000, 1, 1),
 ('2016-11-29', 22, 22, 'Bukenya and Sons', 15000, 1, 1),
 ('2016-11-30', 22, 22, 'Derrick', 15000, 1, 1),
 ('11/30/2016', 11, 11, 'Derrick', 10000, 1, 1);
@@ -398,6 +441,10 @@ INSERT INTO `chicken_transfer_tracker` (`Date_Of_Transfer`, `Num_Of_Hens_Transfe
 ('30/11/16', 11, 11, 1, 1, 1, 1),
 ('11/30/2016', 44, 44, 1, 1, 1, 1),
 ('30/11/16', 6, 6, 1, 1, 1, 1),
+('11/30/2016', 88, 88, 1, 1, 2, 1),
+('30/11/16', 11, 11, 1, 1, 1, 1),
+('11/30/2016', 44, 44, 1, 1, 1, 1),
+('30/11/16', 6, 6, 1, 1, 1, 1),
 ('11/30/2016', 88, 88, 1, 1, 2, 1);
 
 -- --------------------------------------------------------
@@ -422,6 +469,9 @@ CREATE TABLE `egg_collection_tracker` (
 --
 
 INSERT INTO `egg_collection_tracker` (`Date_Of_Collection`, `Num_Of_Laying_Hens`, `Num_Of_Cocks`, `Num_Of_Eggs_Collected`, `Num_Of_Damaged_Eggs`, `Verified_By`, `Attendant_ID`, `Cage_ID`) VALUES
+('29/11/16', 55, 55, 55, 5, 'Derrick', 1, 1),
+('29/11/16', 44, 44, 44, 4, 'Derrick', 1, 1),
+('11/29/2016', 22, 22, 22, 2, 'Richard', 1, 1),
 ('29/11/16', 55, 55, 55, 5, 'Derrick', 1, 1),
 ('29/11/16', 44, 44, 44, 4, 'Derrick', 1, 1),
 ('11/29/2016', 22, 22, 22, 2, 'Richard', 1, 1);

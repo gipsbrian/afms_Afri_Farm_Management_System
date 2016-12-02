@@ -139,54 +139,54 @@
                                                         <td><?php echo $rw_att['Contact']; ?></td>
                                                         <td><?php echo $rw_att['Residence']; ?></td>
                                                         <td><?php echo $rw_att['Date_Joined']; ?></td>
-                                                        <td ><button style="width:50px;" class="btn btn-info">Edit </button></td>
+                                                        <!-- <td ><button style="width:50px;" class="btn btn-info">Edit </button></td>
                                                         <td><button style="width:100px;" class="btn btn-danger" onclick="doyou() ">Discontinue</button></td>
-
+ -->
                                                         <script type="text/javascript">   
-                                                        function doyou(){
-                                                            swal({
-                                                              title: "Are you sure?",
-                                                              text: "This Attendant will be Discontinued from Today!",
-                                                              type: "warning",
-                                                              showCancelButton: true,
-                                                              confirmButtonColor: "#DD6B55",
-                                                              confirmButtonText: "Yes, Discontinue him!",
-                                                              cancelButtonText: "No, Give him/her some time!",
-                                                              closeOnConfirm: false,
-                                                              closeOnCancel: false
-                                                            },
-                                                            function(isConfirm){
-                                                              if (isConfirm) {
-                                                               // swal("Fill Form!", "The Attendant will be deleted after Form Submission.", "success");
+                                                        // function doyou(){
+                                                        //     swal({
+                                                        //       title: "Are you sure?",
+                                                        //       text: "This Attendant will be Discontinued from Today!",
+                                                        //       type: "warning",
+                                                        //       showCancelButton: true,
+                                                        //       confirmButtonColor: "#DD6B55",
+                                                        //       confirmButtonText: "Yes, Discontinue him!",
+                                                        //       cancelButtonText: "No, Give him/her some time!",
+                                                        //       closeOnConfirm: false,
+                                                        //       closeOnCancel: false
+                                                        //     },
+                                                        //     function(isConfirm){
+                                                        //       if (isConfirm) {
+                                                        //        // swal("Fill Form!", "The Attendant will be deleted after Form Submission.", "success");
 
-                                                                //swal("Deleted!", "The Activity has been deleted.", "success");
+                                                        //         //swal("Deleted!", "The Activity has been deleted.", "success");
 
 
                                                                 
 
 
-                                                                 swal({
-                                                                      title: "Attendant Discontinuation!",
-                                                                      text: "The Attendant will be Discontinued after Form Submission.",
-                                                                      timer: 5000,
-                                                                      showConfirmButton: false
-                                                                    });
+                                                        //          swal({
+                                                        //               title: "Attendant Discontinuation!",
+                                                        //               text: "The Attendant will be Discontinued after Form Submission.",
+                                                        //               timer: 5000,
+                                                        //               showConfirmButton: false
+                                                        //             });
                                                                          
 
 
-                                                                 setTimeout(function(){ window.location.href = 'Discontinue.php' }, 5000);
+                                                        //          setTimeout(function(){ window.location.href = 'Discontinue.php' }, 5000);
 
 
-                                                              } else {
-                                                                swal("Cancelled", "The Attendant is safe :)", "error");
-                                                              }
-                                                                });
-                                                        }
+                                                        //       } else {
+                                                        //         swal("Cancelled", "The Attendant is safe :)", "error");
+                                                        //       }
+                                                        //         });
+                                                        // }
                                                         
 
                                                         </script>
 
-                                                        <td><button style="width:100px;" class="btn btn-success">Full Details</button></td>
+                                                        <td><a href ='attendantdetails.php?a_id=<?php echo $rw_att['Attendant_ID']; ?>'><button style="width:100px;" class="btn btn-success">Full Details</button></td>
                                                        
                                                         
                                                     </tr>

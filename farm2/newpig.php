@@ -58,15 +58,18 @@ include('database/db_conection.php');
 
                                                     <div class="form-group">
                                                         <label for="dobe">Date of Birth<span class="text-danger">*</span></label>
-                                                        <input type="date" name="birth" parsley-trigger="change" required
-                                                               placeholder="Enter date of birth" class="form-control" id="=dob">
+                                                        <!-- <input type="date" name="birth" parsley-trigger="change" required
+                                                               placeholder="Enter date of birth" class="form-control" id="=dob"> -->
+                                                        <input type="text" name="birth" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" required="" placeholder="Enter date of birth" parsley-trigger="change">
+
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="emailAddress">Date of Weaning<span class="text-danger">*</span></label>
-                                                        <input type="date" name="weaning" parsley-trigger="change" required
-                                                               placeholder="Enter email" class="form-control" id="emailAddress">
+                                                     <!--    <input type="date" name="weaning" parsley-trigger="change" required
+                                                               placeholder="Enter email" class="form-control" id="emailAddress"> -->
+                                                        <input type="text" name="weaning" class="form-control" placeholder="mm/dd/yyyy" id="datepicker" required="" placeholder="Enter date of Weaning" parsley-trigger="change">
                                                     </div>
-													 <div class="form-group">
+													                         <div class="form-group">
                                                         <label for="emailAddress">Breed<span class="text-danger">*</span></label>
                                                         <input type="text" name="breed" data-parsley-pattern="^[A-Za-z. ]*$" required
                                                                placeholder="Animal breed e.g. xxxxxx" class="form-control" id="emailAddress">
@@ -104,24 +107,32 @@ include('database/db_conection.php');
                                                         </div>
                                                     </div>
 													
-                                                    <div class="form-group">
+                                                    <!-- <div class="form-group">
                                                         <div class="checkbox">
                                                             <input id="remember-1" type="checkbox">
                                                             <label for="remember-1"> Remember me </label>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
 
                                                     <div class="form-group text-right m-b-0">
                                                     <br >
                                                     <br >
 
                                                     <div style="text-align: center; ">
-                                                           <button name="submit" class="btn btn-primary" type="submit">
+
+
+                                                        <button style="margin: auto; width: 120px;" name="submit" class="btn btn-primary" type="submit" id="tooltip-animation" title="Submit/insert Data to Database!" >
                                                             Submit
                                                         </button>
-                                                        <button type="reset" class="btn btn-default waves-effect m-l-5">
-                                                            Cancel
+
+
+                                                        <!--    <button name="submit" class="btn btn-primary" type="submit">
+                                                            Submit
                                                         </button>
+                                                         -->
+                                                        <!-- <button type="reset" class="btn btn-default waves-effect m-l-5">
+                                                            Cancel
+                                                        </button> -->
 
 
                                                     </div>
@@ -129,6 +140,17 @@ include('database/db_conection.php');
                                                     </div>
 
                                                 </form>
+                                                <br >
+                                                <br >
+
+                                                      <div style="text-align: center; ">
+
+
+                                                        <a href="viewallpigs.php"><button type="" class="btn btn-default" style="margin: auto; width: 120px;">
+                                                            Cancel
+                                                        </button></a>
+
+                                                      </div>
                                             </div>
 							</div>
 						</div>
@@ -201,7 +223,6 @@ include('database/db_conection.php');
 
         </div>
         <!-- END wrapper -->
-
 <?php
   
     
@@ -284,6 +305,9 @@ include('database/db_conection.php');
 
     
   ?>
-<?php include 'includes/footer.php'?>
+
+<?php include "includes/footer.php";
+ 
+ ?>
     </body>
 </html>

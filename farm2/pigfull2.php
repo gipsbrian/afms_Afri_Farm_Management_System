@@ -86,46 +86,56 @@ include('database/db_conection.php');
                                     <div class="clearfix"></div>
                                 </div>
 								 <div class="p-20">
-                                               <form class="form-horizontal " action="#" method = "post">
+                                               <form class="form-horizontal " action="pigedit.php" method = "post">
                                                     <div class="form-group">
                                                         <label>Animal ID</label>
-                                                        <input value="<?php echo $the_pig_id; ?>" type = "text" class="form-control" />
+                                                        <input value="<?php echo $the_pig_id; ?>" type = "text" class="form-control" disabled />
+                                                        <input value="<?php echo $the_pig_id; ?>" type = "hidden" class="form-control"  name="p_id" />
+
                                                     </div>
 
 
                                                 <div class="form-group">
                                                         <label for="dobe">Date of Birth<span class="text-danger">*</span></label>
-                                                        <input value="<?php echo $birth; ?>" type = "text" class="form-control">
+                                                        <input value="<?php echo $birth; ?>" type = "text" class="form-control" disabled>
                                                     </div>
 
                                                 <div class="form-group">
                                                         <label for="emailAddress">Date of Weaning<span class="text-danger">*</span></label>
-                                                        <input value="<?php echo $weaning; ?>" type = "text" class="form-control">
+                                                        <input value="<?php echo $weaning; ?>" type = "text" class="form-control" disabled>
                                                     </div>
 												 <div class="form-group">
                                                         <label for="emailAddress">Breed<span class="text-danger">*</span></label>
-                                                        <input value="<?php echo $breed; ?>" type = "text" class="form-control">
+                                                        <input value="<?php echo $breed; ?>" type = "text" class="form-control" disabled>
                                                     </div>
                                                    <div class="form-group">
                                                         <label for="emailAddress">Breed<span class="text-danger">*</span></label>
-                                                      <input value="<?php echo $breed; ?>" type = "text" class="form-control">
+                                                      <input value="<?php echo $breed; ?>" type = "text" class="form-control" disabled>
                                                     </div>
                                                    <div class="form-group m-b-20">
                                                         <label class="m-b-10">Gender</label>
                                                         <br/>
-                                                    <input value="<?php echo $gender; ?>" type = "text" class="form-control">
+                                                    <input value="<?php echo $gender; ?>" type = "text" class="form-control" disabled>
                                                     </div>
-                                                    <div class="form-group">
+                                                    <div class="form-group" align="center">
                                                         <div>
-                                                            <button type="submit" class="btn btn-primary waves-effect waves-light" name="update_pig">
-                                                                Submit
+                                                            <button type="submit" class="btn btn-primary" name="update_pig" >
+                                                                Edit Pig
                                                             </button>
-                                                            <button type="reset" class="btn btn-default waves-effect m-l-5">
-                                                                Cancel
-                                                            </button>
+
                                                         </div>
                                                     </div>
                                                 </form>
+                                                 <div class="form-group" align="center">
+                                                        <div>
+                                                           
+                                                             <?php echo '<a class="btn btn-danger" href="deletePig.php?id='.$the_pig_id.'">Discontinue Pig</a>'; ?>
+
+                                                        </div>
+
+                                                        
+                                                    </div>
+
                                             </div>
 							</div>
 						</div>

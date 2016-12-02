@@ -43,7 +43,7 @@ include('database/db_conection.php');
                         <div class="row">
               <div class="col-xs-12">
                 <div class="page-title-box">
-                                    <h4 class="page-title">Egg Sales Form </h4>
+                                    <h4 class="page-title">Egg Collection Form </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Zircos</a>
@@ -62,16 +62,23 @@ include('database/db_conection.php');
 
                                                   
                                                     <div class="form-group">
-                                                        <label for="date">Date_Of_Collection <span class="text-danger">*</span></label>
-                                                        <input type="date" name="date" parsley-trigger="change" required
-                                                               placeholder="Enter date of sale" class="form-control" id="=date">
+                                                    <label for="date">Date of Collection<span class="text-danger">*</span></label>
+                                                        <div>
+                                                        <div class="input-group">
+                                                        
+                                                        <input type="text" name="date" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose">
+                                                        <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar text-white"></i></span>
+                                                        </div>
+                                                    </div><!-- input-group -->
                                                     </div>
 
-                                                    <div class="form-group">
-                                                        <label for="time">Time of Sale <span class="text-danger">*</span></label>
-                                                        <input type="time" name="time" parsley-trigger="change" required
-                                                               placeholder="Enter time of sale" class="form-control" id="=time">
-                                                    </div>
+                                                    <!-- <div class="form-group">
+                                                        <label>Time of Collection</label>
+                                                        <div class="input-group">
+                                                            <input id="time" type="text" class="form-control" name="time_activity">
+                                                            <span class="input-group-addon"><i class="mdi mdi-clock"></i></span>
+                                                        </div>
+                                                    </div> -->
                                                     
                                                     <div class="form-group">
                                                         <label for="hens">Num_Of_Laying_Hens<span class="text-danger">*</span></label>
@@ -100,22 +107,9 @@ include('database/db_conection.php');
                                                     
 
                                                     <div class="form-group">
-                                                        <label for="Full_Names">Verifier<span class="text-danger">*</span></label>
-                                                        
-                                                        <select name="Verifier" class="form-control" placeholder="Name of Verifier">
-                                                        <option></option>
-                                                            <?php
-                                                            $select="SELECT * FROM `attendant`";
-                                                            $sel_query=mysqli_query($dbcon,$select);
-                                                            while ($rw=mysqli_fetch_array($sel_query)) {
-                                                                ?>
-                                                                <option value="<?php echo $rw[0]; ?>" parsley-trigger="change" required><?php echo $rw[0]; ?></option>
-
-                                                        <?php
-                                                            }
-                                                            ?>
-
-                                                        </select>
+                                                        <label for="Verifier">Verifier<span class="text-danger">*</span></label>
+                                                        <input type="text" name="Verifier" parsley-trigger="change" required
+                                                               placeholder="Enter name of Verifier" class="form-control" id="=Verifier">
                                                     </div>
 
 
@@ -222,7 +216,7 @@ include('database/db_conection.php');
        
 
         $date  = $_POST['date'];
-        $time  = $_POST['time'];
+        // $time  = $_POST['time'];
         $hens  = $_POST['hens'];
         $cocks  = $_POST['cocks'];
         $eggs  = $_POST['eggs'];
@@ -235,7 +229,7 @@ include('database/db_conection.php');
        
        
     
-        $query = "INSERT INTO `undersco_farm2`.`egg_collection_tracker` (`Date_Of_Collection`, `Time`, `Num_Of_Laying_Hens`, `Num_Of_Cocks`, `Num_Of_Eggs_Collected`, `Num_Of_Damaged_Eggs`, `Verified_By`, `Attendant_ID`, `Cage_ID`) VALUES ('$date', '$time', '$hens', '$cocks', '$eggs', '$damages', '$Verifier', '$Full_Names', '$cage')" or die(mysqli_error($dbcon));
+        $query = "INSERT INTO `farm2`.`egg_collection_tracker` (`Date_Of_Collection`, `Num_Of_Laying_Hens`, `Num_Of_Cocks`, `Num_Of_Eggs_Collected`, `Num_Of_Damaged_Eggs`, `Verified_By`, `Attendant_ID`, `Cage_ID`) VALUES ('$date', '$hens', '$cocks', '$eggs', '$damages', '$Verifier', '$Full_Names', '$cage')" or die(mysqli_error($dbcon));
          
          $result = mysqli_query($dbcon , $query);
        if  (!$result){

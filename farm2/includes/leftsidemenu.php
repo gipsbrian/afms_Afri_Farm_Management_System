@@ -59,7 +59,7 @@
                                 <ul class="list-unstyled">
                                     <li><a href="egg_collection.php">Egg Collection</a></li>
                                     <li><a href="chicken_feed.php">Chicken Feeding</a></li>
-                                    <li><a href="chicken_sales.php">Chicken Sales</a></li>
+                                    <li><a href="view_chicken_sales.php">Chicken Sales</a></li>
                                     <li><a href="chicken_transfer.php">Chicken Transfer</a></li>
                                     <li><a href="chicken_medication.php">Chicken Medication</a></li>									
                                 </ul>

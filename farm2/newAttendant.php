@@ -53,7 +53,8 @@ include('database/db_conection.php');
                                     <div class="clearfix"></div>
                                 </div>
 								 <div class="p-20">
-                                                <form action="" method="post" role="form" data-parsley-validate id="form">
+                                                <!-- <form action="" method="post" role="form" data-parsley-validate id="form"> -->
+                                                  <form role="form" data-parsley-validate id="form" method="post" enctype="multipart/form-data" >
 
                                                 	<div class="form-group">
                                                         <label for="dobe">Full Names <span class="text-danger">*</span></label>
@@ -151,7 +152,7 @@ include('database/db_conection.php');
                                                     </div>
 													
 
-                                                    <div class="form-group" >
+                                                   <!--  <div class="form-group" >
                                                     <label class="control-label">Select File</label>
                                                     <input id="input-44" name="input44[]" type="file" multiple class="file-loading">
                                                     <div id="errorBlock" class="help-block"></div>
@@ -163,26 +164,118 @@ include('database/db_conection.php');
                                                         });
                                                     });
                                                     </script>
-                                                        <!--<div class="checkbox">
-                                                            <input id="remember-1" type="checkbox">
-                                                            <label for="remember-1"> Remember me </label>
-                                                        </div>-->
-                                                    </div>
+                                                       
+                                                    </div> -->
+
+                                                    <br >    
+                                            <!-- <div class="col-sm-12"> -->
+                                                
+                                                 <div class="form-group clearfix col-md-offset-4">
+                                                <div class="col-xs-12 col-sm-6">
+
+                                                <div>
+                                             
+                                                     <!-- <input type="file" name="files[]" id="filer_input12" multiple="multiple" > -->
+
+
+
+                     <script type="text/javascript">
+                                            //             $(document).ready(function(){
+
+                                            //     $('#filer_input12').filer({
+                                            //         showThumbs: true,
+                                            //         addMore: true,
+                                            //         allowDuplicates: false
+                                            //     });
+
+                                            // });
+
+                                            //              jQuery(document).ready(function(){
+
+                                            //     jQuery('#filer_input12').filer({
+                                            //         showThumbs: true,
+                                            //         addMore: true,
+                                            //         allowDuplicates: false
+                                            //     });
+
+                                            // });
+                                           
+                                           $(document).ready(function(){
+
+                                                //'use-strict';
+
+                                             $('#filer_input12').filer({
+                                                limit: 3,
+                                                maxSize: 3,
+                                                extensions: ['jpg', 'jpeg', 'png', 'gif', 'psd'],
+                                                changeInput: true,
+                                                showThumbs: true,
+                                                addMore: false
+                                                    // uploadFile: {
+                                                    //         url: null, //URL to which the request is sent {String}
+                                                    //         data: null, //Data to be sent to the server {Object}
+                                                    //         type: 'POST', //The type of request {String}
+                                                    //         enctype: 'multipart/form-data', //Request enctype {String}
+                                                    //         synchron: false, //Upload synchron the files
+                                                    //         beforeSend: null, //A pre-request callback function {Function}
+                                                    //         success: null, //A function to be called if the request succeeds {Function}
+                                                    //         error: null, //A function to be called if the request fails {Function}
+                                                    //         statusCode: null, //An object of numeric HTTP codes {Object}
+                                                    //         onProgress: null, //A function called while uploading file with progress percentage {Function}
+                                                    //         onComplete:null//  //A function called when all files were uploaded {Function}
+                                                    //     }
+                                                    
+                                                    
+                                            });
+
+                                             });
+
+                                           // function sam{
+                                           //  swal("file Uploaded Succcessfully!");
+                                           // }
+
+                                                        
+                                                    </script>
+
+
+
+
+                                                    
+
+                                                    <p align="center">Browse For Attendant Profile Picture</p>
+
+                                        <input type="file" name="files[]" id="filer_input12" multiple="multiple"  style="position: relative; left: -9999px; top: -9999px; z-index: -9999;">
+
+
+                                                    <!-- <form action="form_upload.php" method="post" enctype="multipart/form-data">
+
+                                                      <input type="file" name="files[]" id="filer_input12" multiple="multiple" style="position: relative; left: -9999px; top: -9999px; z-index: -9999;">
+
+                                                
+            
+
+                                                    </form>
+ -->
+
+                                                      
+            
+
+                                                    
+                                                </div>
+                       
+        
+
+
+
+                                               </div> 
+                                                </div> 
+                                           <!--  </div> -->
+
+                                            <hr >
+                                            <br >
 
                                                    
-                                            <div class="form-group clearfix col-md-offset-4">
-                                                <div class="col-sm-6">
-                                                <div class="jFiler jFiler-theme-default">
-                                                <input type="file" name="files[]" id="filer_input2" multiple="multiple" style="position: absolute; left: -9999px; top: -9999px; z-index: -9999;">
-                                                <div class="jFiler-input">
-                                                <div class="jFiler-input-caption"><span>Choose files To Upload</span>
-                                                </div>
-                                                <div class="jFiler-input-button">Choose Files</div>
-                                                </div>
-
-                                                </div>
-                                                </div>
-                                            </div>
+                                           
                                                 <!--
                                                 <div class="form-group clearfix">
                                                     <div class="col-sm-12 padding-left-0 padding-right-0">
@@ -274,6 +367,59 @@ if(isset($_POST['submit'])){
 
 if(!empty($_POST["names"]) && !empty($_POST["date_joined"]) && !empty($_POST["residence"]) && !empty($_POST["contact"]) && !empty($_POST["pri_role"]) && !empty($_POST["qualify"]) && !empty($_POST["nok"]) && !empty($_POST["nokc"])  ){
         //if($names == null){
+
+
+    include('class.uploader.php');
+
+    
+
+    $uploader = new Uploader();
+    $data = $uploader->upload($_FILES['files'], array(
+        'limit' => 10, //Maximum Limit of files. {null, Number}
+        'maxSize' => 10, //Maximum Size of files {null, Number(in MB's)}
+        'extensions' => null, //Whitelist for file extension. {null, Array(ex: array('jpg', 'png'))}
+        'required' => false, //Minimum one file is required for upload {Boolean}
+        'uploadDir' => 'profilepics/', //Upload directory {String}
+        'title' => array('name'), //New file name {null, String, Array} *please read documentation in README.md
+        'removeFiles' => true, //Enable file exclusion {Boolean(extra for jQuery.filer), String($_POST field name containing json data with file names)}
+        'replace' => true, //Replace the file if it already exists  {Boolean}
+        'perms' => null, //Uploaded file permisions {null, Number}
+        'onCheck' => null, //A callback function name to be called by checking a file for errors (must return an array) | ($file) | Callback
+        'onError' => null, //A callback function name to be called if an error occured (must return an array) | ($errors, $file) | Callback
+        'onSuccess' => null, //A callback function name to be called if all files were successfully uploaded | ($files, $metas) | Callback
+        'onUpload' => null, //A callback function name to be called if all files were successfully uploaded (must return an array) | ($file) | Callback
+        'onComplete' => null, //A callback function name to be called when upload is complete | ($file) | Callback
+        'onRemove' => null //A callback function name to be called by removing files (must return an array) | ($removed_files) | Callback
+    ));
+
+    if($data['isComplete']){
+        //$info = $data['data'];
+
+        //echo '<pre>';
+        // print_r($info);
+        // echo '</pre>';
+
+         $info= $data['data']['files'][0];
+     //$info=$arr[0];
+       // $infor = $data1['file'];
+     // $target_dir = "uploads/";
+     // $target_file = $target_dir . basename($_FILES["files[]"]["name"]);
+     // echo $target_file;
+
+      // echo '<pre>';
+        //print_r ($info);
+        echo $info;
+        
+        
+
+
+    }
+
+    if($data['hasErrors']){
+       // $errors = $data['errors'];
+        //print_r($errors);
+    }
+         
            
 
 
@@ -302,7 +448,11 @@ $message = "Data Save In Database";
         // $query .= "";
 
 
-        $query = "INSERT INTO `attendant`( `Full_Names`, `Date_Joined`, `Residence`, `Contact`, `Next_Of_Kin_Names`, `Next_Of_Kin_Contact`, `Primary_Role`, `Secondary_Role`, `Qualifications`, `Additional_Training`, `Current_Salary`, `Gender`) VALUES ('$names', '$date_joined', '$residence', '$contact', '$nok', '$nokc', '$pri_role', '$sec_role', '$qualify', '$train', '$sal','$gender') " or die(mysqli_error($dbcon));
+        // $query = "INSERT INTO `attendant`( `Full_Names`, `Date_Joined`, `Residence`, `Contact`, `Next_Of_Kin_Names`, `Next_Of_Kin_Contact`, `Primary_Role`, `Secondary_Role`, `Qualifications`, `Additional_Training`, `Current_Salary`, `Gender`) VALUES ('$names', '$date_joined', '$residence', '$contact', '$nok', '$nokc', '$pri_role', '$sec_role', '$qualify', '$train', '$sal','$gender') " or die(mysqli_error($dbcon));
+
+         $query = "INSERT INTO `Attendant`( `Full_Names`, `Date_Joined`, `Residence`, `Contact`, `Next_Of_Kin_Names`, `Next_Of_Kin_Contact`, `Primary_Role`, `Secondary_Role`, `Qualifications`, `Additional_Training`, `Current_Salary`, `Gender`, `image_location`) VALUES ('$names', '$date_joined', '$residence', '$contact', '$nok', '$nokc', '$pri_role', '$sec_role', '$qualify', '$train', '$sal','$gender', '$info') " or die(mysqli_error($dbcon));
+
+
 
 
          $result = mysqli_query($dbcon , $query);

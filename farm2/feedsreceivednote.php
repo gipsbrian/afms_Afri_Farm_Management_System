@@ -62,16 +62,30 @@ include('database/db_conection.php');
 
                                                   
                                                     <div class="form-group">
-                                                        <label for="dobe">Date <span class="text-danger">*</span></label>
+                                                    <label for="dobe">Date <span class="text-danger">*</span></label>
+                                                      <!--   <label for="dobe">Date <span class="text-danger">*</span></label>
                                                         <input type="date" name="date" parsley-trigger="change" required
-                                                               placeholder="Enter date" class="form-control" id="=dob">
+                                                               placeholder="Enter date" class="form-control" id="=dob"> -->
+
+                                                             <!--   date modification -->
+                                                             <div>
+                                                        <div class="input-group">
+                                                        
+                                                        <input type="text" name="date_activity" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose">
+                                                        <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar text-white"></i></span>
+                                                        </div>
                                                     </div>
 
-                                                   <div class="form-group">
+
+
+
+                                                    </div>
+
+                                                  <!--  <div class="form-group">
                                                         <label for="time">Time <span class="text-danger">*</span></label>
                                                         <input type="time" name="time" parsley-trigger="change" required
                                                                placeholder="Enter time" class="form-control" id="=time">
-                                                    </div> 
+                                                    </div>  -->
                                                     
                                                     <div class="form-group">
                                                         <label for="item">Item <span class="text-danger">*</span></label>
@@ -116,7 +130,7 @@ include('database/db_conection.php');
                                                             $sel_query=mysqli_query($dbcon,$select);
                                                             while ($rw=mysqli_fetch_array($sel_query)) {
                                                                 ?>
-                                                                <option value="<?php echo $rw[0]; ?>" parsley-trigger="change" required><?php echo $rw[0]; ?></option>
+                                                                <option value="<?php echo $rw[0]; ?>" parsley-trigger="change" required><?php echo $rw[1]; ?></option>
 
                                                         <?php
                                                             }
@@ -177,8 +191,8 @@ include('database/db_conection.php');
        $message = "Data Save In Database";
        
 
-         $date  = $_POST['date'];
-         $time = $_POST['time'];
+         $date  = $_POST['date_activity'];
+    
         $item = $_POST['item'];
         $supplier = $_POST['supplier'];
         $quantity = $_POST['quantity'];
@@ -188,7 +202,7 @@ include('database/db_conection.php');
        
     
        
-         $query = "INSERT INTO `farm`.`feeds_received` (`Feeds_Received_ID`, `Date_Of_Receiving`, `Time`, `Name_Of_Feeds_Received`, `Supplier_Of_Feeds`, `Quantity`, `Store_Keeper_ID`) VALUES (NULL, '$date', '$time','$item', '$supplier', '$quantity', '$Full_Names')" or die(mysqli_error($dbcon));
+         $query = "INSERT INTO `feeds_received` (`Feeds_Received_ID`, `Date_Of_Receiving`, `Name_Of_Feeds_Received`, `Supplier_Of_Feeds`, `Quantity`, `Store_Keeper_ID`) VALUES (NULL, '$date', '$item','$supplier', '$quantity', '$Full_Names')" or die(mysqli_error($dbcon));
         // $query .= "";
          
          $result = mysqli_query($dbcon , $query);

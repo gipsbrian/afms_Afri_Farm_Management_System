@@ -73,15 +73,14 @@
                                         <div class="table-responsive">
                                             <table class="table table table-hover m-0">
                                             <?php
-                                                            $selectatt="SELECT * FROM `feeds_received`";
-                                                            $sel_att=mysqli_query($dbcon,$selectatt);
+                                                            $selectfeed="SELECT * FROM `feeds_received`";
+                                                            $sel_feed=mysqli_query($dbcon,$selectfeed);
                                                             
                                                             ?>
                                                 <thead>
                                                     <tr>
                                                         <th></th>
                                                         <th><center>Date</center></th>
-                                                        <th><center>Time</center></th>
                                                         <th><center>Item</center></th>
                                                         <th><center>Supplier ID</center></th>
                                                         <th><center>Quantity</center></th>
@@ -92,21 +91,45 @@
                                                 </thead>
                                                 <tbody>
                                                 <?php  
-                                                 while ( $rw_att= mysqli_fetch_array($sel_att)) {
+                                                 while ( $rw_feed= mysqli_fetch_array($sel_feed)) {
                                                      # code...
                                                  
 
                                                  ?>
                                                     <tr>
+                                                        <th></th>
                                                        
-                                                         <th>
-                                                        </th>
-                                                        <td><?php echo $rw_att['Date_Of_Receiving']; ?></td>
-                                                        <td><?php echo $rw_att['Time']; ?></td>
-                                                        <td><?php echo $rw_att['Name_Of_Feeds_Received']; ?></td>
-                                                        <td><?php echo $rw_att['Supplier_Of_Feeds'];?></td>
-                                                        <td><?php echo $rw_att['Quantity']; ?></td>
-                                                        <td><?php echo $rw_att['Store_Keeper_ID']; ?></td>
+                                                        <td><?php echo $rw_feed['Date_Of_Receiving']; ?></td>
+                                                        <td><?php echo $rw_feed['Name_Of_Feeds_Received']; ?></td>
+                                                        <td><?php 
+
+                                                        $sup_iId=$rw_feed['Supplier_Of_Feeds']; 
+                                                        $sel_sup="SELECT * FROM `supplier` WHERE `Supplier_ID` = '$sup_iId'";
+
+                                                         $query_sup =mysqli_query($dbcon,$sel_sup);
+                                                         while ( $rw_sup=mysqli_fetch_array($query_sup)){
+                                                            echo $rw_sup[1];
+                                                         }
+                                                         
+
+                                                        ?></td>
+
+                                                        
+                                                        <td><?php echo $rw_feed['Quantity']; ?></td>
+                                                       <!--  <td><?php echo $rw_feed['Store_Keeper_ID']; ?></td> -->
+
+                                                        <td><?php 
+
+                                                        $att_Id=$rw_feed['Store_Keeper_ID']; 
+                                                        $selectr_att="SELECT * FROM `farm2`.`attendant` WHERE `Attendant_ID` = '$att_Id'";
+                                                         $query_att =mysqli_query($dbcon,$selectr_att);
+                                                         while ( $rw_atten=mysqli_fetch_array($query_att)){
+                                                            echo $rw_atten[1];
+                                                         }
+                                                         
+
+                                                        ?></td>
+                                                     
                                                         
                                                     </tr>
                                                     <?php } ?>

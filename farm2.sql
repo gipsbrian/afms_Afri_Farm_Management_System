@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2016 at 01:34 PM
+-- Generation Time: Dec 02, 2016 at 09:27 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -516,6 +516,33 @@ CREATE TABLE IF NOT EXISTS `feeds_receipt_supplier` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `feeds_received`
+--
+
+CREATE TABLE IF NOT EXISTS `feeds_received` (
+  `Feeds_Received_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Date_Of_Receiving` varchar(20) NOT NULL,
+  `Name_Of_Feeds_Received` varchar(100) NOT NULL,
+  `Supplier_Of_Feeds` int(11) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `Store_Keeper_ID` int(11) NOT NULL,
+  PRIMARY KEY (`Feeds_Received_ID`),
+  KEY `Supplier_Of_Feeds` (`Supplier_Of_Feeds`),
+  KEY `Supplier_Of_Feeds_2` (`Supplier_Of_Feeds`),
+  KEY `Store_Keeper_ID` (`Store_Keeper_ID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `feeds_received`
+--
+
+INSERT INTO `feeds_received` (`Feeds_Received_ID`, `Date_Of_Receiving`, `Name_Of_Feeds_Received`, `Supplier_Of_Feeds`, `Quantity`, `Store_Keeper_ID`) VALUES
+(6, '11/29/2016', 'hog', 1, 33, 2),
+(7, '11/29/2016', 'hot dog', 1, 33, 3);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `feeds_requisiton`
 --
 
@@ -708,6 +735,13 @@ ALTER TABLE `chicken_sales`
 ALTER TABLE `chicken_transfer_tracker`
   ADD CONSTRAINT `Chicken_Transfer_Tracker_ibfk_1` FOREIGN KEY (`Attendant_ID`) REFERENCES `attendant` (`Attendant_ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `Chicken_Transfer_Tracker_ibfk_2` FOREIGN KEY (`Cage_ID`) REFERENCES `chicken_storage` (`Cage_ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `feeds_received`
+--
+ALTER TABLE `feeds_received`
+  ADD CONSTRAINT `feeds_received_ibfk_1` FOREIGN KEY (`Store_Keeper_ID`) REFERENCES `attendant` (`Attendant_ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `feeds_received_ibfk_2` FOREIGN KEY (`Supplier_Of_Feeds`) REFERENCES `supplier` (`Supplier_ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

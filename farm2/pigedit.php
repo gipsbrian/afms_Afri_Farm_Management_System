@@ -237,7 +237,7 @@ include('database/db_conection.php');
     if(isset($_POST['submit']))
     {
 
-      // $the_pig_id = $_POST ['animalId'];
+         // $the_pig_id = $_POST ['animalId'];
       $the_pig_id = '$animalId';
       $birth = '$birth';
       $weaning = '$weaning';
@@ -304,8 +304,95 @@ include('database/db_conection.php');
 
 
         // $query .= "";
+
+
+      ?>
+
+      <script type="text/javascript">   
+
+      doyou();
+
+                                                        function doyou(){
+                                                            swal({
+                                                              title: "Are you sure?",
+                                                              text: "This Pig will be Updated from Today!",
+                                                              type: "warning",
+                                                              showCancelButton: true,
+                                                              confirmButtonColor: "#DD6B55",
+                                                              confirmButtonText: "Yes, Update Pig details!",
+                                                              cancelButtonText: "No, Ignore!",
+                                                              closeOnConfirm: false,
+                                                              closeOnCancel: false
+                                                            },
+                                                            function(isConfirm){
+                                                              if (isConfirm) {
+                                                               // swal("Fill Form!", "The Attendant will be deleted after Form Submission.", "success");
+
+                                                                //swal("Deleted!", "The Activity has been deleted.", "success");
+
+                                                                <?php
+
+
+
+                                                                   $result = mysqli_query($dbcon , $query);
+
+                                                                    if  (!$result){
+                                                                            die ('QUERY FAILED' . mysqli_error($dbcon));
+                                                                         }else{
+
+                                                                         
+
+
+
+
+                                                                ?>
+
+                                                                 swal({
+                                                                      title: "Pig details edited/updated Succcessfully!",
+                                                                      text: "Thanks for Updating Pigs Menu.",
+                                                                      timer: 5000,
+                                                                      showConfirmButton: false
+                                                                    });
+                                                                         
+
+
+                                                                 setTimeout(function(){ window.location.href = 'viewallpigs.php' }, 5000);
+
+                                                                 <?php
+
+                                                                 }
+
+                                                                 ?>
+
+
+
+
+                                                              } else {
+
+
+                                                                //swal("Cancelled", "The Pig has not been edited :)", "error");
+                                                                 swal({
+                                                                      title: "Pig details have not been updated!",
+                                                                      type: "error",
+                                                                      text: " Pigs Menu Not Updated.",
+                                                                      timer: 5000,
+                                                                      showConfirmButton: false
+                                                                    });
+
+                                                                setTimeout(function(){ window.location.href = 'viewallpigs.php' }, 5000);
+
+                                                              }
+                                                                });
+                                                        }
+                                                        
+
+      </script>
+
+                                                        <?php
+
+   
          
-         $result = mysqli_query($dbcon , $query);
+      
        if  (!$result){
           die ('QUERY FAILED' . mysqli_error($dbcon));
        }else{
@@ -313,19 +400,19 @@ include('database/db_conection.php');
            ?>
 
             <script type="text/javascript">   
-                                                        function doyou2(){
+                                                        // function doyou2(){
                                                             
 
-                                                                swal({
-                                                                      title: "Pig details updated Succcessfully!",
-                                                                      text: "Thanks for Updating Pigs Menu.",
-                                                                      timer: 5000,
-                                                                      showConfirmButton: false
-                                                                    });
+                                                        //         swal({
+                                                        //               title: "Pig details updated Succcessfully!",
+                                                        //               text: "Thanks for Updating Pigs Menu.",
+                                                        //               timer: 5000,
+                                                        //               showConfirmButton: false
+                                                        //             });
                                                                          
                                                                         // window.open('index.php?message=entered','_self');                                                        
                                                                 
-                                                        }
+                                                        // }
 
                                                         
 
@@ -341,12 +428,13 @@ include('database/db_conection.php');
 
 
 
-          doyou2();
+          //doyou2();
+          // doyou();
  
           //setTimeout(function(){ window.location.href = 'index.php' }, 5000);
 
 
-          setTimeout(function(){ window.location.href = 'viewallpigs.php' }, 5000);
+          //setTimeout(function(){ window.location.href = 'viewallpigs.php' }, 5000);
 
           </script>
 

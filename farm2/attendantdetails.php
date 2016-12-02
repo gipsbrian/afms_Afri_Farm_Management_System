@@ -52,6 +52,8 @@ include('database/db_conection.php');
                                                             
 				  
       $row = mysqli_fetch_array($select_attendant); 
+
+        $the_attendant_id = $row[0];
    
         $names  = $row[1];
         $date_joined = $row[2];
@@ -141,14 +143,16 @@ include('database/db_conection.php');
                                                         </div>
                                                     </div>
                                                 </form>
+                                                data-parsley-validate
 
                                                 // -->
-                                                             <form role="form" data-parsley-validate id="form" method="post" enctype="multipart/form-data" >
+                                                             <form role="form"  id="form" method="post"  action="editattendantdetails.php" enctype="multipart/form-data" >
 
                                                     <div class="form-group">
                                                         <label for="dobe">Full Names <span class="text-danger">*</span></label>
                                                         <input type="Text" name="names" parsley-trigger="change" data-parsley-pattern="^[A-Za-z. ]*$" required
                                                                value="<?php echo $names; ?>" class="form-control" id="dob" disabled>
+                                                        <input value="<?php echo $the_attendant_id; ?>" type = "hidden" class="form-control"  name="a_id" />
                                                     </div>
                                                     <!--
                                                     <div class="form-group">

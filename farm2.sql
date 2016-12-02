@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2016 at 09:27 AM
+-- Generation Time: Dec 02, 2016 at 10:52 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -42,8 +42,11 @@ CREATE TABLE IF NOT EXISTS `animal` (
 --
 
 INSERT INTO `animal` (`Animal_ID`, `Date_Of_Birth`, `Date_Of_Weaning`, `Breed_Of_Animal`, `Gender`, `Location_ID`) VALUES
-('c34', '2016-11-12', '2016-11-18', 'White boar', 'female', 42),
-('lily', '2016-11-07', '2016-11-25', 'daish', 'male', 1);
+('c2003', '2016-12-01', '2016-12-16', 'boarf', 'male', 11),
+('c203', '2016-12-01', '2016-12-16', 'boarf', 'male', 11),
+('c205', '2016-12-01', '2016-12-16', 'boarf', 'male', 11),
+('c208', '2016-12-01', '2016-12-16', 'boarf', 'male', 11),
+('c2083', '2016-12-01', '2016-12-16', 'boarf', 'male', 11);
 
 -- --------------------------------------------------------
 
@@ -58,6 +61,38 @@ CREATE TABLE IF NOT EXISTS `animal_death_tracker` (
   `Animal_ID` varchar(100) NOT NULL,
   KEY `Animal_ID` (`Animal_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `animal_discontinue`
+--
+
+CREATE TABLE IF NOT EXISTS `animal_discontinue` (
+  `Animal_ID` varchar(40) NOT NULL,
+  `Date_Discontinued` varchar(40) NOT NULL,
+  `Time_Discontinued` varchar(40) NOT NULL,
+  `Reason_Discontinued` varchar(40) NOT NULL,
+  `Verified_by` varchar(40) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `animal_discontinue`
+--
+
+INSERT INTO `animal_discontinue` (`Animal_ID`, `Date_Discontinued`, `Time_Discontinued`, `Reason_Discontinued`, `Verified_by`) VALUES
+('c002', '12/16/2016', '12:30 AM', 'SICK', '1'),
+('2', '12/15/2016', '8:15 AM', 'Pig is sick', '1'),
+('4', '12/09/2016', '8:30 AM', 'sick', '1'),
+('5', '12/15/2016', '9:15 AM', 'sick', '1'),
+('c2004', '12/23/2016', '9:15 AM', 'sick', '1'),
+('c209', '12/15/2016', '9:30 AM', 'sick', '1'),
+('c2003', '12/16/2016', '9:30 AM', 'sick', '1'),
+('c2006', '12/08/2016', '9:30 AM', 'SICK', '1'),
+('c210', '12/15/2016', '10:15 AM', 'sick', '3'),
+('c30', '12/15/2016', '10:30 AM', 'sick', '1'),
+('c32', '12/22/2016', '10:30 AM', 'sick', '1'),
+('c20', '12/16/2016', '10:30 AM', 'sold', '1');
 
 -- --------------------------------------------------------
 
@@ -80,6 +115,12 @@ CREATE TABLE IF NOT EXISTS `animal_feed_consumption` (
 --
 
 INSERT INTO `animal_feed_consumption` (`Date_Of_Consumption`, `Feed_Composition`, `Meal_Weight`, `Location_ID`, `Attendant_ID`) VALUES
+('0000-00-00', 'kitoko', 34, 4, 1),
+('2016-11-02', 'kitoko', 33, 12, 2),
+('2016-11-07', 'kitoko', 22, 7, 1),
+('2016-11-08', 'kkk', 10, 18, 3),
+('2016-11-15', 'Gud', 12, 10, 1),
+('2016-11-08', 'blu', 35, 34, 3),
 ('0000-00-00', 'kitoko', 34, 4, 1),
 ('2016-11-02', 'kitoko', 33, 12, 2),
 ('2016-11-07', 'kitoko', 22, 7, 1),
@@ -170,7 +211,7 @@ INSERT INTO `animal_location` (`Location_ID`, `Location_Name`, `Pen_Number`, `Lo
 --
 
 CREATE TABLE IF NOT EXISTS `animal_medication_tracker` (
-  `Date_Of_Medication` date NOT NULL,
+  `Date_Of_Medication` varchar(40) NOT NULL,
   `Dosage` varchar(100) NOT NULL,
   `Purpose` int(11) NOT NULL,
   `Type_Of_Medication` varchar(100) NOT NULL,
@@ -190,21 +231,12 @@ CREATE TABLE IF NOT EXISTS `animal_medication_tracker` (
 CREATE TABLE IF NOT EXISTS `animal_transfer_schedule` (
   `Date_Of_Transfer` date NOT NULL,
   `New_Location_ID` int(11) NOT NULL,
-  `Purpose_Of_Transfer` varchar(110) NOT NULL,
+  `Purpose_Of_Transfer` int(11) NOT NULL,
   `Animal_ID` varchar(100) NOT NULL,
   `Location_ID` int(11) NOT NULL,
   KEY `Animal_ID` (`Animal_ID`),
   KEY `Location_ID` (`Location_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `animal_transfer_schedule`
---
-
-INSERT INTO `animal_transfer_schedule` (`Date_Of_Transfer`, `New_Location_ID`, `Purpose_Of_Transfer`, `Animal_ID`, `Location_ID`) VALUES
-('2016-11-16', 19, '0', 'lily', 10),
-('2016-11-16', 16, 'latest', 'lily', 10),
-('2016-11-07', 19, 'treatment', 'c34', 1);
 
 -- --------------------------------------------------------
 
@@ -213,7 +245,7 @@ INSERT INTO `animal_transfer_schedule` (`Date_Of_Transfer`, `New_Location_ID`, `
 --
 
 CREATE TABLE IF NOT EXISTS `animal_weight_tracker` (
-  `Date_Of_Weighin` date NOT NULL,
+  `Date_Of_Weighin` varchar(40) NOT NULL,
   `Current_Weight` int(11) NOT NULL,
   `Animal_ID` varchar(100) NOT NULL,
   `Location_ID` int(11) NOT NULL,
@@ -241,6 +273,7 @@ CREATE TABLE IF NOT EXISTS `attendant` (
   `Additional_Training` varchar(100) DEFAULT NULL,
   `Current_Salary` int(11) NOT NULL,
   `Gender` enum('male','female') NOT NULL,
+  `image_location` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`Attendant_ID`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
@@ -248,12 +281,12 @@ CREATE TABLE IF NOT EXISTS `attendant` (
 -- Dumping data for table `attendant`
 --
 
-INSERT INTO `attendant` (`Attendant_ID`, `Full_Names`, `Date_Joined`, `Residence`, `Contact`, `Next_Of_Kin_Names`, `Next_Of_Kin_Contact`, `Primary_Role`, `Secondary_Role`, `Qualifications`, `Additional_Training`, `Current_Salary`, `Gender`) VALUES
-(1, 'Jacob Oloya', '2016-11-02', 'Kawempe', 79025487, 'Maria Oloya', 785421556, 'Veterinary Doctor', 'N/A', 'BSc Veterinary Medicine', 'Post Graduate in Animal Studies', 1800000, 'male'),
-(2, 'Larry Okutho', '2016-11-17', 'Ntinda ', 78245645, 'Gift Kasago', 78245866, 'Chief Breeder', 'Insemination Expert', 'Bsc Music Dance & Drama', 'Kwepena Exepert ', 125000, 'male'),
-(3, 'Mariah Nagadya', '2016-01-12', 'Kawempe', 78289556, 'Wamala Nagadya', 78289545, 'Farmer', 'Chicken Handler', 'Masters Farming', 'BSc Economics', 190000, 'female'),
-(6, 'fred', '11/08/2016', 'kabowa', 782025649, 'kizito', 798331662, 'fred', 'daq', 'bd', 'sfd', 212, 'female'),
-(7, 'Jane', '11/03/2016', 'Kisaasi', 782025649, 'Susan', 782023666, 'Dancer', 'Dancing', 'asdasd', 'asdasd', 12350000, 'male');
+INSERT INTO `attendant` (`Attendant_ID`, `Full_Names`, `Date_Joined`, `Residence`, `Contact`, `Next_Of_Kin_Names`, `Next_Of_Kin_Contact`, `Primary_Role`, `Secondary_Role`, `Qualifications`, `Additional_Training`, `Current_Salary`, `Gender`, `image_location`) VALUES
+(1, 'Jacob Oloya', '2016-11-02', 'Kawempe', 79025487, 'Maria Oloya', 785421556, 'Veterinary Doctor', 'N/A', 'BSc Veterinary Medicine', 'Post Graduate in Animal Studies', 1800000, 'male', ''),
+(2, 'Larry Okutho', '2016-11-17', 'Ntinda ', 78245645, 'Gift Kasago', 78245866, 'Chief Breeder', 'Insemination Expert', 'Bsc Music Dance & Drama', 'Kwepena Exepert ', 125000, 'male', ''),
+(3, 'Mariah Nagadya', '2016-01-12', 'Kawempe', 78289556, 'Wamala Nagadya', 78289545, 'Farmer', 'Chicken Handler', 'Masters Farming', 'BSc Economics', 190000, 'female', ''),
+(6, 'fred', '11/08/2016', 'kabowa', 782025649, 'kizito', 798331662, 'fred', 'daq', 'bd', 'sfd', 212, 'female', ''),
+(7, 'Jane', '11/03/2016', 'Kisaasi', 782025649, 'Susan', 782023666, 'Dancer', 'Dancing', 'asdasd', 'asdasd', 12350000, 'male', '');
 
 -- --------------------------------------------------------
 
@@ -289,6 +322,13 @@ CREATE TABLE IF NOT EXISTS `attendant_discontinue` (
   KEY `Attendant_ID` (`Attendant_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `attendant_discontinue`
+--
+
+INSERT INTO `attendant_discontinue` (`Attendant_ID`, `Attendant_Name`, `Date_Discontinued`, `Time_Discontinued`, `Reason_Discontinued`, `Verified_discontinued`) VALUES
+(1, 'Jacob Oloya', '12/01/2016', '10:30 PM', 'sick', 'sick');
+
 -- --------------------------------------------------------
 
 --
@@ -296,7 +336,7 @@ CREATE TABLE IF NOT EXISTS `attendant_discontinue` (
 --
 
 CREATE TABLE IF NOT EXISTS `chicken_feed_consumption` (
-  `Date_Of_Consumption` date NOT NULL,
+  `Date_Of_Consumption` varchar(11) NOT NULL,
   `Feed_Composition` varchar(100) NOT NULL,
   `Total_Weight` int(11) NOT NULL,
   `Water_Provided` int(11) NOT NULL,
@@ -306,6 +346,16 @@ CREATE TABLE IF NOT EXISTS `chicken_feed_consumption` (
   KEY `Cage_ID` (`Cage_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `chicken_feed_consumption`
+--
+
+INSERT INTO `chicken_feed_consumption` (`Date_Of_Consumption`, `Feed_Composition`, `Total_Weight`, `Water_Provided`, `Attendant_ID`, `Cage_ID`) VALUES
+('29/11/16', 'Mukene', 5, 5, 1, 1),
+('11/29/2016', 'Mukene', 4, 4, 1, 1),
+('29/11/16', 'Mukene', 5, 5, 1, 1),
+('11/29/2016', 'Mukene', 4, 4, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -313,7 +363,7 @@ CREATE TABLE IF NOT EXISTS `chicken_feed_consumption` (
 --
 
 CREATE TABLE IF NOT EXISTS `chicken_medication_tracker` (
-  `Date_Of_Medication` date NOT NULL,
+  `Date_Of_Medication` varchar(11) NOT NULL,
   `Num_Of_Hens` int(11) DEFAULT NULL,
   `Num_Of_Cocks` int(11) DEFAULT NULL,
   `Type_Of_Medication` varchar(100) NOT NULL,
@@ -325,6 +375,18 @@ CREATE TABLE IF NOT EXISTS `chicken_medication_tracker` (
   KEY `Attendant_ID` (`Attendant_ID`),
   KEY `Cage_ID` (`Cage_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chicken_medication_tracker`
+--
+
+INSERT INTO `chicken_medication_tracker` (`Date_Of_Medication`, `Num_Of_Hens`, `Num_Of_Cocks`, `Type_Of_Medication`, `Dosage`, `Purpose`, `Administered_By`, `Attendant_ID`, `Cage_ID`) VALUES
+('30/11/16', 11, 11, 'Asprin', 2, 'Fever', 'Derrick', 1, 1),
+('30/11/16', 1, 1, 'Panadol', 1, 'Hay Fever', 'Brian', 1, 1),
+('11/30/2016', 2, 2, 'Penicillin', 2, 'Diarrhoea', 'Samuel', 1, 1),
+('30/11/16', 11, 11, 'Asprin', 2, 'Fever', 'Derrick', 1, 1),
+('30/11/16', 1, 1, 'Panadol', 1, 'Hay Fever', 'Brian', 1, 1),
+('11/30/2016', 2, 2, 'Penicillin', 2, 'Diarrhoea', 'Samuel', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -351,7 +413,7 @@ CREATE TABLE IF NOT EXISTS `chicken_population_tracker` (
 --
 
 CREATE TABLE IF NOT EXISTS `chicken_sales` (
-  `Date_Of_Sale` date NOT NULL,
+  `Date_Of_Sale` varchar(11) NOT NULL,
   `Num_Of_Hens` int(11) DEFAULT NULL,
   `Num_Of_Cocks` int(11) DEFAULT NULL,
   `Customer_Name` varchar(100) NOT NULL,
@@ -361,6 +423,18 @@ CREATE TABLE IF NOT EXISTS `chicken_sales` (
   KEY `Attendant_ID` (`Attendant_ID`),
   KEY `Cage_ID` (`Cage_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `chicken_sales`
+--
+
+INSERT INTO `chicken_sales` (`Date_Of_Sale`, `Num_Of_Hens`, `Num_Of_Cocks`, `Customer_Name`, `Total_Amount`, `Attendant_ID`, `Cage_ID`) VALUES
+('2016-11-29', 22, 22, 'Bukenya and Sons', 15000, 1, 1),
+('2016-11-30', 22, 22, 'Derrick', 15000, 1, 1),
+('11/30/2016', 11, 11, 'Derrick', 10000, 1, 1),
+('2016-11-29', 22, 22, 'Bukenya and Sons', 15000, 1, 1),
+('2016-11-30', 22, 22, 'Derrick', 15000, 1, 1),
+('11/30/2016', 11, 11, 'Derrick', 10000, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -389,7 +463,7 @@ INSERT INTO `chicken_storage` (`Cage_ID`, `Cage_Number`, `Cage_Description`) VAL
 --
 
 CREATE TABLE IF NOT EXISTS `chicken_transfer_tracker` (
-  `Date_Of_Transfer` date NOT NULL,
+  `Date_Of_Transfer` varchar(11) NOT NULL,
   `Num_Of_Hens_Transfered` int(11) NOT NULL,
   `Num_Of_Cocks_Transfered` int(11) NOT NULL,
   `Receiving_Cage_ID` int(11) NOT NULL,
@@ -400,6 +474,20 @@ CREATE TABLE IF NOT EXISTS `chicken_transfer_tracker` (
   KEY `Cage_ID` (`Cage_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `chicken_transfer_tracker`
+--
+
+INSERT INTO `chicken_transfer_tracker` (`Date_Of_Transfer`, `Num_Of_Hens_Transfered`, `Num_Of_Cocks_Transfered`, `Receiving_Cage_ID`, `Receiving_Attendant_ID`, `Attendant_ID`, `Cage_ID`) VALUES
+('30/11/16', 11, 11, 1, 1, 1, 1),
+('11/30/2016', 44, 44, 1, 1, 1, 1),
+('30/11/16', 6, 6, 1, 1, 1, 1),
+('11/30/2016', 88, 88, 1, 1, 2, 1),
+('30/11/16', 11, 11, 1, 1, 1, 1),
+('11/30/2016', 44, 44, 1, 1, 1, 1),
+('30/11/16', 6, 6, 1, 1, 1, 1),
+('11/30/2016', 88, 88, 1, 1, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -407,7 +495,7 @@ CREATE TABLE IF NOT EXISTS `chicken_transfer_tracker` (
 --
 
 CREATE TABLE IF NOT EXISTS `egg_collection_tracker` (
-  `Date_Of_Collection` date NOT NULL,
+  `Date_Of_Collection` varchar(11) NOT NULL,
   `Num_Of_Laying_Hens` int(11) NOT NULL,
   `Num_Of_Cocks` int(11) NOT NULL,
   `Num_Of_Eggs_Collected` int(11) NOT NULL,
@@ -418,6 +506,18 @@ CREATE TABLE IF NOT EXISTS `egg_collection_tracker` (
   KEY `Attendant_ID` (`Attendant_ID`),
   KEY `Cage_ID` (`Cage_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `egg_collection_tracker`
+--
+
+INSERT INTO `egg_collection_tracker` (`Date_Of_Collection`, `Num_Of_Laying_Hens`, `Num_Of_Cocks`, `Num_Of_Eggs_Collected`, `Num_Of_Damaged_Eggs`, `Verified_By`, `Attendant_ID`, `Cage_ID`) VALUES
+('29/11/16', 55, 55, 55, 5, 'Derrick', 1, 1),
+('29/11/16', 44, 44, 44, 4, 'Derrick', 1, 1),
+('11/29/2016', 22, 22, 22, 2, 'Richard', 1, 1),
+('29/11/16', 55, 55, 55, 5, 'Derrick', 1, 1),
+('29/11/16', 44, 44, 44, 4, 'Derrick', 1, 1),
+('11/29/2016', 22, 22, 22, 2, 'Richard', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -530,7 +630,7 @@ CREATE TABLE IF NOT EXISTS `feeds_received` (
   KEY `Supplier_Of_Feeds` (`Supplier_Of_Feeds`),
   KEY `Supplier_Of_Feeds_2` (`Supplier_Of_Feeds`),
   KEY `Store_Keeper_ID` (`Store_Keeper_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `feeds_received`
@@ -538,7 +638,8 @@ CREATE TABLE IF NOT EXISTS `feeds_received` (
 
 INSERT INTO `feeds_received` (`Feeds_Received_ID`, `Date_Of_Receiving`, `Name_Of_Feeds_Received`, `Supplier_Of_Feeds`, `Quantity`, `Store_Keeper_ID`) VALUES
 (6, '11/29/2016', 'hog', 1, 33, 2),
-(7, '11/29/2016', 'hot dog', 1, 33, 3);
+(7, '11/29/2016', 'hot dog', 1, 33, 3),
+(8, '11/29/2016', 'Rolled grass', 1, 12, 2);
 
 -- --------------------------------------------------------
 

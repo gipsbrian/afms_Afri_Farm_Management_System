@@ -162,43 +162,119 @@ include('database/db_conection.php');
 
          $query.="DELETE FROM animal WHERE Animal_ID = '$animalId'";
 
-        $result = mysqli_multi_query($dbcon,$query);
-        if  (!$result){
+           ?>
+           <h1>.</h1>
+        <script type="text/javascript">   
 
+      doyou();
+
+                                                       function doyou(){
+                                                         swal({
+                                                              title: "Are you sure?",
+                                                              text: "This Pig will be Discontinued from Today!",
+                                                              type: "warning",
+                                                              showCancelButton: true,
+                                                              confirmButtonColor: "#DD6B55",
+                                                              confirmButtonText: "Yes, Discontinue pid!",
+                                                              cancelButtonText: "No, Ignore!",
+                                                              closeOnConfirm: false,
+                                                              closeOnCancel: false
+                                                            },
+                                                            function(isConfirm){
+                                                              if (isConfirm) {
+                                                              
+
+                                                                <?php
+
+
+
+                                                                   $result = mysqli_multi_query($dbcon,$query);
+        															if  (!$result){
+
+          															die ('QUERY FAILED' . mysqli_error($dbcon));
+
+       																}else{
+
+
+
+                                                                ?>
+
+                                                                  swal({
+                               										 title: "Pig Succcessfully! Discontinued",
+                               										 text: "",
+                               										 timer: 5000,
+                                									 showConfirmButton: false
+                             										 });
+
+
+                                                                 setTimeout(function(){ window.location.href = 'viewallpigs.php' }, 5000);
+
+                                                                 <?php
+
+                                                                 }
+
+                                                                 ?>
+
+
+
+
+                                                              } else {
+
+
+                                                                //swal("Cancelled", "The Pig has not been edited :)", "error");
+                                                                 swal({
+                                                                      title: "Pig details have not Been Altered",
+                                                                      type: "error",
+                                                                      text: " Pig Not .",
+                                                                      timer: 5000,
+                                                                      showConfirmButton: false
+                                                                    });
+
+                                                                setTimeout(function(){ window.location.href = 'viewallpigs.php' }, 5000);
+
+                                                              }
+                                                                });
+                                                        }
+                                                        
+
+      </script>
+
+
+                                                        <?php
+
+   
+         
+      
+       if  (!$result){
           die ('QUERY FAILED' . mysqli_error($dbcon));
-
        }else{
           
            ?>
 
             <script type="text/javascript">   
-                function doyou2(){
-                                                             
+            
+                                                        
 
-                          swal({
-                                title: "Pig Succcessfully! Discontinued",
-                                text: "",
-                                timer: 5000,
-                                showConfirmButton: false
-                              });
-                                                                                                             
-                        }
         </script>
+
+
           <script>
 
-          doyou2();
-          setTimeout(function(){ window.location.href = 'viewallpigs.php' }, 5000);
 
           </script>
+
+
+
+
           <?php
+
 
         }
 
 
        }
-  
   ?>
-  ?>
+
  <?php include "includes/footer.php"; ?>
     </body>
 </html>

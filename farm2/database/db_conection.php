@@ -6,8 +6,8 @@
  * Time: 1:13 AM
  */
 
-$dbcon=mysqli_connect("localhost","root","");
+$dbcon=mysqli_connect("localhost","root","Drummerboy1");
 
-mysqli_select_db($dbcon,"farm2");
+mysqli_select_db($dbcon,"farm3");
 
 ?>

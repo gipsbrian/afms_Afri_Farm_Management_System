@@ -130,11 +130,15 @@
                 </div>
             </div>
 
+<<<<<<< HEAD
             <script>
             var resizefunc = [];
         </script>
 
  
+=======
+
+>>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
             <?php include "includes/footer.php";
  
  ?>

@@ -41,8 +41,8 @@ include('database/db_conection.php');
 <?php
   
     
-    if(isset($_GET['a_id'])){
-	$the_attendant_id = $_GET ['a_id'];
+    if(isset($_POST['update_attendant'])){
+	$the_attendant_id = $_POST ['a_id'];
 	
 	 // $query = "SELECT * FROM animal WHERE Attendant_ID = '$the_pig_id'";
 	 // $select_pigs = mysqli_query($dbcon, $query);
@@ -52,6 +52,8 @@ include('database/db_conection.php');
                                                             
 				  
       $row = mysqli_fetch_array($select_attendant); 
+
+        $attendant_id = $row[0];
    
         $names  = $row[1];
         $date_joined = $row[2];
@@ -96,7 +98,7 @@ include('database/db_conection.php');
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Edit Pig </h4>
+                                    <h4 class="page-title">Edit Attendant</h4>
                                    
                                     <div class="clearfix"></div>
                                 </div>
@@ -148,7 +150,8 @@ include('database/db_conection.php');
                                                     <div class="form-group">
                                                         <label for="dobe">Full Names <span class="text-danger">*</span></label>
                                                         <input type="Text" name="names" parsley-trigger="change" data-parsley-pattern="^[A-Za-z. ]*$" required
-                                                               value="<?php echo $names; ?>" class="form-control" id="dob" disabled>
+                                                               value="<?php echo $names; ?>" class="form-control" id="dob">
+                                                        <input value="<?php echo $the_attendant_id; ?>" type = "hidden" class="form-control"  name="attendant_id" />
                                                     </div>
                                                     <!--
                                                     <div class="form-group">
@@ -162,7 +165,7 @@ include('database/db_conection.php');
                                                         <div>
                                                         <div class="input-group">
                                                         
-                                                        <input type="text" name="date_joined" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" required="" value="<?php echo $date_joined; ?>" parsley-trigger="change" disabled>
+                                                        <input type="text" name="date_joined" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" required="" value="<?php echo $date_joined; ?>" parsley-trigger="change" >
                                                         <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar text-white"></i></span>
                                                         </div>
                                                     </div><!-- input-group -->
@@ -171,30 +174,30 @@ include('database/db_conection.php');
                                                     <div class="form-group">
                                                         <label for="emailAddress">Residence<span class="text-danger">*</span></label>
                                                         <input type="text" name="residence" parsley-trigger="change" data-parsley-pattern="^[A-Za-z. ]*$" required
-                                                               value="<?php echo $residence; ?>" class="form-control" id="emailAddress" disabled>
+                                                               value="<?php echo $residence; ?>" class="form-control" id="emailAddress">
                                                     </div>
                                                      <div class="form-group">
                                                         <label for="emailAddress">Contact<span class="text-danger">*</span></label>
                                                         <input type="text" name="contact" data-parsley-length="[10,10]" data-parsley-type="number" required
-                                                               value="<?php echo $contact; ?>" class="form-control" id="emailAddress" disabled>
+                                                               value="<?php echo $contact; ?>" class="form-control" id="emailAddress" >
                                                     </div>
                                                    <div class="form-group">
                                                         <label for="emailAddress">Next Of Kin <span class="text-danger">*</span></label>
                                                         <input type="text" name="nok" parsley-trigger="change" data-parsley-pattern="^[A-Za-z. ]*$" required
-                                                               value="<?php echo $nok; ?>" class="form-control" id="emailAddress" disabled>
+                                                               value="<?php echo $nok; ?>" class="form-control" id="emailAddress" >
                                                         
                                                     </div>
                                                 <div class="form-group">
                                                         <label for="emailAddress">Next Of Kin contact <span class="text-danger">*</span></label>
                                                         <input type="text" name="nokc" parsley-trigger="change" data-parsley-length="[10,10]" data-parsley-type="number"  required
-                                                               value="<?php echo $nokc; ?>" class="form-control" id="emailAddress" disabled>
+                                                               value="<?php echo $nokc; ?>" class="form-control" id="emailAddress" >
                                                         
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="emailAddress">Primary Role <span class="text-danger">*</span></label>
                                                         <input name="pri_role" parsley-trigger="change" data-parsley-pattern="^[A-Za-z. ]*$" 
-                                                        value="<?php echo $pri_role; ?>" class="form-control"  required disabled>
+                                                        value="<?php echo $pri_role; ?>" class="form-control"  required >
                                                         
                                                     </div>
 
@@ -203,26 +206,26 @@ include('database/db_conection.php');
 
                                                     <div class="form-group">
                                                         <label for="emailAddress">Secondary Role <span class="text-danger">*</span></label>
-                                                        <input name="sec_role" value="<?php echo $sec_role; ?>" class="form-control" data-parsley-pattern="^[A-Za-z. ]*$" required disabled>
+                                                        <input name="sec_role" value="<?php echo $sec_role; ?>" class="form-control" data-parsley-pattern="^[A-Za-z. ]*$" required >
                                                         
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="emailAddress">Qualifications<span class="text-danger">*</span></label>
-                                                        <input name="qualify" parsley-trigger="change" data-parsley-pattern="^[A-Za-z. ]*$" value="<?php echo $qualify; ?>" class="form-control"  required disabled>
+                                                        <input name="qualify" parsley-trigger="change" data-parsley-pattern="^[A-Za-z. ]*$" value="<?php echo $qualify; ?>" class="form-control"  required >
                                                         
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="emailAddress">Additional Training<span class="text-danger">*</span></label>
-                                                        <input name="train" value="<?php echo $train; ?>" data-parsley-pattern="^[A-Za-z. ]*$" class="form-control"  required disabled>
+                                                        <input name="train" value="<?php echo $train; ?>" data-parsley-pattern="^[A-Za-z. ]*$" class="form-control"  required >
                                                         
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="emailAddress">Current Salary <span class="text-danger">*</span></label>
                                                         <input type="text" name="sal" parsley-trigger="change" required
-                                                               value="<?php echo $sal; ?>" data-parsley-type="number" class="form-control" id="emailAddress" disabled>
+                                                               value="<?php echo $sal; ?>" data-parsley-type="number" class="form-control" id="emailAddress" >
                                                         
                                                     </div>
 
@@ -413,27 +416,33 @@ include('database/db_conection.php');
                                                     </div>
                                                     <div class="form-group" align="center">
                                                         <div>
-                                                            <button type="submit" class="btn btn-primary" name="update_pig" >
-                                                                Edit Attendant
+                                                            <button type="submit" class="btn btn-primary" name="submit">
+                                                                Submit
                                                             </button>
 
+                                                            
+                                                            <!-- <button type="reset" class="btn btn-danger">
+                                                               Cancel
+                                                            </button> -->
                                                         </div>
                                                     </div>
 
                                                 </form>
 
+                                                 <br >
+                                                <br >
+
+                                                 <div style="text-align: center; ">
+
+
+                                                        <a href="farm_staff_details.php"><button type="" class="btn btn-default" style="margin: auto; width: 120px;">
+                                                            Cancel
+                                                        </button></a>
+
+                                                      </div>
+
                                                 
 
-
-                                                 <div class="form-group" align="center">
-                                                        <div>
-                                                           
-                                                             <?php echo '<a class="btn btn-danger" href="deletePig.php?id='.$the_attendant_id.'">Discontinue Attendant</a>'; ?>
-
-                                                        </div> 
-
-                                                        
-                                                    </div>
 
                                             </div>
 							</div>
@@ -452,43 +461,211 @@ include('database/db_conection.php');
 
 <?php
 }
-  
-    
-    if(isset($_POST['submit']))
-    {/*
-       $message = "Data Save In Database";
-       $animalId = $_POST['animalId'];
-         $birth=   $_POST['birth'];
-         $weaning = $_POST['weaning'];
-         $breed= $_POST['breed'];
-         $location = $_POST['location'];
-         $gender = $_POST['gender'];
-         
-    
-       
-         $query = "INSERT INTO `animal`(`Animal_ID`, `Date_Of_Birth`, `Date_Of_Weaning`, `Breed_Of_Animal`, `Location_ID`,`Gender`) VALUES ('$animalId','$birth','$weaning','$breed','$location','$gender') ";
-        // $query .= "";
-         
-         $result = mysqli_query($dbcon , $query);
-       if  (!$result){
-          die ("<div class='container  text-center'>QUERY FAILED" . mysqli_error($dbcon)."</div>");
-       }else{
-          ?>
+  //
 
-		  <td>
-                                                    <button class="btn btn-warning waves-effect waves-light btn-sm" id="warning-alert">Click me</button>
-                                                </td>
-          <script>window.open('index.php?message=entered','_self')</script>
+  
+    if(isset($_POST['submit']))
+    {
+
+         // $the_pig_id = $_POST ['animalId'];
+      // $the_pig_id = '$animalId';
+      // $birth = '$birth';
+      // $weaning = '$weaning';
+      // $breed = '$breed';
+      // $gender = '$gender';
+
+      $message = "Data Save In Database";
+
+         // $the_attendant_id = $_POST ['a_id'];
+       
+
+        $attendant_id1 = $_POST['attendant_id'];
+        $names  = $_POST['names'];
+
+        $date_joined = $_POST['date_joined'];
+        $residence = $_POST['residence'];
+        $contact = $_POST['contact'];
+        $nok = $_POST['nok'];
+        $nokc = $_POST['nokc'];
+        $sal = $_POST['sal'];
+        $pri_role = $_POST['pri_role'];
+        $sec_role = $_POST['sec_role'];
+        $qualify = $_POST['qualify'];
+        $train = $_POST['train'];
+        $gender = $_POST['gender'];
+
+
+
+        
+
+                    // UPDATE `attendant` SET `Full_Names` = 'Kiwanuka Samuel1', `Residence` = 'busunjuu3' WHERE `attendant`.`Attendant_ID` = 4;
+
+
+
+      ?>
+
+      <script type="text/javascript">   
+
+                                                        doyou3();
+
+                                                        function doyou3(){
+                                                            swal({
+                                                              title: "Are you sure?",
+                                                              text: "This Attendant details will be Updated!",
+                                                              type: "warning",
+                                                              showCancelButton: true,
+                                                              confirmButtonColor: "#DD6B55",
+                                                              confirmButtonText: "Yes, Update Attendant details!",
+                                                              cancelButtonText: "No, Ignore!",
+                                                              closeOnConfirm: false,
+                                                              closeOnCancel: false
+                                                            },
+                                                            function(isConfirm){
+
+                                                              if (isConfirm) {
+
+                                                                swal({
+                                                                      title: "Attendant details edited/updated Succcessfully!",
+                                                                      text: "Thanks for Updating Pigs Menu.",
+                                                                      timer: 5000,
+                                                                      showConfirmButton: false
+                                                                    });
+
+
+                                                               
+
+                                                                <?php
+
+                                                                 $query2 = "UPDATE `attendant` SET `Full_Names` = '$names', 
+                                                                                    `Date_Joined` = '$date_joined',
+                                                                                    `Residence` ='$residence', 
+                                                                                    `Contact` ='$contact',
+                                                                                    `Next_Of_Kin_Names` ='$nok',
+                                                                                    `Next_Of_Kin_Contact` ='$nokc',
+                                                                                    `Primary_Role` ='$pri_role',
+                                                                                    `Secondary_Role` ='$sec_role',
+                                                                                    `Qualifications` ='$qualify',
+                                                                                    `Additional_Training` ='$train',
+                                                                                    `Current_Salary` ='$sal',
+                                                                                    `Gender` ='$gender' WHERE `attendant`.`Attendant_ID` = '$attendant_id1'";
+
+
+
+                                                                   $result2 = mysqli_query($dbcon , $query2);
+
+                                                                    if  (!$result2){
+                                                                            die ('QUERY FAILED' . mysqli_error($dbcon));
+                                                                         }else{
+
+                                                                         
+
+
+
+
+                                                                ?>
+
+                                                                 
+                                                                         
+
+
+                                                                 setTimeout(function(){ window.location.href = 'farm_staff_details.php' }, 5000);
+
+                                                                 <?php
+
+                                                                 }
+
+                                                                 ?>
+
+
+
+
+                                                              } else {
+
+
+                                                                //swal("Cancelled", "The Pig has not been edited :)", "error");
+                                                                 swal({
+                                                                      title: "Attendant details have not been updated!",
+                                                                      type: "error",
+                                                                      text: " Attendant Menu Not Updated.",
+                                                                      timer: 5000,
+                                                                      showConfirmButton: false
+                                                                    });
+
+                                                                setTimeout(function(){ window.location.href = 'farm_staff_details.php' }, 5000);
+
+                                                              }
+                                                                });
+                                                        }
+                                                        
+
+      </script>
+
+                                                        <?php
+
+   
+         
+      
+       // if  (!$result){
+       //    die ('QUERY FAILED' . mysqli_error($dbcon));
+       // }else{
+          
+           ?>
+<!-- 
+            <script type="text/javascript">   
+                                                        // function doyou2(){
+                                                            
+
+                                                        //         swal({
+                                                        //               title: "Pig details updated Succcessfully!",
+                                                        //               text: "Thanks for Updating Pigs Menu.",
+                                                        //               timer: 5000,
+                                                        //               showConfirmButton: false
+                                                        //             });
+                                                                         
+                                                                        // window.open('index.php?message=entered','_self');                                                        
+                                                                
+                                                        // }
+
+                                                        
+
+        </script>
+
+
+          <script>
+
+          //window.open('index.php?message=entered','_self')
+
+
+
+
+
+
+          //doyou2();
+          // doyou();
+ 
+          //setTimeout(function(){ window.location.href = 'index.php' }, 5000);
+
+
+          //setTimeout(function(){ window.location.href = 'viewallpigs.php' }, 5000);
+
+          </script> -->
+
+
 
           <?php
+      
+
+          
 
 
 
         }
-*/
 
-       }
 
+       //}
+
+
+  //
 
   ?>
  <?php include "includes/footer.php"; ?>

@@ -48,7 +48,7 @@
                            <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">VIEW ALL PIGS </h4>
+                                    <h4 class="page-title">VIEW EGG COLLECTION</h4>
                       
                                     <div class="clearfix"></div>
                                 </div>
@@ -59,7 +59,7 @@
 
 
                         <div class="row">
-                        <div class="col-lg-6"><a href="newpig.php"><button class="btn btn-primary">Add New Pig</button></a></div><br/><br/></div>
+                        <div class="col-lg-6"><a href="egg_collection.php"><button class="btn btn-primary">Add New Egg Collection</button></a></div><br/><br/></div>
                         <div class="row">
 							<div class="col-sm-12">
 								<div class="table-responsive ."><!--this is used for responsive display in mobile and other devices-->
@@ -70,16 +70,20 @@
 
         <tr>
 
-            <th>PIG Id</th>
-            <th>AGE</th>
-            <th>BREED</th>
-            <th>LOCATION</th>
+            <th>DATE OF COLLECTION</th>
+            <th>LAYING HENS</th>
+            <th>COCKS</th>
+            <th>EGGS COLLECTED</th>
+            <th>DAMAGED EGGS</th>
+            <th>VERIFIED BY</th>
+            <th>ATTENDANT</th>
+            <th>CAGE ID</th>
 			<th>Full Details</th>
    
         </tr>
         </thead>
 		<?php
-        $view_users_query="SELECT * from animal";//select query for viewing users.
+        $view_users_query="SELECT * from egg_collection_tracker";//select query for viewing chicken sales.
         $run=mysqli_query($dbcon,$view_users_query);//here run the sql query.
 
         ?>
@@ -91,12 +95,16 @@
                     
                  ?>
                    <tr>
-                    <td><?php echo $row['Animal_ID']; ?></td>
-					           <td><?php echo $row['Date_Of_Birth']; ?></td>
-                    <td><?php echo $row['Breed_Of_Animal']; ?></td>
-                    <td><?php echo $row['Location_ID']; ?></td>
-				    <td><a href ='pigfull2.php?p_id=<?php echo $row['Animal_ID']; ?>'><button class="btn btn-success">FULL DETAILS</button></td>
-                   	                                    
+                    <td><?php echo $row['Date_Of_Collection']; ?></td>
+					          <td><?php echo $row['Num_Of_Laying_Hens']; ?></td>
+                    <td><?php echo $row['Num_Of_Cocks']; ?></td>
+                    <td><?php echo $row['Num_Of_Eggs_Collected']; ?></td>
+                    <td><?php echo $row['Num_Of_Damaged_Eggs']; ?></td>
+                    <td><?php echo $row['Verified_By']; ?></td>
+                    <td><?php echo $row['Attendant_ID']; ?></td>
+                    <td><?php echo $row['Cage_ID']; ?></td>
+				    <td><a href ='#'><button class="btn btn-success">FULL DETAILS</button></td>
+                                                        
                  </tr>
                   <?php } ?>
                                                     

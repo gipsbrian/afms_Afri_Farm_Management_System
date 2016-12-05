@@ -57,11 +57,11 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-twitter"></i> <span>Manage Chicken </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="egg_collection.php">Egg Collection</a></li>
-                                    <li><a href="chicken_feed.php">Chicken Feeding</a></li>
-                                    <li><a href="view_chicken_sales.php">Chicken Sales</a></li>
-                                    <li><a href="chicken_transfer.php">Chicken Transfer</a></li>
-                                    <li><a href="chicken_medication.php">Chicken Medication</a></li>									
+                                    <li><a href="view_egg_collection.php">View Egg Collection</a></li>
+                                    <li><a href="view_chicken_feeding.php">View Chicken Feeding</a></li>
+                                    <li><a href="view_chicken_sales.php">View Chicken Sales</a></li>
+                                    <li><a href="view_chicken_transfer.php">View Chicken Transfer</a></li>
+                                    <li><a href="view_chicken_medication.php">View Chicken Medication</a></li>									
                                 </ul>
                             </li>
 

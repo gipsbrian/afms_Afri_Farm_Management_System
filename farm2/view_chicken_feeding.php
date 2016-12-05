@@ -48,7 +48,7 @@
                            <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">VIEW ALL PIGS </h4>
+                                    <h4 class="page-title">VIEW CHICKEN FEEDING</h4>
                       
                                     <div class="clearfix"></div>
                                 </div>
@@ -59,7 +59,7 @@
 
 
                         <div class="row">
-                        <div class="col-lg-6"><a href="newpig.php"><button class="btn btn-primary">Add New Pig</button></a></div><br/><br/></div>
+                        <div class="col-lg-6"><a href="chicken_feed.php"><button class="btn btn-primary">Add New Chicken Feed</button></a></div><br/><br/></div>
                         <div class="row">
 							<div class="col-sm-12">
 								<div class="table-responsive ."><!--this is used for responsive display in mobile and other devices-->
@@ -70,16 +70,18 @@
 
         <tr>
 
-            <th>PIG Id</th>
-            <th>AGE</th>
-            <th>BREED</th>
-            <th>LOCATION</th>
+            <th>DATE OF CONSUMPTION</th>
+            <th>FEED COMPOSITION</th>
+            <th>TOTAL WEIGHT</th>
+            <th>WATER PROVIDED</th>
+            <th>ATTENDANT</th>
+            <th>CAGE ID</th>
 			<th>Full Details</th>
    
         </tr>
         </thead>
 		<?php
-        $view_users_query="SELECT * from animal";//select query for viewing users.
+        $view_users_query="SELECT * from chicken_feed_consumption";//select query for viewing chicken sales.
         $run=mysqli_query($dbcon,$view_users_query);//here run the sql query.
 
         ?>
@@ -91,12 +93,14 @@
                     
                  ?>
                    <tr>
-                    <td><?php echo $row['Animal_ID']; ?></td>
-					           <td><?php echo $row['Date_Of_Birth']; ?></td>
-                    <td><?php echo $row['Breed_Of_Animal']; ?></td>
-                    <td><?php echo $row['Location_ID']; ?></td>
-				    <td><a href ='pigfull2.php?p_id=<?php echo $row['Animal_ID']; ?>'><button class="btn btn-success">FULL DETAILS</button></td>
-                   	                                    
+                    <td><?php echo $row['Date_Of_Consumption']; ?></td>
+					          <td><?php echo $row['Feed_Composition']; ?></td>
+                    <td><?php echo $row['Total_Weight']; ?></td>
+                    <td><?php echo $row['Water_Provided']; ?></td>
+                    <td><?php echo $row['Attendant_ID']; ?></td>
+                    <td><?php echo $row['Cage_ID']; ?></td>
+				    <td><a href ='#'><button class="btn btn-success">FULL DETAILS</button></td>
+                                                        
                  </tr>
                   <?php } ?>
                                                     

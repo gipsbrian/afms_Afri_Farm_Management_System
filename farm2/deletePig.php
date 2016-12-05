@@ -1,5 +1,5 @@
 <?php
- include "includes/header.php";
+include "includes/header.php";
 include('database/db_conection.php');
     
     if(isset($_GET['id'])){
@@ -140,7 +140,7 @@ include('database/db_conection.php');
 
     
             </div>
-
+</div>
 
 <?php
 }

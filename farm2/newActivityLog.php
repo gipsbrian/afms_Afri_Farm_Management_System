@@ -58,17 +58,7 @@ include('database/db_conection.php');
 							<div class="col-xs-12">
 								<div class="page-title-box">
                                     <h4 class="page-title">Daily Attendant Activity Log </h4>
-                                    <ol class="breadcrumb p-0 m-0">
-                                        <li>
-                                            <a href="#">Zircos</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Pages </a>
-                                        </li>
-                                        <li class="active">
-                                            Blank Page
-                                        </li>
-                                    </ol>
+                          
                                     <div class="clearfix"></div>
                                 </div>
 								 <div class="p-20">
@@ -227,10 +217,6 @@ include('database/db_conection.php');
                     </div> <!-- container -->
 
                 </div> <!-- content -->
-
-                <footer class="footer text-right">
-                    2016 © Zircos.
-                </footer>
 
             </div>
 

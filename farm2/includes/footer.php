@@ -185,6 +185,11 @@
         <script src="dist/sweetalert-dev.js"></script>
         <link rel="stylesheet" href="dist/sweetalert.css">
 
+        <script src="SweetAlert2/node_modules/es6-promise/dist/es6-promise.auto.min.js"></script>
+
+<script src="SweetAlert2/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="SweetAlert2/node_modules/sweetalert2/dist/sweetalert2.min.css">
+
        
 
   <!-- page specific js -->

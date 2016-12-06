@@ -72,7 +72,7 @@
                                     <li><a href="feedsreceivednote.php">Feeds Received Note</a></li>
                                     <li><a href="feedrequisitionform.php">Feed Requisition Form</a></li>
                                     <li><a href="viewfeedacquisitions.php">View Feed Acquisitions</a></li>
-                                    <li><a href="feedreceipt.php">Feed Receipt</a></li>
+                                    <li><a href="viewfeeds.php">View all feeds Receipt</a></li>
                                     <li><a href="feedreturnform.php">Feed Return Form</a></li>
                                     
                                    

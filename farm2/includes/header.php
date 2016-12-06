@@ -23,6 +23,8 @@
 
         <!-- <script src="assets/js/jquery.min.js"></script> -->
 
+
+
         
 <!-- 
          <link href="jQuery.filer/css/jquery.filer.css" type="text/css" rel="stylesheet" />
@@ -86,6 +88,11 @@
   <script src="dist/sweetalert-dev.js"></script>
   <link rel="stylesheet" href="dist/sweetalert.css">
         <!-- App favicon -->
+
+ <script src="SweetAlert2/node_modules/es6-promise/dist/es6-promise.auto.min.js"></script>
+
+<script src="SweetAlert2/node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+<link rel="stylesheet" href="SweetAlert2/node_modules/sweetalert2/dist/sweetalert2.min.css">
 
 
       

@@ -62,9 +62,14 @@ include('database/db_conection.php');
 
                                                   
                                                     <div class="form-group">
-                                                        <label for="dobe">Date <span class="text-danger">*</span></label>
-                                                        <input type="date" name="date" parsley-trigger="change" required
-                                                               placeholder="Enter date" class="form-control" id="=dobe">
+                                                    <label for="date">Date of Receipt<span class="text-danger">*</span></label>
+                                                        <div>
+                                                        <div class="input-group">
+                                                        
+                                                        <input type="text" name="date" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" required="" placeholder="Enter date of employment Start" parsley-trigger="change">
+                                                        <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar text-white"></i></span>
+                                                        </div>
+                                                    </div><!-- input-group -->
                                                     </div>
                                                     
 
@@ -78,7 +83,7 @@ include('database/db_conection.php');
                                                             $sel_query=mysqli_query($dbcon,$select);
                                                             while ($rw=mysqli_fetch_array($sel_query)) {
                                                                 ?>
-                                                                <option value="<?php echo $rw[0]; ?>" parsley-trigger="change" required><?php echo $rw[1]; ?></option>
+                                                                <option value="<?php echo $rw[1]; ?>" parsley-trigger="change" required><?php echo $rw[1]; ?></option>
 
                                                         <?php
                                                             }
@@ -181,7 +186,7 @@ include('database/db_conection.php');
        
          //$query = "INSERT INTO `feeds_receipt_acquisition`( 'Date', `Attendant`, `Item`, `Quantity`, `Quantity_After_Grinding`,`Total_Quantity_After_Mixing`) VALUES ('$date','$Full_Names','$item','$quantity','$quantityaftergrinding','$quantityaftermixing')" or die(mysqli_error($dbcon));
         
-        $query = "INSERT INTO `farm2`.`feed_receipt_acquisition` (`ID`, `Date`, `Attendant`, `Item`, `Quantity`, `Quantity_After_Grinding`, `Total_Quantity_After_Mixing`) VALUES (NULL, '$date', '$Full_Names', '$item', '$quantity', '$quantityaftergrinding', '$quantityaftermixing')" or die(mysqli_error($dbcon));
+        $query = "INSERT INTO `farm2`.`feed_receipt_acquisition` (`feed_receipt_acquisition_ID`, `Date`, `Attendant`, `Item`, `Quantity`, `Quantity_After_Grinding`, `Total_Quantity_After_Mixing`) VALUES (NULL, '$date', '$Full_Names', '$item', '$quantity', '$quantityaftergrinding', '$quantityaftermixing')" or die(mysqli_error($dbcon));
          
          $result = mysqli_query($dbcon , $query);
        if  (!$result){

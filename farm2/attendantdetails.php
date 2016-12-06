@@ -98,12 +98,12 @@ include('database/db_conection.php');
            ?>
 
            <script type="text/javascript">
-               swal({
-  title: 'Error!',
-  text: 'Do you want to continue',
-  type: 'error',
-  confirmButtonText: 'Cool'
-})
+//                swal({
+//   title: 'Error!',
+//   text: 'Do you want to continue',
+//   type: 'error',
+//   confirmButtonText: 'Cool'
+// })
            </script>
 
                         <div class="row">

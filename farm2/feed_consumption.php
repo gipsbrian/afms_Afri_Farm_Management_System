@@ -53,14 +53,32 @@ include('database/db_conection.php');
                                                 	
                                                     <div class="form-group">
                                                         <label for="dobe">Date <span class="text-danger">*</span></label>
-                                                        <input type="date" name="date" parsley-trigger="change" required
-                                                               placeholder="Enter date of birth" class="form-control" id="=dob">
+
+                                                        <input type="text" name="date" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" required="" placeholder="Enter date of employment Start" parsley-trigger="change">
+
+                                                        <!-- <input type="date" name="date" parsley-trigger="change" required
+                                                               placeholder="Enter date of birth" class="form-control" id="=dob"> -->
                                                     </div>
                                                     
                                                     <div class="form-group">
-                                                        <label for="dobe">Feed Composition <span class="text-danger">*</span></label>
-                                                        <input type="Text" name="feed" parsley-trigger="change" required
-                                                               placeholder="What does the food contain" class="form-control" id="dob">
+                                                        <label for="dobe">Feed Receipt <span class="text-danger">*</span></label>
+
+                                                        <select name="attendant" class="form-control">
+                                                        <option></option>
+                                                            <?php
+                                                            $select1="SELECT * FROM `feed_receipt_acquisition`";
+                                                            $sel_query1=mysqli_query($dbcon,$select1);
+                                                            while ($rw1=mysqli_fetch_array($sel_query1)) {
+                                                                ?>
+                                                                <option value="<?php echo $rw1[0]; ?>" parsley-trigger="change" required><?php echo $rw1[3]; ?></option>
+
+                                                        <?php
+                                                            }
+                                                            ?>
+
+                                                        </select>
+                                                       <!--  <input type="Text" name="feed" parsley-trigger="change" required
+                                                               placeholder="What does the food contain" class="form-control" id="dob"> -->
                                                     </div>
 
                                                     

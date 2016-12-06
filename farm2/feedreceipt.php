@@ -194,7 +194,47 @@ include('database/db_conection.php');
        }else{
           ?>
 
-          <script>window.open('index.php?message=entered','_self')</script>
+          <!-- <script>window.open('index.php?message=entered','_self')</script> -->
+
+           <script type="text/javascript">   
+                                                        function doyou2(){
+                                                            
+
+                                                                swal({
+                                                                      title: "Feeds inserted Succcessfully!",
+                                                                      text: "Thanks for Updating Feeds Menu.",
+                                                                      timer: 5000,
+                                                                      showConfirmButton: false
+                                                                    });
+                                                                         
+                                                                        // window.open('index.php?message=entered','_self');                                                        
+                                                                
+                                                        }
+
+                                                        
+
+        </script>
+
+
+          <script>
+
+          //window.open('index.php?message=entered','_self')
+
+
+
+
+
+
+          doyou2();
+ 
+          //setTimeout(function(){ window.location.href = 'index.php' }, 5000);
+
+
+          setTimeout(function(){ window.location.href = 'viewfeeds.php' }, 5000);
+
+          </script>
+
+
 
           <?php
 

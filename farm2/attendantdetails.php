@@ -432,7 +432,7 @@ include('database/db_conection.php');
                                                  <div class="form-group" align="center">
                                                         <div>
                                                            
-                                                             <?php echo '<a class="btn btn-danger" href="deletePig.php?id='.$the_attendant_id.'">Discontinue Attendant</a>'; ?>
+                                                             <?php echo '<a class="btn btn-danger" href="discontinue_attendant.php?id='.$the_attendant_id.'">Discontinue Attendant</a>'; ?>
 
                                                         </div> 
 

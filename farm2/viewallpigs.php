@@ -79,7 +79,7 @@
         </tr>
         </thead>
 		<?php
-        $view_users_query="SELECT * from Animal";//select query for viewing users.
+        $view_users_query="SELECT * from animal";//select query for viewing users.
         $run=mysqli_query($dbcon,$view_users_query);//here run the sql query.
 
         ?>

@@ -1,7 +1,15 @@
-<?php
- include "includes/header.php";
+
+<!DOCTYPE html>
+<html>
+<?php include "includes/header.php";
 include('database/db_conection.php');
-    
+
+?>
+
+
+
+<?php
+
     if(isset($_GET['id'])){
     $attendantID = $_GET ['id'];
     
@@ -10,9 +18,10 @@ include('database/db_conection.php');
                   
       $row = mysqli_fetch_array($select_attendant); 
 
-         $animal_id=$row[0];
+         $attendantName = $row[1];
 
    ?>
+
 
 
     <body class="fixed-left">
@@ -20,59 +29,33 @@ include('database/db_conection.php');
         <!-- Begin page -->
         <div id="wrapper">
 
-            <!-- Top Bar Start -->
      <?php include "includes/navbar.php";?>
 	  <?php include "includes/leftsidemenu.php";?>
 
-
-       
-    
-            <!-- Left Sidebar End -->
-
-
-
-            <!-- ============================================================== -->
-            <!-- Start right Content here -->
-            <!-- ============================================================== -->
             <div class="content-page">
                 <!-- Start content -->
                 <div class="content">
                     <div class="container">
 
 
-                        <div class="row">
-							<div class="col-xs-12">
-								<div class="page-title-box">
-                                    <h4 class="page-title">Discontinue of Attendant </h4>
-                                    <ol class="breadcrumb p-0 m-0">
-                                        <li>
-                                            <a href="#">Zircos</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Pages </a>
-                                        </li>
-                                        <li class="active">
-                                            Blank Page
-                                        </li>
-                                    </ol>
+             <div class="row">
+              <div class="col-xs-12">
+                <div class="page-title-box">
+                                    <h4 class="page-title">Discontinue of Attendant</h4>
+                                   
                                     <div class="clearfix"></div>
                                 </div>
+
 								           <div class="p-20">
                                                 <form action="discontinue_attendant.php" method="post" data-parsley-validate novalidate>
 
                                                     <br>
-
-                                             
-
                                                  <div class="form-group">
                                                     <label for="emailAddress">Name of Discontinued Attendant<span class="text-danger">*</span></label>
-                                                      <input value="<?php echo $attendantID; ?>" type = "text" class="form-control" disabled/>
+                                                      <input value="<?php echo $attendantName; ?>" type = "text" class="form-control" disabled/>
 
-                                                      <input value="<?php echo $attendantID; ?>" name ="attendantId" type = "hidden" class="form-control" />
+                                                      <input value="<?php echo $attendantID ; ?>" name ="attendantId" type = "hidden" class="form-control" />
                                                     </div>
-
-                                                    
-                                                
 
                                                     <br>
 
@@ -130,9 +113,10 @@ include('database/db_conection.php');
                                                         </button>
                                                         
                                                     </div>
-
+                                                    <br/>
+                                                   
                                                 </form>
-                                            </div>
+                                               
 							</div>
 						</div>
                         <!-- end row -->

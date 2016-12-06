@@ -1,7 +1,14 @@
-<?php
-include "includes/header.php";
+<!DOCTYPE html>
+<html>
+<?php include "includes/header.php";
 include('database/db_conection.php');
-    
+
+?>
+
+
+
+
+<?php  
     if(isset($_GET['id'])){
 	$the_pig_id = $_GET ['id'];
 	
@@ -40,14 +47,14 @@ include('database/db_conection.php');
                     <div class="container">
 
 
-                        <div class="row">
-							<div class="col-xs-12">
-								<div class="page-title-box">
+                      <div class="row">
+							         <div class="col-xs-12">
+								        <div class="page-title-box">
                                     <h4 class="page-title">Discontinue Pig </h4>
                                    
                                     <div class="clearfix"></div>
                                 </div>
-								 <div class="p-20">
+								                     <div class="p-20">
                                               <form action="deletePig.php" method="post" data-parsley-validate novalidate>
 
                                                  <div class="form-group">
@@ -83,7 +90,7 @@ include('database/db_conection.php');
                                                     
                                            
                                                     <br>
-													 <div class="form-group">
+													                        <div class="form-group">
                                                         <label for="emailAddress">Reason of Discontinuity<span class="text-danger">*</span></label>
                                                         <input type="text" name="activity_description" parsley-trigger="change" required
                                                                placeholder="A detailed description of why the animal was discontinued" class="form-control" id="emailAddress">

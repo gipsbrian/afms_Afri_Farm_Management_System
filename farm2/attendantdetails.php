@@ -93,12 +93,23 @@ include('database/db_conection.php');
 				// $update_post = mysqli_query($dbcon, $query);
 	   // }
      //confirmQuery($update_pig);
+
+        
            ?>
+
+           <script type="text/javascript">
+               swal({
+  title: 'Error!',
+  text: 'Do you want to continue',
+  type: 'error',
+  confirmButtonText: 'Cool'
+})
+           </script>
 
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Edit Pig </h4>
+                                    <h4 class="page-title">Attendant Details: </h4>
                                    
                                     <div class="clearfix"></div>
                                 </div>
@@ -146,7 +157,48 @@ include('database/db_conection.php');
                                                 data-parsley-validate
 
                                                 // -->
+
+
                                                              <form role="form"  id="form" method="post"  action="editattendantdetails.php" enctype="multipart/form-data" >
+
+
+                                                     <?php
+
+                                                 $selectatt="SELECT * FROM `Attendant` WHERE Attendant_ID = '$the_attendant_id' ";
+                                                            $sel_att1=mysqli_query($dbcon,$selectatt);
+
+
+                                                             while ( $rw_att1= mysqli_fetch_array($sel_att1)) {
+                                                     # code...
+                                                        if($rw_att1['image_location']==null){
+                                                            ?>
+                                                            <div align="center">
+
+                                                            <span class="avatar-sm-box bg-success"><?php echo substr($rw_att1['Full_Names'],0,1);?>
+                                                                
+
+                                                            </div>
+
+                                                            
+                                                            <?php
+                                                        }else{
+                                                            ?>
+
+                                                            <div align="center">
+
+                                                                <img src=<?php echo ($rw_att1['image_location']);?> alt="user" class="thumb-lg img-rounded">
+
+                                                            </div>
+
+                                                            
+                                                            <?php
+                                                        }
+
+                                                                                                            }
+
+
+
+                                                        ?>
 
                                                     <div class="form-group">
                                                         <label for="dobe">Full Names <span class="text-danger">*</span></label>
@@ -237,12 +289,16 @@ include('database/db_conection.php');
                                                         
                                                     </div>
 
+                                                    
+
                                                     <div class="form-group">
                                                         <label for="emailAddress">Image Location - Name <span class="text-danger">*</span></label>
                                                         <input type="text" name="image_location" parsley-trigger="change" required
                                                                value="<?php echo $image_location; ?>" class="form-control" id="gender" disabled>
                                                         
                                                     </div>
+
+
 
 
 

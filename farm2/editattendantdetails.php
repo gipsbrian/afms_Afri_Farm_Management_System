@@ -477,22 +477,17 @@ include('database/db_conection.php');
       $message = "Data Save In Database";
 
          // $the_attendant_id = $_POST ['a_id'];
+
+         
+
+
+                                                               
+
+                                                                 
+
+                                                                 
+
        
-
-        $attendant_id1 = $_POST['attendant_id'];
-        $names  = $_POST['names'];
-
-        $date_joined = $_POST['date_joined'];
-        $residence = $_POST['residence'];
-        $contact = $_POST['contact'];
-        $nok = $_POST['nok'];
-        $nokc = $_POST['nokc'];
-        $sal = $_POST['sal'];
-        $pri_role = $_POST['pri_role'];
-        $sec_role = $_POST['sec_role'];
-        $qualify = $_POST['qualify'];
-        $train = $_POST['train'];
-        $gender = $_POST['gender'];
 
 
 
@@ -504,11 +499,98 @@ include('database/db_conection.php');
 
       ?>
 
+
+
+
       <script type="text/javascript">   
 
-                                                        doyou3();
+                                                        //doyou3();
 
-                                                        function doyou3(){
+                                                        // swal({
+                                                        //       title: 'Are you sure?',
+                                                        //       text: "You won't be able to revert this!",
+                                                        //       type: 'warning',
+                                                        //       showCancelButton: true,
+                                                        //       confirmButtonColor: '#3085d6',
+                                                        //       cancelButtonColor: '#d33',
+                                                        //       confirmButtonText: 'Yes, delete it!',
+                                                        //       cancelButtonText: 'No, cancel!',
+                                                        //       confirmButtonClass: 'btn btn-success',
+                                                        //       cancelButtonClass: 'btn btn-danger',
+                                                        //       buttonsStyling: false
+                                                        //     }).then(function () {
+                                                        //       swal(
+                                                        //         'Deleted!',
+                                                        //         'Your file has been deleted.',
+                                                        //         'success'
+                                                        //       )
+                                                        //     }, function (dismiss) {
+                                                        //       // dismiss can be 'cancel', 'overlay',
+                                                        //       // 'close', and 'timer'
+                                                        //       if (dismiss === 'cancel') {
+                                                        //         swal(
+                                                        //           'Cancelled',
+                                                        //           'Your imaginary file is safe :)',
+                                                        //           'error'
+                                                        //         )
+                                                        //       }
+                                                        //     })
+
+                                                        // swal({
+                                                        //       title: 'Are you sure?',
+                                                        //       text: "The Attendant details will be Updated!",
+                                                        //       type: 'warning',
+                                                        //       showCancelButton: true,
+                                                        //       confirmButtonColor: "#DD6B55",
+                                                        //       //cancelButtonColor: '#d33',
+                                                        //       confirmButtonText: 'Yes, Update Attendant details!',
+                                                        //       cancelButtonText: 'No, Ignore!',
+                                                        //       confirmButtonClass: 'btn btn-success',
+                                                        //       cancelButtonClass: 'btn btn-danger',
+                                                        //       buttonsStyling: false
+                                                        //     }).then(function () {
+                                                        //       swal({
+                                                        //         // 'Deleted!',
+                                                        //         // 'Your file has been deleted.',
+                                                        //         // 'success'
+                                                        //         title: "Attendant details edited/updated Succcessfully!",
+                                                        //               text: "Thanks for Updating Pigs Menu.",
+                                                        //               timer: 5000,
+                                                        //               showConfirmButton: false
+
+                                                                 
+                                                        //       })
+                                                        //       //setTimeout(function(){ window.location.href = 'farm_staff_details.php' }, 5000);
+
+                                                              
+                                                        //     }, function (dismiss) {
+                                                        //       // dismiss can be 'cancel', 'overlay',
+                                                        //       // 'close', and 'timer'
+                                                        //       if (dismiss === 'cancel') {
+                                                        //         swal({
+                                                        //           // 'Cancelled',
+                                                        //           // 'Your imaginary file is safe :)',
+                                                        //           // 'error'
+
+                                                                  
+                                                        //               title: "Attendant details have not been updated!",
+                                                        //               type: "error",
+                                                        //               text: " Attendant Menu Not Updated.",
+                                                        //               timer: 5000,
+                                                        //               showConfirmButton: false
+                                                                    
+
+                                                                
+
+
+                                                        //         })
+                                                        //        // setTimeout(function(){ window.location.href = 'farm_staff_details.php' }, 5000);
+                                                        //       }
+                                                        //     })
+
+
+
+                                                       // function doyou3(){
                                                             swal({
                                                               title: "Are you sure?",
                                                               text: "This Attendant details will be Updated!",
@@ -520,9 +602,12 @@ include('database/db_conection.php');
                                                               closeOnConfirm: false,
                                                               closeOnCancel: false
                                                             },
-                                                            function(isConfirm){
+                                                            function(isConfirm) {
+                                                               
 
-                                                              if (isConfirm) {
+
+
+                                                              if(isConfirm == true) {
 
                                                                 swal({
                                                                       title: "Attendant details edited/updated Succcessfully!",
@@ -532,11 +617,31 @@ include('database/db_conection.php');
                                                                     });
 
 
-                                                               
 
-                                                                <?php
 
-                                                                 $query2 = "UPDATE `attendant` SET `Full_Names` = '$names', 
+                                                            
+
+                                                                 setTimeout(function(){ window.location.href = 'farm_staff_details.php' }, 5000);
+
+                                                                     <?php
+
+                                                  $attendant_id1 = $_POST['attendant_id'];
+                                                                $names  = $_POST['names'];
+
+                                                                $date_joined = $_POST['date_joined'];
+                                                                $residence = $_POST['residence'];
+                                                                $contact = $_POST['contact'];
+                                                                $nok = $_POST['nok'];
+                                                                $nokc = $_POST['nokc'];
+                                                                $sal = $_POST['sal'];
+                                                                $pri_role = $_POST['pri_role'];
+                                                                $sec_role = $_POST['sec_role'];
+                                                                $qualify = $_POST['qualify'];
+                                                                $train = $_POST['train'];
+                                                                $gender = $_POST['gender'];
+
+
+                                                                $query2 = "UPDATE `attendant` SET `Full_Names` = '$names', 
                                                                                     `Date_Joined` = '$date_joined',
                                                                                     `Residence` ='$residence', 
                                                                                     `Contact` ='$contact',
@@ -553,36 +658,34 @@ include('database/db_conection.php');
 
                                                                    $result2 = mysqli_query($dbcon , $query2);
 
-                                                                    if  (!$result2){
-                                                                            die ('QUERY FAILED' . mysqli_error($dbcon));
-                                                                         }else{
-
-                                                                         
 
 
 
+                                                               
+
+                                                                     
+       
+
+
+                                                                    // if  (!$result2){
+                                                                    //         die ('QUERY FAILED' . mysqli_error($dbcon));
+                                                                    //      }else{
 
                                                                 ?>
 
-                                                                 
-                                                                         
+                                                                 // <?php
 
+                                                                 // }
 
-                                                                 setTimeout(function(){ window.location.href = 'farm_staff_details.php' }, 5000);
-
-                                                                 <?php
-
-                                                                 }
-
-                                                                 ?>
+                                                                 // ?>
 
 
 
 
                                                               } else {
 
-
-                                                                //swal("Cancelled", "The Pig has not been edited :)", "error");
+                                                               // if(!isConfirm){
+                                                                    //swal("Cancelled", "The Pig has not been edited :)", "error");
                                                                  swal({
                                                                       title: "Attendant details have not been updated!",
                                                                       type: "error",
@@ -593,9 +696,29 @@ include('database/db_conection.php');
 
                                                                 setTimeout(function(){ window.location.href = 'farm_staff_details.php' }, 5000);
 
+                                                                
+
+
+                                                               // }
+
+
+                                                                
                                                               }
-                                                                });
-                                                        }
+
+
+                                                                } //close if function isConfirm
+
+
+
+
+
+
+                                                                );
+
+
+
+                                                                
+                                                       //}
                                                         
 
       </script>
@@ -659,7 +782,7 @@ include('database/db_conection.php');
 
 
 
-        }
+    }
 
 
        //}

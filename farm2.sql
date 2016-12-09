@@ -1,21 +1,11 @@
 -- phpMyAdmin SQL Dump
-<<<<<<< HEAD
 -- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2016 at 09:32 AM
+-- Generation Time: Dec 09, 2016 at 06:42 AM
 -- Server version: 5.7.14
 -- PHP Version: 7.0.10
-=======
--- version 4.1.14
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Dec 02, 2016 at 10:52 AM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -36,19 +26,13 @@ SET time_zone = "+00:00";
 -- Table structure for table `animal`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `animal` (
-=======
-CREATE TABLE IF NOT EXISTS `animal` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Animal_ID` varchar(100) NOT NULL,
   `Date_Of_Birth` date NOT NULL,
   `Date_Of_Weaning` date DEFAULT NULL,
   `Breed_Of_Animal` varchar(100) NOT NULL,
   `Gender` enum('male','female') NOT NULL,
-  `Location_ID` int(11) NOT NULL,
-  PRIMARY KEY (`Animal_ID`),
-  KEY `Location_ID` (`Location_ID`)
+  `Location_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -68,16 +52,11 @@ INSERT INTO `animal` (`Animal_ID`, `Date_Of_Birth`, `Date_Of_Weaning`, `Breed_Of
 -- Table structure for table `animal_death_tracker`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `animal_death_tracker` (
-=======
-CREATE TABLE IF NOT EXISTS `animal_death_tracker` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date_Of_Death` date NOT NULL,
   `Weight_At_Death` int(11) NOT NULL,
   `Cause_Of_Death` varchar(100) NOT NULL,
-  `Animal_ID` varchar(100) NOT NULL,
-  KEY `Animal_ID` (`Animal_ID`)
+  `Animal_ID` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -86,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `animal_death_tracker` (
 -- Table structure for table `animal_discontinue`
 --
 
-CREATE TABLE IF NOT EXISTS `animal_discontinue` (
+CREATE TABLE `animal_discontinue` (
   `Animal_ID` varchar(40) NOT NULL,
   `Date_Discontinued` varchar(40) NOT NULL,
   `Time_Discontinued` varchar(40) NOT NULL,
@@ -118,18 +97,12 @@ INSERT INTO `animal_discontinue` (`Animal_ID`, `Date_Discontinued`, `Time_Discon
 -- Table structure for table `animal_feed_consumption`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `animal_feed_consumption` (
-=======
-CREATE TABLE IF NOT EXISTS `animal_feed_consumption` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date_Of_Consumption` date NOT NULL,
   `Feed_Composition` varchar(100) NOT NULL,
   `Meal_Weight` float NOT NULL,
   `Location_ID` int(11) NOT NULL,
-  `Attendant_ID` int(11) NOT NULL,
-  KEY `Location_ID` (`Location_ID`),
-  KEY `Attendant_ID` (`Attendant_ID`)
+  `Attendant_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -156,16 +129,11 @@ INSERT INTO `animal_feed_consumption` (`Date_Of_Consumption`, `Feed_Composition`
 -- Table structure for table `animal_location`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `animal_location` (
-=======
-CREATE TABLE IF NOT EXISTS `animal_location` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Location_ID` int(11) NOT NULL,
   `Location_Name` varchar(100) NOT NULL,
   `Pen_Number` int(11) NOT NULL COMMENT 'Hold the pigs pen local...',
-  `Location_Description` varchar(100) NOT NULL,
-  PRIMARY KEY (`Location_ID`)
+  `Location_Description` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -236,20 +204,14 @@ INSERT INTO `animal_location` (`Location_ID`, `Location_Name`, `Pen_Number`, `Lo
 -- Table structure for table `animal_medication_tracker`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `animal_medication_tracker` (
-=======
-CREATE TABLE IF NOT EXISTS `animal_medication_tracker` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date_Of_Medication` varchar(40) NOT NULL,
   `Dosage` varchar(100) NOT NULL,
   `Purpose` int(11) NOT NULL,
   `Type_Of_Medication` varchar(100) NOT NULL,
   `Administered_By` varchar(100) NOT NULL,
   `Animal_ID` varchar(100) NOT NULL,
-  `Attendant_ID` int(11) NOT NULL,
-  KEY `Animal_ID` (`Animal_ID`),
-  KEY `Attendant_ID` (`Attendant_ID`)
+  `Attendant_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -258,18 +220,12 @@ CREATE TABLE IF NOT EXISTS `animal_medication_tracker` (
 -- Table structure for table `animal_transfer_schedule`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `animal_transfer_schedule` (
-=======
-CREATE TABLE IF NOT EXISTS `animal_transfer_schedule` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date_Of_Transfer` date NOT NULL,
   `New_Location_ID` int(11) NOT NULL,
   `Purpose_Of_Transfer` int(11) NOT NULL,
   `Animal_ID` varchar(100) NOT NULL,
-  `Location_ID` int(11) NOT NULL,
-  KEY `Animal_ID` (`Animal_ID`),
-  KEY `Location_ID` (`Location_ID`)
+  `Location_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -278,17 +234,11 @@ CREATE TABLE IF NOT EXISTS `animal_transfer_schedule` (
 -- Table structure for table `animal_weight_tracker`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `animal_weight_tracker` (
-=======
-CREATE TABLE IF NOT EXISTS `animal_weight_tracker` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date_Of_Weighin` varchar(40) NOT NULL,
   `Current_Weight` int(11) NOT NULL,
   `Animal_ID` varchar(100) NOT NULL,
-  `Location_ID` int(11) NOT NULL,
-  KEY `Animal_ID` (`Animal_ID`),
-  KEY `Animal_Weight_Tracker_ibfk_2` (`Location_ID`)
+  `Location_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -297,13 +247,8 @@ CREATE TABLE IF NOT EXISTS `animal_weight_tracker` (
 -- Table structure for table `attendant`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `attendant` (
   `Attendant_ID` int(11) NOT NULL,
-=======
-CREATE TABLE IF NOT EXISTS `attendant` (
-  `Attendant_ID` int(11) NOT NULL AUTO_INCREMENT,
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Full_Names` varchar(100) NOT NULL,
   `Date_Joined` varchar(255) NOT NULL,
   `Residence` varchar(100) NOT NULL,
@@ -316,14 +261,8 @@ CREATE TABLE IF NOT EXISTS `attendant` (
   `Additional_Training` varchar(100) DEFAULT NULL,
   `Current_Salary` int(11) NOT NULL,
   `Gender` enum('male','female') NOT NULL,
-<<<<<<< HEAD
   `image_location` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
-  `image_location` varchar(300) DEFAULT NULL,
-  PRIMARY KEY (`Attendant_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
 
 --
 -- Dumping data for table `attendant`
@@ -332,9 +271,7 @@ CREATE TABLE IF NOT EXISTS `attendant` (
 INSERT INTO `attendant` (`Attendant_ID`, `Full_Names`, `Date_Joined`, `Residence`, `Contact`, `Next_Of_Kin_Names`, `Next_Of_Kin_Contact`, `Primary_Role`, `Secondary_Role`, `Qualifications`, `Additional_Training`, `Current_Salary`, `Gender`, `image_location`) VALUES
 (1, 'Jacob Oloya', '2016-11-02', 'Kawempe', 79025487, 'Maria Oloya', 785421556, 'Veterinary Doctor', 'N/A', 'BSc Veterinary Medicine', 'Post Graduate in Animal Studies', 1800000, 'male', ''),
 (2, 'Larry Okutho', '2016-11-17', 'Ntinda ', 78245645, 'Gift Kasago', 78245866, 'Chief Breeder', 'Insemination Expert', 'Bsc Music Dance & Drama', 'Kwepena Exepert ', 125000, 'male', ''),
-(3, 'Mariah Nagadya', '2016-01-12', 'Kawempe', 78289556, 'Wamala Nagadya', 78289545, 'Farmer', 'Chicken Handler', 'Masters Farming', 'BSc Economics', 190000, 'female', ''),
-(6, 'fred', '11/08/2016', 'kabowa', 782025649, 'kizito', 798331662, 'fred', 'daq', 'bd', 'sfd', 212, 'female', ''),
-(7, 'Jane', '11/03/2016', 'Kisaasi', 782025649, 'Susan', 782023666, 'Dancer', 'Dancing', 'asdasd', 'asdasd', 12350000, 'male', '');
+(3, 'Mariah Nagadya', '2016-01-12', 'Kawempe', 78289556, 'Wamala Nagadya', 78289545, 'Farmer', 'Chicken Handler', 'Masters Farming', 'BSc Economics', 190000, 'female', '');
 
 -- --------------------------------------------------------
 
@@ -342,19 +279,13 @@ INSERT INTO `attendant` (`Attendant_ID`, `Full_Names`, `Date_Joined`, `Residence
 -- Table structure for table `attendant_activity_log`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `attendant_activity_log` (
-=======
-CREATE TABLE IF NOT EXISTS `attendant_activity_log` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Attendant_Name` varchar(40) NOT NULL,
   `Date_Of_Activity` varchar(60) NOT NULL,
   `Time_of_Activity` varchar(20) NOT NULL,
   `Description_Of_Activity` varchar(100) NOT NULL,
   `Verified_By` varchar(40) NOT NULL,
-  `Attendant_ID` int(11) NOT NULL,
-  PRIMARY KEY (`Date_Of_Activity`,`Time_of_Activity`),
-  KEY `Attendant_ID` (`Attendant_ID`)
+  `Attendant_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -363,19 +294,13 @@ CREATE TABLE IF NOT EXISTS `attendant_activity_log` (
 -- Table structure for table `attendant_discontinue`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `attendant_discontinue` (
-=======
-CREATE TABLE IF NOT EXISTS `attendant_discontinue` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Attendant_ID` int(11) NOT NULL,
   `Attendant_Name` varchar(40) NOT NULL,
   `Date_Discontinued` varchar(20) NOT NULL,
   `Time_Discontinued` varchar(10) NOT NULL,
   `Reason_Discontinued` varchar(100) NOT NULL,
-  `Verified_discontinued` varchar(20) NOT NULL,
-  PRIMARY KEY (`Attendant_ID`),
-  KEY `Attendant_ID` (`Attendant_ID`)
+  `Verified_discontinued` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -383,7 +308,9 @@ CREATE TABLE IF NOT EXISTS `attendant_discontinue` (
 --
 
 INSERT INTO `attendant_discontinue` (`Attendant_ID`, `Attendant_Name`, `Date_Discontinued`, `Time_Discontinued`, `Reason_Discontinued`, `Verified_discontinued`) VALUES
-(1, 'Jacob Oloya', '12/01/2016', '10:30 PM', 'sick', 'sick');
+(1, 'Jacob Oloya', '11/30/2016', '5:00 PM', 'sick', '1'),
+(6, 'fred', '11/30/2016', '5:15 PM', 'famus', '2'),
+(7, 'Jane', '12/08/2016', '4:00 PM', 'sick', '1');
 
 -- --------------------------------------------------------
 
@@ -391,19 +318,13 @@ INSERT INTO `attendant_discontinue` (`Attendant_ID`, `Attendant_Name`, `Date_Dis
 -- Table structure for table `chicken_feed_consumption`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `chicken_feed_consumption` (
-=======
-CREATE TABLE IF NOT EXISTS `chicken_feed_consumption` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date_Of_Consumption` varchar(11) NOT NULL,
   `Feed_Composition` varchar(100) NOT NULL,
   `Total_Weight` int(11) NOT NULL,
   `Water_Provided` int(11) NOT NULL,
   `Attendant_ID` int(11) NOT NULL,
-  `Cage_ID` int(11) NOT NULL,
-  KEY `Attendant_ID` (`Attendant_ID`),
-  KEY `Cage_ID` (`Cage_ID`)
+  `Cage_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -422,11 +343,7 @@ INSERT INTO `chicken_feed_consumption` (`Date_Of_Consumption`, `Feed_Composition
 -- Table structure for table `chicken_medication_tracker`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `chicken_medication_tracker` (
-=======
-CREATE TABLE IF NOT EXISTS `chicken_medication_tracker` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date_Of_Medication` varchar(11) NOT NULL,
   `Num_Of_Hens` int(11) DEFAULT NULL,
   `Num_Of_Cocks` int(11) DEFAULT NULL,
@@ -435,9 +352,7 @@ CREATE TABLE IF NOT EXISTS `chicken_medication_tracker` (
   `Purpose` varchar(100) NOT NULL,
   `Administered_By` varchar(100) NOT NULL,
   `Attendant_ID` int(11) NOT NULL,
-  `Cage_ID` int(11) NOT NULL,
-  KEY `Attendant_ID` (`Attendant_ID`),
-  KEY `Cage_ID` (`Cage_ID`)
+  `Cage_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -458,20 +373,14 @@ INSERT INTO `chicken_medication_tracker` (`Date_Of_Medication`, `Num_Of_Hens`, `
 -- Table structure for table `chicken_population_tracker`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `chicken_population_tracker` (
-=======
-CREATE TABLE IF NOT EXISTS `chicken_population_tracker` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date_Of_Census` date NOT NULL,
   `Num_Of_Transfers_In` int(11) DEFAULT NULL,
   `Num_Of_Transfers_Out` int(11) DEFAULT NULL,
   `Num_Of_Deaths` int(11) DEFAULT NULL,
   `Num_Of_Chicken` int(11) NOT NULL,
   `Cage_ID` int(11) NOT NULL,
-  `Attendant_ID` int(11) NOT NULL,
-  KEY `Cage_ID` (`Cage_ID`),
-  KEY `Attendant_ID` (`Attendant_ID`)
+  `Attendant_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -480,20 +389,14 @@ CREATE TABLE IF NOT EXISTS `chicken_population_tracker` (
 -- Table structure for table `chicken_sales`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `chicken_sales` (
-=======
-CREATE TABLE IF NOT EXISTS `chicken_sales` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date_Of_Sale` varchar(11) NOT NULL,
   `Num_Of_Hens` int(11) DEFAULT NULL,
   `Num_Of_Cocks` int(11) DEFAULT NULL,
   `Customer_Name` varchar(100) NOT NULL,
   `Total_Amount` int(11) NOT NULL,
   `Attendant_ID` int(11) NOT NULL,
-  `Cage_ID` int(11) NOT NULL,
-  KEY `Attendant_ID` (`Attendant_ID`),
-  KEY `Cage_ID` (`Cage_ID`)
+  `Cage_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -514,15 +417,10 @@ INSERT INTO `chicken_sales` (`Date_Of_Sale`, `Num_Of_Hens`, `Num_Of_Cocks`, `Cus
 -- Table structure for table `chicken_storage`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `chicken_storage` (
-=======
-CREATE TABLE IF NOT EXISTS `chicken_storage` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Cage_ID` int(11) NOT NULL,
   `Cage_Number` varchar(100) NOT NULL,
-  `Cage_Description` varchar(100) NOT NULL,
-  PRIMARY KEY (`Cage_ID`)
+  `Cage_Description` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -538,20 +436,14 @@ INSERT INTO `chicken_storage` (`Cage_ID`, `Cage_Number`, `Cage_Description`) VAL
 -- Table structure for table `chicken_transfer_tracker`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `chicken_transfer_tracker` (
-=======
-CREATE TABLE IF NOT EXISTS `chicken_transfer_tracker` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date_Of_Transfer` varchar(11) NOT NULL,
   `Num_Of_Hens_Transfered` int(11) NOT NULL,
   `Num_Of_Cocks_Transfered` int(11) NOT NULL,
   `Receiving_Cage_ID` int(11) NOT NULL,
   `Receiving_Attendant_ID` int(11) NOT NULL,
   `Attendant_ID` int(11) NOT NULL,
-  `Cage_ID` int(11) NOT NULL,
-  KEY `Attendant_ID` (`Attendant_ID`),
-  KEY `Cage_ID` (`Cage_ID`)
+  `Cage_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -574,11 +466,7 @@ INSERT INTO `chicken_transfer_tracker` (`Date_Of_Transfer`, `Num_Of_Hens_Transfe
 -- Table structure for table `egg_collection_tracker`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `egg_collection_tracker` (
-=======
-CREATE TABLE IF NOT EXISTS `egg_collection_tracker` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date_Of_Collection` varchar(11) NOT NULL,
   `Num_Of_Laying_Hens` int(11) NOT NULL,
   `Num_Of_Cocks` int(11) NOT NULL,
@@ -586,9 +474,7 @@ CREATE TABLE IF NOT EXISTS `egg_collection_tracker` (
   `Num_Of_Damaged_Eggs` int(11) DEFAULT NULL,
   `Verified_By` varchar(100) NOT NULL,
   `Attendant_ID` int(11) NOT NULL,
-  `Cage_ID` int(11) NOT NULL,
-  KEY `Attendant_ID` (`Attendant_ID`),
-  KEY `Cage_ID` (`Cage_ID`)
+  `Cage_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -609,18 +495,12 @@ INSERT INTO `egg_collection_tracker` (`Date_Of_Collection`, `Num_Of_Laying_Hens`
 -- Table structure for table `egg_dispatch`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `egg_dispatch` (
-=======
-CREATE TABLE IF NOT EXISTS `egg_dispatch` (
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date_Of_Dispatch` date NOT NULL,
   `Num_Of_Trays` int(11) NOT NULL,
   `Verified_By` varchar(100) NOT NULL,
   `Attendant_ID` int(11) NOT NULL,
-  `Cage_ID` int(11) NOT NULL,
-  KEY `Attendant_ID` (`Attendant_ID`),
-  KEY `Cage_ID` (`Cage_ID`)
+  `Cage_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -629,20 +509,11 @@ CREATE TABLE IF NOT EXISTS `egg_dispatch` (
 -- Table structure for table `expenditure`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `expenditure` (
   `Expenditure_ID` int(11) NOT NULL,
   `Expenditure_Type` varchar(100) NOT NULL,
   `Expenditure_Description` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
-CREATE TABLE IF NOT EXISTS `expenditure` (
-  `Expenditure_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Expenditure_Type` varchar(100) NOT NULL,
-  `Expenditure_Description` varchar(100) NOT NULL,
-  PRIMARY KEY (`Expenditure_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
 
 -- --------------------------------------------------------
 
@@ -650,7 +521,6 @@ CREATE TABLE IF NOT EXISTS `expenditure` (
 -- Table structure for table `expenditure_voucher`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `expenditure_voucher` (
   `Voucher_ID` int(11) NOT NULL,
   `Date_Of_Sale` int(11) NOT NULL,
@@ -658,18 +528,6 @@ CREATE TABLE `expenditure_voucher` (
   `Expenditure_ID` int(11) NOT NULL,
   `Supplier_ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
-CREATE TABLE IF NOT EXISTS `expenditure_voucher` (
-  `Voucher_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Date_Of_Sale` int(11) NOT NULL,
-  `Total_Amount_Paid` int(11) NOT NULL,
-  `Expenditure_ID` int(11) NOT NULL,
-  `Supplier_ID` int(11) DEFAULT NULL,
-  PRIMARY KEY (`Voucher_ID`),
-  KEY `Expenditure_ID` (`Expenditure_ID`),
-  KEY `Supplier_ID` (`Supplier_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
 
 -- --------------------------------------------------------
 
@@ -677,7 +535,6 @@ CREATE TABLE IF NOT EXISTS `expenditure_voucher` (
 -- Table structure for table `feeds_purchase_order`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `feeds_purchase_order` (
   `Feed_Purchase_Order_ID` int(11) NOT NULL,
   `Date_Of_Purchase_Order` date NOT NULL,
@@ -685,17 +542,6 @@ CREATE TABLE `feeds_purchase_order` (
   `Quantity` float NOT NULL,
   `Supplier_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
-CREATE TABLE IF NOT EXISTS `feeds_purchase_order` (
-  `Feed_Purchase_Order_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Date_Of_Purchase_Order` date NOT NULL,
-  `Item_Purchased` varchar(100) NOT NULL,
-  `Quantity` float NOT NULL,
-  `Supplier_ID` int(11) NOT NULL,
-  PRIMARY KEY (`Feed_Purchase_Order_ID`),
-  KEY `Supplier_ID` (`Supplier_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
 
 -- --------------------------------------------------------
 
@@ -703,7 +549,6 @@ CREATE TABLE IF NOT EXISTS `feeds_purchase_order` (
 -- Table structure for table `feeds_receipt_attendant`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `feeds_receipt_attendant` (
   `Feed_Receipt_Att_ID` int(11) NOT NULL,
   `Item_Received` varchar(100) NOT NULL,
@@ -711,17 +556,6 @@ CREATE TABLE `feeds_receipt_attendant` (
   `Quantity` float NOT NULL,
   `Attendant_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
-CREATE TABLE IF NOT EXISTS `feeds_receipt_attendant` (
-  `Feed_Receipt_Att_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Item_Received` varchar(100) NOT NULL,
-  `Date_Of_Receipt` date NOT NULL,
-  `Quantity` float NOT NULL,
-  `Attendant_ID` int(11) NOT NULL,
-  PRIMARY KEY (`Feed_Receipt_Att_ID`),
-  KEY `Attendant_ID` (`Attendant_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
 
 -- --------------------------------------------------------
 
@@ -729,7 +563,6 @@ CREATE TABLE IF NOT EXISTS `feeds_receipt_attendant` (
 -- Table structure for table `feeds_receipt_supplier`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `feeds_receipt_supplier` (
   `Feed_Receipt_Sup_ID` int(11) NOT NULL,
   `Date_Of_Receipt` date NOT NULL,
@@ -737,16 +570,6 @@ CREATE TABLE `feeds_receipt_supplier` (
   `Quantity` float NOT NULL,
   `Supplier_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
-CREATE TABLE IF NOT EXISTS `feeds_receipt_supplier` (
-  `Feed_Receipt_Sup_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Date_Of_Receipt` date NOT NULL,
-  `Item_Received` varchar(100) NOT NULL,
-  `Quantity` float NOT NULL,
-  `Supplier_ID` int(11) NOT NULL,
-  PRIMARY KEY (`Feed_Receipt_Sup_ID`),
-  KEY `Supplier_ID` (`Supplier_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -754,18 +577,14 @@ CREATE TABLE IF NOT EXISTS `feeds_receipt_supplier` (
 -- Table structure for table `feeds_received`
 --
 
-CREATE TABLE IF NOT EXISTS `feeds_received` (
-  `Feeds_Received_ID` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `feeds_received` (
+  `Feeds_Received_ID` int(11) NOT NULL,
   `Date_Of_Receiving` varchar(20) NOT NULL,
   `Name_Of_Feeds_Received` varchar(100) NOT NULL,
   `Supplier_Of_Feeds` int(11) NOT NULL,
   `Quantity` int(11) NOT NULL,
-  `Store_Keeper_ID` int(11) NOT NULL,
-  PRIMARY KEY (`Feeds_Received_ID`),
-  KEY `Supplier_Of_Feeds` (`Supplier_Of_Feeds`),
-  KEY `Supplier_Of_Feeds_2` (`Supplier_Of_Feeds`),
-  KEY `Store_Keeper_ID` (`Store_Keeper_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+  `Store_Keeper_ID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `feeds_received`
@@ -775,7 +594,6 @@ INSERT INTO `feeds_received` (`Feeds_Received_ID`, `Date_Of_Receiving`, `Name_Of
 (6, '11/29/2016', 'hog', 1, 33, 2),
 (7, '11/29/2016', 'hot dog', 1, 33, 3),
 (8, '11/29/2016', 'Rolled grass', 1, 12, 2);
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
 
 -- --------------------------------------------------------
 
@@ -783,7 +601,6 @@ INSERT INTO `feeds_received` (`Feeds_Received_ID`, `Date_Of_Receiving`, `Name_Of
 -- Table structure for table `feeds_requisiton`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `feeds_requisiton` (
   `Feed_Requisition_ID` int(11) NOT NULL,
   `Date_Of_Requisition` date NOT NULL,
@@ -791,17 +608,6 @@ CREATE TABLE `feeds_requisiton` (
   `Quantity` float NOT NULL,
   `Attendant_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
-CREATE TABLE IF NOT EXISTS `feeds_requisiton` (
-  `Feed_Requisition_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Date_Of_Requisition` date NOT NULL,
-  `Item_Requisitioned` varchar(100) NOT NULL,
-  `Quantity` float NOT NULL,
-  `Attendant_ID` int(11) NOT NULL,
-  PRIMARY KEY (`Feed_Requisition_ID`),
-  KEY `Attendant_ID` (`Attendant_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
 
 -- --------------------------------------------------------
 
@@ -809,26 +615,14 @@ CREATE TABLE IF NOT EXISTS `feeds_requisiton` (
 -- Table structure for table `feeds_return`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `feeds_return` (
   `Feeds_Return_ID` int(11) NOT NULL,
-=======
-CREATE TABLE IF NOT EXISTS `feeds_return` (
-  `Feeds_Return_ID` int(11) NOT NULL AUTO_INCREMENT,
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date_Of_Return` date NOT NULL,
   `Item_Returned` varchar(100) NOT NULL,
   `Quantity` float NOT NULL,
   `Reason_Of_Return` int(11) NOT NULL,
-<<<<<<< HEAD
   `Attendant_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
-  `Attendant_ID` int(11) NOT NULL,
-  PRIMARY KEY (`Feeds_Return_ID`),
-  KEY `Attendant_ID` (`Attendant_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
 
 -- --------------------------------------------------------
 
@@ -836,20 +630,11 @@ CREATE TABLE IF NOT EXISTS `feeds_return` (
 -- Table structure for table `feed_consumption`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `feed_consumption` (
   `Feed_ID` int(11) NOT NULL,
   `Feed_Name` varchar(100) NOT NULL,
   `Quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
-CREATE TABLE IF NOT EXISTS `feed_consumption` (
-  `Feed_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Feed_Name` varchar(100) NOT NULL,
-  `Quantity` int(11) NOT NULL,
-  PRIMARY KEY (`Feed_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
 
 -- --------------------------------------------------------
 
@@ -857,26 +642,15 @@ CREATE TABLE IF NOT EXISTS `feed_consumption` (
 -- Table structure for table `feed_receipt_acquisition`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `feed_receipt_acquisition` (
   `feed_receipt_acquisition_ID` int(11) NOT NULL,
-=======
-CREATE TABLE IF NOT EXISTS `feed_receipt_acquisition` (
-  `feed_receipt_acquisition_ID` int(11) NOT NULL AUTO_INCREMENT,
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Date` varchar(20) DEFAULT NULL,
   `Attendant` varchar(255) DEFAULT NULL,
   `Item` varchar(255) DEFAULT NULL,
   `Quantity` int(11) DEFAULT NULL,
   `Quantity_After_Grinding` int(11) DEFAULT NULL,
-<<<<<<< HEAD
   `Total_Quantity_After_Mixing` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
-  `Total_Quantity_After_Mixing` int(11) DEFAULT NULL,
-  PRIMARY KEY (`feed_receipt_acquisition_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
 
 --
 -- Dumping data for table `feed_receipt_acquisition`
@@ -893,26 +667,14 @@ INSERT INTO `feed_receipt_acquisition` (`feed_receipt_acquisition_ID`, `Date`, `
 -- Table structure for table `pig_sales`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `pig_sales` (
   `Pig_Sales_ID` int(11) NOT NULL,
-=======
-CREATE TABLE IF NOT EXISTS `pig_sales` (
-  `Pig_Sales_ID` int(11) NOT NULL AUTO_INCREMENT,
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
   `Customer_Name` varchar(100) NOT NULL,
   `Date_Of_Sale` date NOT NULL,
   `Price_Of_Animal` float NOT NULL,
   `Quantity` float NOT NULL,
-<<<<<<< HEAD
   `Animal_ID` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
-  `Animal_ID` varchar(100) NOT NULL,
-  PRIMARY KEY (`Pig_Sales_ID`),
-  KEY `Animal_ID` (`Animal_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
 
 -- --------------------------------------------------------
 
@@ -920,7 +682,6 @@ CREATE TABLE IF NOT EXISTS `pig_sales` (
 -- Table structure for table `supplier`
 --
 
-<<<<<<< HEAD
 CREATE TABLE `supplier` (
   `Supplier_ID` int(11) NOT NULL,
   `Supplier_Name` varchar(100) NOT NULL,
@@ -928,16 +689,6 @@ CREATE TABLE `supplier` (
   `Supplier_Contact` int(11) NOT NULL,
   `Supplier_Address` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-=======
-CREATE TABLE IF NOT EXISTS `supplier` (
-  `Supplier_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `Supplier_Name` varchar(100) NOT NULL,
-  `Item_Supplied` int(11) NOT NULL,
-  `Supplier_Contact` int(11) NOT NULL,
-  `Supplier_Address` int(11) NOT NULL,
-  PRIMARY KEY (`Supplier_ID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
->>>>>>> b921336280d3c3cdcb75c97d4be993b9d0e6a222
 
 --
 -- Dumping data for table `supplier`
@@ -946,6 +697,284 @@ CREATE TABLE IF NOT EXISTS `supplier` (
 INSERT INTO `supplier` (`Supplier_ID`, `Supplier_Name`, `Item_Supplied`, `Supplier_Contact`, `Supplier_Address`) VALUES
 (1, 'wiz', 56, 2, 23);
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `animal`
+--
+ALTER TABLE `animal`
+  ADD PRIMARY KEY (`Animal_ID`),
+  ADD KEY `Location_ID` (`Location_ID`);
+
+--
+-- Indexes for table `animal_death_tracker`
+--
+ALTER TABLE `animal_death_tracker`
+  ADD KEY `Animal_ID` (`Animal_ID`);
+
+--
+-- Indexes for table `animal_feed_consumption`
+--
+ALTER TABLE `animal_feed_consumption`
+  ADD KEY `Location_ID` (`Location_ID`),
+  ADD KEY `Attendant_ID` (`Attendant_ID`);
+
+--
+-- Indexes for table `animal_location`
+--
+ALTER TABLE `animal_location`
+  ADD PRIMARY KEY (`Location_ID`);
+
+--
+-- Indexes for table `animal_medication_tracker`
+--
+ALTER TABLE `animal_medication_tracker`
+  ADD KEY `Animal_ID` (`Animal_ID`),
+  ADD KEY `Attendant_ID` (`Attendant_ID`);
+
+--
+-- Indexes for table `animal_transfer_schedule`
+--
+ALTER TABLE `animal_transfer_schedule`
+  ADD KEY `Animal_ID` (`Animal_ID`),
+  ADD KEY `Location_ID` (`Location_ID`);
+
+--
+-- Indexes for table `animal_weight_tracker`
+--
+ALTER TABLE `animal_weight_tracker`
+  ADD KEY `Animal_ID` (`Animal_ID`),
+  ADD KEY `Animal_Weight_Tracker_ibfk_2` (`Location_ID`);
+
+--
+-- Indexes for table `attendant`
+--
+ALTER TABLE `attendant`
+  ADD PRIMARY KEY (`Attendant_ID`);
+
+--
+-- Indexes for table `attendant_activity_log`
+--
+ALTER TABLE `attendant_activity_log`
+  ADD PRIMARY KEY (`Date_Of_Activity`,`Time_of_Activity`),
+  ADD KEY `Attendant_ID` (`Attendant_ID`);
+
+--
+-- Indexes for table `attendant_discontinue`
+--
+ALTER TABLE `attendant_discontinue`
+  ADD PRIMARY KEY (`Attendant_ID`),
+  ADD KEY `Attendant_ID` (`Attendant_ID`);
+
+--
+-- Indexes for table `chicken_feed_consumption`
+--
+ALTER TABLE `chicken_feed_consumption`
+  ADD KEY `Attendant_ID` (`Attendant_ID`),
+  ADD KEY `Cage_ID` (`Cage_ID`);
+
+--
+-- Indexes for table `chicken_medication_tracker`
+--
+ALTER TABLE `chicken_medication_tracker`
+  ADD KEY `Attendant_ID` (`Attendant_ID`),
+  ADD KEY `Cage_ID` (`Cage_ID`);
+
+--
+-- Indexes for table `chicken_population_tracker`
+--
+ALTER TABLE `chicken_population_tracker`
+  ADD KEY `Cage_ID` (`Cage_ID`),
+  ADD KEY `Attendant_ID` (`Attendant_ID`);
+
+--
+-- Indexes for table `chicken_sales`
+--
+ALTER TABLE `chicken_sales`
+  ADD KEY `Attendant_ID` (`Attendant_ID`),
+  ADD KEY `Cage_ID` (`Cage_ID`);
+
+--
+-- Indexes for table `chicken_storage`
+--
+ALTER TABLE `chicken_storage`
+  ADD PRIMARY KEY (`Cage_ID`);
+
+--
+-- Indexes for table `chicken_transfer_tracker`
+--
+ALTER TABLE `chicken_transfer_tracker`
+  ADD KEY `Attendant_ID` (`Attendant_ID`),
+  ADD KEY `Cage_ID` (`Cage_ID`);
+
+--
+-- Indexes for table `egg_collection_tracker`
+--
+ALTER TABLE `egg_collection_tracker`
+  ADD KEY `Attendant_ID` (`Attendant_ID`),
+  ADD KEY `Cage_ID` (`Cage_ID`);
+
+--
+-- Indexes for table `egg_dispatch`
+--
+ALTER TABLE `egg_dispatch`
+  ADD KEY `Attendant_ID` (`Attendant_ID`),
+  ADD KEY `Cage_ID` (`Cage_ID`);
+
+--
+-- Indexes for table `expenditure`
+--
+ALTER TABLE `expenditure`
+  ADD PRIMARY KEY (`Expenditure_ID`);
+
+--
+-- Indexes for table `expenditure_voucher`
+--
+ALTER TABLE `expenditure_voucher`
+  ADD PRIMARY KEY (`Voucher_ID`),
+  ADD KEY `Expenditure_ID` (`Expenditure_ID`),
+  ADD KEY `Supplier_ID` (`Supplier_ID`);
+
+--
+-- Indexes for table `feeds_purchase_order`
+--
+ALTER TABLE `feeds_purchase_order`
+  ADD PRIMARY KEY (`Feed_Purchase_Order_ID`),
+  ADD KEY `Supplier_ID` (`Supplier_ID`);
+
+--
+-- Indexes for table `feeds_receipt_attendant`
+--
+ALTER TABLE `feeds_receipt_attendant`
+  ADD PRIMARY KEY (`Feed_Receipt_Att_ID`),
+  ADD KEY `Attendant_ID` (`Attendant_ID`);
+
+--
+-- Indexes for table `feeds_receipt_supplier`
+--
+ALTER TABLE `feeds_receipt_supplier`
+  ADD PRIMARY KEY (`Feed_Receipt_Sup_ID`),
+  ADD KEY `Supplier_ID` (`Supplier_ID`);
+
+--
+-- Indexes for table `feeds_received`
+--
+ALTER TABLE `feeds_received`
+  ADD PRIMARY KEY (`Feeds_Received_ID`),
+  ADD KEY `Supplier_Of_Feeds` (`Supplier_Of_Feeds`),
+  ADD KEY `Supplier_Of_Feeds_2` (`Supplier_Of_Feeds`),
+  ADD KEY `Store_Keeper_ID` (`Store_Keeper_ID`);
+
+--
+-- Indexes for table `feeds_requisiton`
+--
+ALTER TABLE `feeds_requisiton`
+  ADD PRIMARY KEY (`Feed_Requisition_ID`),
+  ADD KEY `Attendant_ID` (`Attendant_ID`);
+
+--
+-- Indexes for table `feeds_return`
+--
+ALTER TABLE `feeds_return`
+  ADD PRIMARY KEY (`Feeds_Return_ID`),
+  ADD KEY `Attendant_ID` (`Attendant_ID`);
+
+--
+-- Indexes for table `feed_consumption`
+--
+ALTER TABLE `feed_consumption`
+  ADD PRIMARY KEY (`Feed_ID`);
+
+--
+-- Indexes for table `feed_receipt_acquisition`
+--
+ALTER TABLE `feed_receipt_acquisition`
+  ADD PRIMARY KEY (`feed_receipt_acquisition_ID`);
+
+--
+-- Indexes for table `pig_sales`
+--
+ALTER TABLE `pig_sales`
+  ADD PRIMARY KEY (`Pig_Sales_ID`),
+  ADD KEY `Animal_ID` (`Animal_ID`);
+
+--
+-- Indexes for table `supplier`
+--
+ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`Supplier_ID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `attendant`
+--
+ALTER TABLE `attendant`
+  MODIFY `Attendant_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `expenditure`
+--
+ALTER TABLE `expenditure`
+  MODIFY `Expenditure_ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `expenditure_voucher`
+--
+ALTER TABLE `expenditure_voucher`
+  MODIFY `Voucher_ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `feeds_purchase_order`
+--
+ALTER TABLE `feeds_purchase_order`
+  MODIFY `Feed_Purchase_Order_ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `feeds_receipt_attendant`
+--
+ALTER TABLE `feeds_receipt_attendant`
+  MODIFY `Feed_Receipt_Att_ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `feeds_receipt_supplier`
+--
+ALTER TABLE `feeds_receipt_supplier`
+  MODIFY `Feed_Receipt_Sup_ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `feeds_received`
+--
+ALTER TABLE `feeds_received`
+  MODIFY `Feeds_Received_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `feeds_requisiton`
+--
+ALTER TABLE `feeds_requisiton`
+  MODIFY `Feed_Requisition_ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `feeds_return`
+--
+ALTER TABLE `feeds_return`
+  MODIFY `Feeds_Return_ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `feed_consumption`
+--
+ALTER TABLE `feed_consumption`
+  MODIFY `Feed_ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `feed_receipt_acquisition`
+--
+ALTER TABLE `feed_receipt_acquisition`
+  MODIFY `feed_receipt_acquisition_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `pig_sales`
+--
+ALTER TABLE `pig_sales`
+  MODIFY `Pig_Sales_ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `supplier`
+--
+ALTER TABLE `supplier`
+  MODIFY `Supplier_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
@@ -1030,6 +1059,13 @@ ALTER TABLE `chicken_sales`
 ALTER TABLE `chicken_transfer_tracker`
   ADD CONSTRAINT `Chicken_Transfer_Tracker_ibfk_1` FOREIGN KEY (`Attendant_ID`) REFERENCES `attendant` (`Attendant_ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
   ADD CONSTRAINT `Chicken_Transfer_Tracker_ibfk_2` FOREIGN KEY (`Cage_ID`) REFERENCES `chicken_storage` (`Cage_ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
+--
+-- Constraints for table `feeds_received`
+--
+ALTER TABLE `feeds_received`
+  ADD CONSTRAINT `feeds_received_ibfk_1` FOREIGN KEY (`Store_Keeper_ID`) REFERENCES `attendant` (`Attendant_ID`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `feeds_received_ibfk_2` FOREIGN KEY (`Supplier_Of_Feeds`) REFERENCES `supplier` (`Supplier_ID`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

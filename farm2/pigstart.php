@@ -44,24 +44,90 @@ include('database/db_conection.php');
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Starter Page </h4>
-                                    <ol class="breadcrumb p-0 m-0">
-                                        <li>
-                                            <a href="#">Zircos</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Pages </a>
-                                        </li>
-                                        <li class="active">
-                                            Blank Page
-                                        </li>
-                                    </ol>
+                                    <h4 class="page-title">All Pigs</h4>
+                                    
                                     <div class="clearfix"></div>
                                 </div>
 							</div>
 						</div>
                         <!-- end row -->
+                      
+                        <div class="row">
 
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card-box widget-box-two widget-two-info">
+                                    <i class="mdi mdi-chart-areaspline widget-two-icon"></i>
+                                    <div class="wigdet-two-content text-white">
+                                        <h3><p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">STY A </p></h3>
+                                        <h4 class="text-white"><span data-plugin="counterup">Number of pigs: <?php 
+										$sty="SELECT * FROM Animal_Location Where Location_Name='A'";
+										$styquery=mysqli_query($dbcon,$sty);
+										$add=0;
+										while($sties=mysqli_fetch_array($styquery)){
+											$stloc=$sties['Location_ID'];
+											$styanimal="SELECT * FROM Animal Where Location_ID='$stloc'";
+											$styanim=mysqli_query($dbcon,$styanimal);
+											 $pig= mysqli_num_rows($styanim);
+											
+											$add+=$pig;
+										}
+										echo $add;
+										?> </span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+										 <a href="viewallpigsa.php"><button type="button" class="btn btn-teal btn-rounded waves-light waves-effect w-md">View All</button></a>
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card-box widget-box-two widget-two-primary">
+                                    <i class="mdi mdi-layers widget-two-icon"></i>
+                                    <div class="wigdet-two-content text-white">
+                                        <h3 ><p class="m-0 text-uppercase font-600 font-secondary text-overflow" >STY B</p></h3>
+                                        <h4 class="text-white"><span data-plugin="counterup">Number of pigs: <?php 
+										$sty="SELECT * FROM Animal_Location Where Location_Name='B'";
+										$styquery=mysqli_query($dbcon,$sty);
+										$add=0;
+										while($sties=mysqli_fetch_array($styquery)){
+											$stloc=$sties['Location_ID'];
+											$styanimal="SELECT * FROM Animal Where Location_ID='$stloc'";
+											$styanim=mysqli_query($dbcon,$styanimal);
+											 $pig= mysqli_num_rows($styanim);
+											
+											$add+=$pig;
+										}
+										echo $add;
+										?> </span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+										<a href="viewallpigsb.php"><button type="button" class="btn btn-teal btn-rounded waves-light waves-effect w-md">View all</button></a>
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+
+                            <div class="col-lg-3 col-md-6">
+                                <div class="card-box widget-box-two widget-two-danger">
+                                    <i class="mdi mdi-access-point-network widget-two-icon"></i>
+                                    <div class="wigdet-two-content text-white">
+                                        <h3><p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">STY C</p></h3>
+                                        <h4 class="text-white"><span data-plugin="counterup">Number of pigs: <?php 
+										$sty="SELECT * FROM Animal_Location Where Location_Name='C'";
+										$styquery=mysqli_query($dbcon,$sty);
+										$add=0;
+										while($sties=mysqli_fetch_array($styquery)){
+											$stloc=$sties['Location_ID'];
+											$styanimal="SELECT * FROM Animal Where Location_ID='$stloc'";
+											$styanim=mysqli_query($dbcon,$styanimal);
+											 $pig= mysqli_num_rows($styanim);
+											
+											$add+=$pig;
+										}
+										echo $add;
+										?> </span> <small><i class="mdi mdi-arrow-up text-success"></i></small></h2>
+										<a href="viewallpigsc.php"><button type="button" class="btn btn-teal btn-rounded waves-light waves-effect w-md">View All</button></a>
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+
+                        </div>
+                        <!-- end row -->
 
 
                     </div> <!-- container -->

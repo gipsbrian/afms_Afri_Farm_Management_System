@@ -43,7 +43,7 @@ include('database/db_conection.php');
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Add new Pig </h4>
+                                    <h4 class="page-title">ADD STY A PIGS</h4>
                            
                                     <div class="clearfix"></div>
                                 </div>
@@ -51,7 +51,7 @@ include('database/db_conection.php');
                                                 <form action="" method="post" data-parsley-validate novalidate>
 
                                                 	<div class="form-group">
-                                                        <label for="dobe">Tag Number<span class="text-danger">*</span></label>
+                                                        <label for="dobe">Animal ID<span class="text-danger">*</span></label>
                                                         <input type="Text" name="animalId" data-parsley-type="alphanum" required
                                                                placeholder="Enter Animal ID e.g. LILLY001" class="form-control" id="dob">
                                                     </div>
@@ -98,14 +98,18 @@ include('database/db_conection.php');
                                                         <div class="radio radio-info radio-inline">
                                                             <input type="radio" id="inlineRadio1" value="Boar"
                                                                    name="gender" checked>
-                                                            <label for="inlineRadio1"> Male </label>
+                                                            <label for="inlineRadio1"> Boar </label>
                                                         </div>
                                                         <div class="radio radio-info radio-inline">
                                                             <input type="radio" id="inlineRadio2" value="Soar"
                                                                    name="gender">
-                                                            <label for="inlineRadio2"> Female </label>
+                                                            <label for="inlineRadio2"> Gilt </label>
                                                         </div>
-
+                                                         <div class="radio radio-info radio-inline">
+                                                            <input type="radio" id="inlineRadio2" value="Soar"
+                                                                   name="gender">
+                                                            <label for="inlineRadio2"> Soar </label>
+                                                        </div>
                                                     </div>
 													
                                                     <!-- <div class="form-group">

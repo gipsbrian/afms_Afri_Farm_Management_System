@@ -50,18 +50,8 @@
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Farm Reciept Details</h4>
-                                    <ol class="breadcrumb p-0 m-0">
-                                        <li>
-                                            <a href="#">Zircos</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Dashboard</a>
-                                        </li>
-                                        <li class="active">
-                                            Dashboard
-                                        </li>
-                                    </ol>
+                                    <h4 class="page-title">Farm Reciept Book</h4>
+                                    
                                     <div class="clearfix"></div>
                                 </div>
 							</div>
@@ -79,38 +69,126 @@
 
                         <br>
 
+                        <?php
+
+                         if(isset($_GET['g_id'])){
+    $the_reciept_id = $_GET ['g_id'];
+    
+    // $query = "SELECT * FROM feed_receipt_attendant WHERE feed_receipt_acquisition_ID = '$the_reciept_id'";
+     //$select_pigs = mysqli_query($dbcon, $query);
+                  
+      //$row = mysqli_fetch_array($select_pigs); 
+   
+         //$Date    = $row[1];
+         //$Attendant  = $row[2];
+         // $Item    = $row[3];
+         // $Quantity = $row[4];
+         // $Quantity_After_Grinding   = $row[5];
+         // $Total_Quantity_After_Mixing   = $row[6];
+
+
+
+     $query2 = "DELETE FROM `feed_receipt_acquisition` WHERE `feed_receipt_acquisition`.`feed_receipt_acquisition_ID`   = '$the_reciept_id' ";
+             $result2 = mysqli_query($dbcon , $query2);
+
+
+         
+       if  ( !$result2 ) {
+          die ('QUERY FAILED' . mysqli_error($dbcon));
+       }else{
+           ?>
+
+          <!-- <script>window.open('index.php?message=entered','_self')</script> -->
+
+           <script type="text/javascript">   
+                                                        function doyou2(){
+                                                            
+
+                                                                swal({
+                                                                      title: "Attendant Receipt details deleted Succcessfully!",
+                                                                      text: "Thanks for Updating Attendant Receipt details Menu.",
+                                                                      timer: 5000,
+                                                                      showConfirmButton: false
+                                                                    });
+                                                                         
+                                                                        // window.open('index.php?message=entered','_self');                                                        
+                                                                
+                                                        }
+
+                                                        
+
+        </script>
+
+
+          <script>
+
+          //window.open('index.php?message=entered','_self')
+
+
+
+
+
+
+          doyou2();
+ 
+          //setTimeout(function(){ window.location.href = 'index.php' }, 5000);
+
+
+          setTimeout(function(){ window.location.href = 'viewfeeds.php' }, 5000);
+
+          </script>
+
+           <?php
+
+
+
+        }
+
+
+       } 
+
+     
+
+       ?>
+
+
+
+
+         
+    
+
+    
+
+   
+
+  
+
                         <div class="row text-center">
                             <div class="col-lg-12">
                                 <div class="panel panel-color panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title">Current Feed Reciept</h3>
+                                        <h3 class="panel-title">Current Feed Reciepts</h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="table-responsive">
                                             <table class="table table table-hover m-0">
                                             <?php
-                                                            $selectatt="SELECT * FROM `feed_receipt_acquisition`";
+                                                            $selectatt="SELECT * FROM `feed_receipt_attendant`";
                                                             $sel_att=mysqli_query($dbcon,$selectatt);
                                                             
                                                             ?>
                                                 <thead>
                                                     <tr>
                                                         <th></th>
-                                                        <th><center>Item</center></th>
-                                                        <th><center>Attendant</center></th>
-                                                        
-                                                        <th><center>Quantity</center></th>
-                                                        <th><center>Quantity After Grinding</center></th>
-                                                        <th><center>Quantity After Mixing</center></th>
                                                         <th><center>Date</center></th>
-                                                        <th><center></center></th>
+                                                        <th><center>Attendant</center></th>
+                                                        <th><center>Edit Details </center></th>
+                                                        <th><center>View Details</center></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                 <?php  
                                                  while ( $rw_att= mysqli_fetch_array($sel_att)) {
-                                                     # code...
-                                                 
 
                                                  ?>
                                                     <tr>
@@ -119,18 +197,10 @@
                                                            
                                                         </th>
                                                         <td>
-                                                            <a href="#"><h5 class="m-0"> <?php echo $rw_att['Item']; ?></h5>
-                                                           <!--  <p class="m-0 text-muted font-13"><small><?php echo $rw_att['Attendant']; ?></small></p></a> -->
+                                                         <a href="#"><h5 class="m-0"> <?php echo $rw_att['Date']; ?></h5>
+                                        
                                                         </td>
                                                         <td><?php echo $rw_att['Attendant']; ?></td>
-                                                        <td><?php echo $rw_att['Quantity']; ?></td>
-                                                        <td><?php echo $rw_att['Quantity_After_Grinding']; ?></td>
-                                                        <td><?php echo $rw_att['Total_Quantity_After_Mixing']; ?></td>
-                                                      <!--   <td><?php echo $rw_att['Residence']; ?></td> -->
-                                                        <td><?php echo $rw_att['Date']; ?></td>
-                                                        <!-- <td ><button style="width:50px;" class="btn btn-info">Edit </button></td>
-                                                        <td><button style="width:100px;" class="btn btn-danger" onclick="doyou() ">Discontinue</button></td>
- -->
                                                         <script type="text/javascript">   
                                                         // function doyou(){
                                                         //     swal({
@@ -175,7 +245,10 @@
 
                                                         </script>
 
-                                                        <td><a href =''><button style="width:100px;" class="btn btn-success">Full Details</button></td>
+                                                        <td><a href ='editreceiptdetails.php?p_id=<?php echo $rw_att['feed_receipt_acquisition_ID']; ?>'><button style="width:100px;" class="btn btn-success">Edit Details</button>
+                                                        </td>
+                                                        <td><a href ='viewrecieptdetails.php?p_id=<?php echo $rw_att['feed_receipt_acquisition_ID']; ?>'><button style="width:100px;" class="btn btn-primary">View Details</button>
+                                                          </td>
                                                        
                                                         
                                                     </tr>

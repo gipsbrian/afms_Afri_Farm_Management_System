@@ -43,24 +43,28 @@ include('database/db_conection.php');
                         <div class="row">
               <div class="col-xs-12">
                 <div class="page-title-box">
-                                    <h4 class="page-title">Feeds Receipt Form </h4>
+
+                                    <div style="text-align: center; ">
+
+                                    <h4 class="page-title" style="margin-left: 43%;" >Add Attendant Receipt </h4>
+
+                                    </div>
+
+                                    
                                     <ol class="breadcrumb p-0 m-0">
-                                        <li>
-                                            <a href="#">Zircos</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Pages </a>
-                                        </li>
-                                        <li class="active">
-                                            Blank Page
-                                        </li>
+                               
                                     </ol>
                                     <div class="clearfix"></div>
                                 </div>
                  <div class="p-20">
                                                 <form action="" method="post" data-parsley-validate novalidate >
 
-                                                  
+                                                  <br >
+                                                  <br >
+                                                  <br >
+
+                                                  <hr >
+
                                                     <div class="form-group">
                                                     <label for="date">Date of Receipt<span class="text-danger">*</span></label>
                                                         <div>
@@ -92,167 +96,64 @@ include('database/db_conection.php');
                                                         </select>
                                                     </div>
 
- <div class="panel panel-color panel-info">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">Select Item(s)</h3>
-                                    </div> 
 
 
-<div class="panel-body">
-     <div class="table-responsive">
-      <table class="table table table-hover m-0">
-        <thead>
-
-        <tr>
-            <th>SELECT</th>
-            <th>ITEM</th>
-            <th>QUANTITY</th>
-            
-   
-        </tr>
-        </thead>
-    <?php
-        $view_users_query="SELECT * from feeds_received";//select query for viewing users.
-        $run=mysqli_query($dbcon,$view_users_query);//here run the sql query.
-
-        ?>
-
-         <script>
-                   // var sum;
-                    function writeTo(object,count){
-
-                          if(object.checked)
-                          {
-                            var feedsValue='feedsValue'+count;
-                            var itemValue= document.getElementById('item'+count).innerHTML;
-                            //alert(itemValue);
-                            var stringConct=document.getElementById('numberOfFeeds'+count).value=itemValue;
-
-                            var totalItems=document.getElementById('totalFeedItems');
-
-                            var sum= totalItems.value=""+stringConct;
-                               /* 
-                                var theForm=document.forms["itemform"];
-                                //
-                                var selectedBox=theForm.elements["quantity"];
-
-
-                                 for(var i = 0; i < selectedBox.length; i++)
-                                  {
-        
-                                  if(selectedBox[i].checked)
-                                     {
-           
-                                      var totalQuatity = selectedBox[i].value;
-
-                                     }
-                                  }*/
-                               
-                                
-                            
-                              object.onchange= function() {
-                              document.getElementById(feedsValue).disabled = !this.checked;
-                              document.getElementById('feeditems').value= document.getElementById(feedsValue).value;
-                          };
-  
-                          }
-
-                          else
-                          {
-
-                            var feedsValue='feedsValue'+count;
-                            document.getElementById('numberOfFeeds'+count).value="";
-                      
-                            document.getElementById(feedsValue).value= "";
-                   
-                          }
-                          }
-
-                         function sumUp(count)
-                             {
-                              var totalQuatity=0;
-                                var theForm=document.forms["itemform"];
-                         
-                                var selectedBox=theForm.elements["quantity"];
-
-
-                                 for(var i = 0; i < selectedBox.length; i++)
-                                  {
-        
-                                  if(selectedBox[i].checked)
-                                     {
-           
-                                      totalQuatity = document.getElementById('feedsValue'+count).value;
-                                      alert(totalQuatity);
-            
-                              
-                                     }
-                                  }
-                               
-                    }
-
-                    
-            </script>
-
-      
-      <tbody>
-     
-                <form action="" id="itemform" onsubmit="return false;">
-
-                  <?php  
-                  $count=0;while ( $row= mysqli_fetch_array($run)) { 
-                    $count++;
-                 ?>
-                   <tr>
-                   
-                   <td>
-                      <?php echo '<input id="checkbox'.$count.'" type="checkBox" onclick="return writeTo(this,'.$count.')" >'; ?> 
-                   </td>  
-                    <td><?php echo'<h5 id="item'.$count.'">' .$row['Name_Of_Feeds_Received']. '</h5>'; ?></td>
-                    <td>
-                    <?php echo '<input type="number"  name="quantity" parsley-trigger="change" required
-                          class="form-control" placeholder="quantity" onkeyup="sumUp(this)" id="feedsValue'.$count.'" disabled>'; ?>
-
-                      </td>
-                  
-                   <td><?php echo'<input id="numberOfFeeds'.$count.'" type="hidden "/>'; ?></td>
-                   
-                  <?php
-                    } ?>
-
-                          </tr>  
-                 </form> 
-
-                  </tbody>
-      
-      
-    </table>
-    </div>
-      </div> 
-      </div>
-                      
+                                                    <!-- <div class="form-group">
+                                                        <label for="item">Item(s) <span class="text-danger">*</span></label>
+                                                        <input type="Text" name="item" parsley-trigger="change" required
+                                                               placeholder="Items Being Received" class="form-control" id="dob">
+                                                    </div>
 
                                                     <div class="form-group">
                                                         <label for="quantity">Quantity of Feeds <span class="text-danger">*</span></label>
                                                         <input type="number" name="quantity" parsley-trigger="change" required
-                                                               placeholder="Quantity of Feeds" class="form-control" id="total" />
+                                                               placeholder="Quantity of Feeds" class="form-control" id="quantity">
+                                                        
+                                                    </div>
 
-                                                               <!--START OF HIDDEN TO HOLD THE INPUT-->
-                                                                <input  name="quantity" 
-                                                               placeholder="Quantity of Feeds" class="form-control" value="" type = "text" id="totalFeedItems" />
-                                                               
-                                                               <!--END OF HIDDEN TO HOLD THE INPUT-->
+                                                    <div class="form-group">
+                                                        <label for="quantityaftergrinding">Quantity of Feeds Afer Grinding <span class="text-danger">*</span></label>
+                                                        <input type="number" name="quantityaftergrinding" parsley-trigger="change" required
+                                                               placeholder="Quantity of Feeds" class="form-control" id="qag">
                                                         
                                                     </div>
 
 
+                                                    <div class="form-group">
+                                                        <label for="quantityaftermixing">Total Quantity after Mixing <span class="text-danger">*</span></label>
+                                                        <input type="number" name="quantityaftermixing" parsley-trigger="change" required
+                                                               placeholder="Quantity of Feeds" class="form-control" id="tqm">
+                                                        
+                                                    </div>
+ -->
+                                                    
+                                                    
+                                                   
+                            
+                                                    
+
+                                                   
+
+                                                   
+
+                                                    <br >
+                                                    <br >
+
+                                                    <hr >
+
+
                                                     <div class="form-group text-right m-b-0">
-                                                        <button name="submit" class="btn btn-primary waves-effect waves-light" type="submit">
+
+                                                    <div style="text-align: center; ">
+                                                     <button name="submit" class="btn btn-primary" type="submit">
                                                             Submit
                                                         </button>
                                                         <button type="reset" class="btn btn-default waves-effect m-l-5">
                                                             Cancel
                                                         </button>
+
+                                                    </div>
+                                                       
                                                     </div>
 
                                                 </form>
@@ -287,14 +188,20 @@ include('database/db_conection.php');
 
          $date  = $_POST['date'];
         $Full_Names = $_POST['Full_Names'];
-        $items = $_POST['item'];
-        $quantity = $_POST['quantity'];
-        $quantityaftergrinding = $_POST['quantityaftergrinding'];
-        $quantityaftermixing = $_POST['quantityaftermixing'];
+        // $item = $_POST['item'];
+        // $quantity = $_POST['quantity'];
+        // $quantityaftergrinding = $_POST['quantityaftergrinding'];
+        // $quantityaftermixing = $_POST['quantityaftermixing'];
         
-  
+       
+       
+    
+       
+         //$query = "INSERT INTO `feeds_receipt_acquisition`( 'Date', `Attendant`, `Item`, `Quantity`, `Quantity_After_Grinding`,`Total_Quantity_After_Mixing`) VALUES ('$date','$Full_Names','$item','$quantity','$quantityaftergrinding','$quantityaftermixing')" or die(mysqli_error($dbcon));
         
-        $query = "INSERT INTO `farm2`.`feed_receipt_acquisition` (`feed_receipt_acquisition_ID`, `Date`, `Attendant`, `Item`, `Quantity`, `Quantity_After_Grinding`, `Total_Quantity_After_Mixing`) VALUES (NULL, '$date', '$Full_Names', '$item', '$quantity', '$quantityaftergrinding', '$quantityaftermixing')" or die(mysqli_error($dbcon));
+        // $query = "INSERT INTO `farm2`.`feed_receipt_attendant` (`feed_receipt_acquisition_ID`, `Date`, `Attendant`, `Item`, `Quantity`, `Quantity_After_Grinding`, `Total_Quantity_After_Mixing`) VALUES (NULL, '$date', '$Full_Names', '$item', '$quantity', '$quantityaftergrinding', '$quantityaftermixing')" or die(mysqli_error($dbcon));
+
+         $query = "INSERT INTO `farm2`.`feed_receipt_attendant` (`feed_receipt_acquisition_ID`, `Date`, `Attendant`) VALUES (NULL, '$date', '$Full_Names')" or die(mysqli_error($dbcon));
          
          $result = mysqli_query($dbcon , $query);
        if  (!$result){
@@ -309,8 +216,8 @@ include('database/db_conection.php');
                                                             
 
                                                                 swal({
-                                                                      title: "Feeds inserted Succcessfully!",
-                                                                      text: "Thanks for Updating Feeds Menu.",
+                                                                      title: "Attendant Receipt inserted Succcessfully!",
+                                                                      text: "Thanks for Updating Attendant Receipt Menu.",
                                                                       timer: 5000,
                                                                       showConfirmButton: false
                                                                     });

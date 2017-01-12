@@ -51,17 +51,7 @@
 							<div class="col-xs-12">
 								<div class="page-title-box">
                                     <h4 class="page-title">Farm Staff Details</h4>
-                                    <ol class="breadcrumb p-0 m-0">
-                                        <li>
-                                            <a href="#">Zircos</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Dashboard</a>
-                                        </li>
-                                        <li class="active">
-                                            Dashboard
-                                        </li>
-                                    </ol>
+                               
                                     <div class="clearfix"></div>
                                 </div>
 							</div>
@@ -89,7 +79,7 @@
                                         <div class="table-responsive">
                                             <table class="table table table-hover m-0">
                                             <?php
-                                                            $selectatt="SELECT * FROM `Attendant`";
+                                                            $selectatt="SELECT * FROM `attendant`";
                                                             $sel_att=mysqli_query($dbcon,$selectatt);
                                                             
                                                             ?>

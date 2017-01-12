@@ -31,6 +31,7 @@ include('database/db_conection.php');
 
 
 
+
             <!-- ============================================================== -->
             <!-- Start right Content here -->
             <!-- ============================================================== -->
@@ -41,56 +42,49 @@ include('database/db_conection.php');
 
 
                         <div class="row">
+						
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Add new Pig </h4>
-                           
+                                    <h4 class="page-title">STY B</h4>
+                                    
                                     <div class="clearfix"></div>
                                 </div>
-								 <div class="p-20">
-                                                <form action="" method="post" data-parsley-validate novalidate>
+							</div>
+						</div>
+                        <!-- end row -->
+                      
+                      
 
-                                                	<div class="form-group">
-                                                        <label for="dobe">Tag Number<span class="text-danger">*</span></label>
-                                                        <input type="Text" name="animalId" data-parsley-type="alphanum" required
-                                                               placeholder="Enter Animal ID e.g. LILLY001" class="form-control" id="dob">
-                                                    </div>
 
-                                                    <div class="form-group">
-                                                        <label for="dobe">Date of Birth<span class="text-danger">*</span></label>
-                                                        <!-- <input type="date" name="birth" parsley-trigger="change" required
-                                                               placeholder="Enter date of birth" class="form-control" id="=dob"> -->
-                                                        <input type="text" name="birth" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" required="" placeholder="Enter date of birth" parsley-trigger="change">
-
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="emailAddress">Date of Weaning<span class="text-danger">*</span></label>
-                                                     <!--    <input type="date" name="weaning" parsley-trigger="change" required
-                                                               placeholder="Enter email" class="form-control" id="emailAddress"> -->
-                                                        <input type="text" name="weaning" class="form-control" placeholder="mm/dd/yyyy" id="datepicker" required="" placeholder="Enter date of Weaning" parsley-trigger="change">
-                                                    </div>
-													                         <div class="form-group">
-                                                        <label for="emailAddress">Breed<span class="text-danger">*</span></label>
-                                                        <input type="text" name="breed" data-parsley-pattern="^[A-Za-z. ]*$" required
-                                                               placeholder="Animal breed e.g. xxxxxx" class="form-control" id="emailAddress">
-                                                    </div>
-                                           	       <div class="form-group">
-                                                        <label for="emailAddress">Location<span class="text-danger">*</span></label>
-                                                        <select name="location" class="form-control">
-                                                        	<?php
-                                                        	$select="SELECT * FROM `Animal_Location`";
-                                                        	$sel_query=mysqli_query($dbcon,$select);
-                                                        	while ($rw=mysqli_fetch_array($sel_query)) {
-                                                        		?>
-                                                        		<option value="<?php echo $rw[0]; ?>" parsley-trigger="change" required><?php echo $rw[1],$rw[2]; ?></option>
-
-                                                        <?php
-                                                        	}
-                                                        	?>
-
-                                                        </select>
-                                                        
-                                                    </div>
+                   <div class="col-lg-12">
+                   <div class="card-box">
+					<!-- container -->
+					<div class="p-20">
+					<form role="form" class="form-horizontal">
+                     <div class="form-group">
+	                                                <label class="col-sm-3 control-label" for="example-input-normal">Pen</label>
+	                                                <div class="col-sm-4">
+	                                                    <input type="text" id="example-input-normal" name="example-input-normal" class="form-control" placeholder="Normal">
+	                                                </div>
+	                                            </div>
+												<div class="form-group">
+	                                                <label class="col-sm-3 control-label" for="example-input-normal">Number</label>
+	                                                <div class="col-sm-4">
+	                                                    <input type="text" id="example-input-normal" name="example-input-normal" class="form-control" placeholder="Normal">
+	                                                </div>
+	                                            </div>
+												<div class="form-group">
+	                                                <label class="col-sm-3 control-label" for="example-input-normal">Age</label>
+	                                                <div class="col-sm-4">
+	                                                    <input type="text" id="example-input-normal" name="example-input-normal" class="form-control" placeholder="Normal">
+	                                                </div>
+	                                            </div>
+												<div class="form-group">
+	                                                <label class="col-sm-3 control-label" for="example-input-normal">Avergae Weight</label>
+	                                                <div class="col-sm-4">
+	                                                    <input type="text" id="example-input-normal" name="example-input-normal" class="form-control" placeholder="Normal">
+	                                                </div>
+	                                            </div>
 												
 												   <div class="form-group m-b-20">
                                                         <label class="m-b-10">Gender</label>
@@ -98,76 +92,41 @@ include('database/db_conection.php');
                                                         <div class="radio radio-info radio-inline">
                                                             <input type="radio" id="inlineRadio1" value="Boar"
                                                                    name="gender" checked>
-                                                            <label for="inlineRadio1"> Male </label>
+                                                            <label for="inlineRadio1">Boar</label>
                                                         </div>
                                                         <div class="radio radio-info radio-inline">
                                                             <input type="radio" id="inlineRadio2" value="Soar"
                                                                    name="gender">
-                                                            <label for="inlineRadio2"> Female </label>
+                                                            <label for="inlineRadio2">Gilt</label>
+                                                        </div>
+														<div class="radio radio-info radio-inline">
+                                                            <input type="radio" id="inlineRadio2" value="Soar"
+                                                                   name="gender">
+                                                            <label for="inlineRadio2">Soar</label>
                                                         </div>
 
                                                     </div>
-													
-                                                    <!-- <div class="form-group">
-                                                        <div class="checkbox">
-                                                            <input id="remember-1" type="checkbox">
-                                                            <label for="remember-1"> Remember me </label>
-                                                        </div>
-                                                    </div> -->
-
-                                                    <div class="form-group text-right m-b-0">
-                                                    <br >
-                                                    <br >
-
-                                                    <div style="text-align: center; ">
-
-
-                                                        <button style="margin: auto; width: 120px;" name="submit" class="btn btn-primary" type="submit" id="tooltip-animation" title="Submit/insert Data to Database!" >
-                                                            Submit
-                                                        </button>
-
-
-                                                        <!--    <button name="submit" class="btn btn-primary" type="submit">
-                                                            Submit
-                                                        </button>
-                                                         -->
-                                                        <!-- <button type="reset" class="btn btn-default waves-effect m-l-5">
-                                                            Cancel
-                                                        </button> -->
-
-
-                                                    </div>
-                                                     
-                                                    </div>
-
-                                                </form>
-                                                <br >
-                                                <br >
-
-                                                      <div style="text-align: center; ">
-
-
-                                                        <a href="viewallpigs.php"><button type="" class="btn btn-default" style="margin: auto; width: 120px;">
-                                                            Cancel
-                                                        </button></a>
-
-                                                      </div>
-                                            </div>
-							</div>
-						</div>
-                        <!-- end row -->
-
-
-
-                    </div> <!-- container -->
-
+												<div class="form-group">
+	                                                <label class="col-md-2 control-label">Notes</label>
+	                                                <div class="col-md-5">
+	                                                    <textarea class="form-control" rows="5"></textarea>
+	                                                </div>
+	                                            </div>
+												
+													<div class="row">
+												 <button type="submit" name="submit" class="btn btn-primary btn-bordered waves-effect w-md waves-light">Submit</button>
+												 <button type="cancel" class="btn btn-default btn-bordered waves-effect w-md">Cancel</button>&nbsp;
+                                                 
+												</div>	
+											
+												</form>
+												
+								
+													</div>
+													</div>
                 </div> <!-- content -->
-
-
-            </div>
-
-
-            <!-- ============================================================== -->
+				</div>
+        <!-- ============================================================== -->
             <!-- End Right content here -->
             <!-- ============================================================== -->
 

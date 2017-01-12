@@ -44,7 +44,7 @@
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-pig"></i><span> Manage Pigs</span> <span class="menu-arrow"></span> </a>
                                 <ul class="list-unstyled">
  
-                                    <li><a href="viewallpigs.php">View All Pigs</a></li>
+                                    <li><a href="pigstart.php">View All Pigs</a></li>
 				    
                                     <li><a href="viewMedicalRecords.php">View Pig Medication</a></li>
                                     <li><a href="viewPigWeight.php">View Pig Weight</a></li>

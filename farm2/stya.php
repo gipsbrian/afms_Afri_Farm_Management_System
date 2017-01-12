@@ -8,7 +8,7 @@ include('database/db_conection.php');
     <body class="fixed-left">
 
         <!-- Loader -->
-        <div id="preloader">
+        <!--<div id="preloader">
             <div id="status">
                 <div class="spinner">
                   <div class="spinner-wrapper">
@@ -19,7 +19,7 @@ include('database/db_conection.php');
                   </div>
                 </div>
             </div>
-        </div>
+        </div>-->
 
         <!-- Begin page -->
         <div id="wrapper">
@@ -42,31 +42,80 @@ include('database/db_conection.php');
 
 
                         <div class="row">
+						
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Starter Page </h4>
-                                    <ol class="breadcrumb p-0 m-0">
-                                        <li>
-                                            <a href="#">Zircos</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Pages </a>
-                                        </li>
-                                        <li class="active">
-                                            Blank Page
-                                        </li>
-                                    </ol>
+                                    <h4 class="page-title">STY A </h4>
+                                    
                                     <div class="clearfix"></div>
                                 </div>
 							</div>
 						</div>
                         <!-- end row -->
+                      
+                      
 
 
+                   <div class="col-lg-12">
+                   <div class="card-box">
+					<!-- container -->
+					<div class="p-20">
+					<form method="post" action="" class="form-horizontal">
+                     <div class="form-group">
+	                                                <label class="col-sm-3 control-label" for="example-input-normal">Pen</label>
+	                                                <div class="col-sm-4">
+	                                                 <select name="location" class="form-control">
+                                                        	<?php
+                                                        	$select="SELECT * FROM `Animal_Location`";
+                                                        	$sel_query=mysqli_query($dbcon,$select);
+                                                        	while ($rw=mysqli_fetch_array($sel_query)) {
+                                                        		?>
+                                                        		<option value="<?php echo $rw[0]; ?>" parsley-trigger="change" required><?php echo $rw[1],$rw[2]; ?></option>
 
-                    </div> <!-- container -->
-
+                                                        <?php
+                                                        	}
+                                                        	?></select>
+	                                                </div>
+	                                            </div>
+												<div class="form-group">
+	                                                <label class="col-sm-3 control-label" for="example-input-normal">Number</label>
+	                                                <div class="col-sm-4">
+	                                                    <input type="text" id="example-input-normal" name="number" class="form-control" placeholder="Number of Pigs">
+	                                                </div>
+	                                            </div>
+												 <div class="form-group">
+                                                        <label class="col-sm-3 control-label">Date of Birth</span></label>
+															    <div class="col-sm-4">
+                                                        <input type="text" name="weaning" class="form-control" placeholder="mm/dd/yyyy" id="datepicker" required="" placeholder="Enter date of Birth" parsley-trigger="change">
+                                                    </div>
+	                                            </div>
+												 <div class="form-group">
+                                                        <label class="col-sm-3 control-label">Breed</span></label>
+															    <div class="col-sm-4">
+                                                        <input type="text" name="breed" class="form-control" placeholder="breed of animal" id="datepicker" required="" placeholder="Enter breed" parsley-trigger="change">
+                                                    </div>
+	                                            </div>
+												<div class="form-group">
+	                                                <label class="col-sm-3 control-label" for="example-input-normal">Avergae Weight</label>
+	                                                <div class="col-sm-4">
+	                                                    <input type="text" id="example-input-normal" name="weight" class="form-control" placeholder="Average Weight of Pigs">
+	                                                </div>
+	                                            </div>
+												<div class="form-group">
+	                                                <label class="col-md-2 control-label">Notes</label>
+	                                                <div class="col-md-5">
+	                                                    <textarea class="form-control" rows="5" placeholder="Type any other relevant info here" name="notes"></textarea>
+	                                                </div>
+	                                            </div><br>
+												 <div class="row">
+												 <button type="submit" name="submit" class="btn btn-primary btn-bordered waves-effect w-md waves-light">Submit</button>
+												 <button type="cancel" class="btn btn-default btn-bordered waves-effect w-md">Cancel</button>&nbsp;
+                                                 
+												</div>	</form>
+													</div>
+													</div>
                 </div> <!-- content -->
+				</div>
         <!-- ============================================================== -->
             <!-- End Right content here -->
             <!-- ============================================================== -->
@@ -130,26 +179,43 @@ include('database/db_conection.php');
     if(isset($_POST['submit']))
     {
        $message = "Data Save In Database";
-       $animalId = $_POST['animalId'];
-         $birth=   $_POST['birth'];
-         $weaning = $_POST['weaning'];
-         $breed= $_POST['breed'];
-         $location = $_POST['location'];
-         $gender = $_POST['gender'];
-         
-    
-       
-         $query = "INSERT INTO `Animal`(`Animal_ID`, `Date_Of_Birth`, `Date_Of_Weaning`, `Breed_Of_Animal`, `Location_ID`,`Gender`) VALUES ('$animalId','$birth','$weaning','$breed','$location','$gender') " or die(mysqli_error($dbcon));
+	   $breed = $_POST['breed'];
+	   $weight=$_POST['weight'];
+	   $notes=$_POST['notes'];
+	   $search="SELECT * FROM `animal` where `Animal_ID` like '%UNTAGGED-%'";
+	   $searchquer=mysqli_query($dbcon,$search);
+	   $num=mysqli_num_rows($searchquer);
+		if(is_null($num)){
+			$num=1;
+		}
+		$add=$_POST['number']+$num;
+       $location = $_POST['location'];
+       $weaning = date("Y-m-d", strtotime($_POST['weaning']));
+		for($i=$num+1;$i<=$add;$i++){
+		$name='UNTAGGED-'.$i;
+		$query = "INSERT INTO `animal`(`Animal_ID`, `Date_Of_Birth`,  `Breed_Of_Animal`, `Location_ID`,`Gender`,`Weight`, `NOTES`) VALUES ('$name','$weaning','$breed','$location','boar' ,'$weight','$notes') " or die(mysqli_error($dbcon));
 
 
-        // $query .= "";
-         
-         $result = mysqli_query($dbcon , $query);
+		$result = mysqli_query($dbcon , $query);
        if  (!$result){
           die ('QUERY FAILED' . mysqli_error($dbcon));
        }else{
           
-           ?>
+           
+		
+		}
+	
+
+
+
+	?>
+       
+         //$query = "INSERT INTO `Animal`(`Animal_ID`, `Date_Of_Birth`, `Date_Of_Weaning`, `Breed_Of_Animal`, `Location_ID`,`Gender`) VALUES ('$animalId','$birth','$weaning','$breed','$location','$gender') " or die(mysqli_error($dbcon));
+
+
+        // $query .= "";
+         
+         
 
             <script type="text/javascript">   
                                                         function doyou2(){

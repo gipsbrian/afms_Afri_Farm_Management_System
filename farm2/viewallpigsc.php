@@ -48,7 +48,7 @@
                            <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">VIEW ALL PIGS </h4>
+                                    <h4 class="page-title">VIEW ALL PIGS IN STY C</h4>
                       
                                     <div class="clearfix"></div>
                                 </div>
@@ -59,7 +59,7 @@
 
 
                         <div class="row">
-                        <div class="col-lg-6"><a href="newpig.php"><button class="btn btn-primary">Add New Pig</button></a></div><br/><br/></div>
+                        <div class="col-lg-6"><a href="styc.php"><button class="btn btn-primary">Add New Pig</button></a></div><br/><br/></div>
                         <div class="row">
 							<div class="col-sm-12">
 								<div class="table-responsive ."><!--this is used for responsive display in mobile and other devices-->
@@ -79,7 +79,12 @@
         </tr>
         </thead>
 		<?php
-        $view_users_query="SELECT * from animal";//select query for viewing users.
+		$sty="SELECT * FROM Animal_Location Where Location_Name='C'";
+		$styquery=mysqli_query($dbcon,$sty);
+		$add=0;
+		while($sties=mysqli_fetch_array($styquery)){
+		$stloc=$sties['Location_ID'];
+        $view_users_query="SELECT * FROM Animal Where Location_ID='$stloc'";//select query for viewing users.
         $run=mysqli_query($dbcon,$view_users_query);//here run the sql query.
 
         ?>
@@ -104,7 +109,7 @@
 				    <td><a href ='pigfull2.php?p_id=<?php echo $row['Animal_ID']; ?>'><button class="btn btn-success">FULL DETAILS</button></td>
                    	                                    
                  </tr>
-                  <?php } ?>
+		<?php } }?>
                                                     
                   </tbody>
 			

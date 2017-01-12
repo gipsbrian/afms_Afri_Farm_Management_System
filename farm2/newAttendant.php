@@ -73,7 +73,7 @@ include('database/db_conection.php');
                                                         <div>
                                                         <div class="input-group">
                                                         
-                                                        <input type="text" name="date_joined" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose" required="" placeholder="Enter date of employment Start" parsley-trigger="change">
+                                                        <input type="text" name="date_joined" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose"  placeholder="Enter date of employment Start" parsley-trigger="change">
                                                         <span class="input-group-addon bg-custom b-0"><i class="mdi mdi-calendar text-white"></i></span>
                                                         </div>
                                                     </div><!-- input-group -->
@@ -81,23 +81,23 @@ include('database/db_conection.php');
 
                                                     <div class="form-group">
                                                         <label for="emailAddress">Residence<span class="text-danger">*</span></label>
-                                                        <input type="text" name="residence" parsley-trigger="change" data-parsley-pattern="^[A-Za-z. ]*$" required
+                                                        <input type="text" name="residence" parsley-trigger="change" data-parsley-pattern="^[A-Za-z. ]*$" 
                                                                placeholder="Where do you live" class="form-control" id="emailAddress">
                                                     </div>
 													 <div class="form-group">
                                                         <label for="emailAddress">Contact<span class="text-danger">*</span></label>
-                                                        <input type="text" name="contact" data-parsley-length="[10,10]" data-parsley-type="number" required
+                                                        <input type="text" name="contact" data-parsley-length="[10,10]" data-parsley-type="number" 
                                                                placeholder="" class="form-control" id="emailAddress">
                                                     </div>
                                            	       <div class="form-group">
                                                         <label for="emailAddress">Next Of Kin <span class="text-danger">*</span></label>
-                                                        <input type="text" name="nok" parsley-trigger="change" data-parsley-pattern="^[A-Za-z. ]*$" required
+                                                        <input type="text" name="nok" parsley-trigger="change" data-parsley-pattern="^[A-Za-z. ]*$" 
                                                                placeholder="" class="form-control" id="emailAddress">
                                                         
                                                     </div>
 												<div class="form-group">
                                                         <label for="emailAddress">Next Of Kin contact <span class="text-danger">*</span></label>
-                                                        <input type="text" name="nokc" parsley-trigger="change" data-parsley-length="[10,10]" data-parsley-type="number"  required
+                                                        <input type="text" name="nokc" parsley-trigger="change" data-parsley-length="[10,10]" data-parsley-type="number"  
                                                                placeholder="" class="form-control" id="emailAddress">
                                                         
                                                     </div>
@@ -113,25 +113,25 @@ include('database/db_conection.php');
 
                                                     <div class="form-group">
                                                         <label for="emailAddress">Secondary Role <span class="text-danger">*</span></label>
-                                                        <textarea name="sec_role" placeholder="Other Responsibilities" class="form-control" data-parsley-pattern="^[A-Za-z. ]*$" required></textarea>
+                                                        <textarea name="sec_role" placeholder="Other Responsibilities" class="form-control" data-parsley-pattern="^[A-Za-z. ]*$" ></textarea>
                                                         
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="emailAddress">Qualifications<span class="text-danger">*</span></label>
-                                                        <textarea name="qualify" parsley-trigger="change" data-parsley-pattern="^[A-Za-z. ]*$" placeholder="Enter Qualifications here e.g. BSc Agriculture" class="form-control"  required></textarea>
+                                                        <textarea name="qualify" parsley-trigger="change" data-parsley-pattern="^[A-Za-z. ]*$" placeholder="Enter Qualifications here e.g. BSc Agriculture" class="form-control"  ></textarea>
                                                         
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="emailAddress">Additional Training<span class="text-danger">*</span></label>
-                                                        <textarea name="train" placeholder="Other Qualifications or Trainings" data-parsley-pattern="^[A-Za-z. ]*$" class="form-control"  required></textarea>
+                                                        <textarea name="train" placeholder="Other Qualifications or Trainings" data-parsley-pattern="^[A-Za-z. ]*$" class="form-control"  ></textarea>
                                                         
                                                     </div>
 
                                                     <div class="form-group">
                                                         <label for="emailAddress">Current Salary <span class="text-danger">*</span></label>
-                                                        <input type="text" name="sal" parsley-trigger="change" required
+                                                        <input type="text" name="sal" parsley-trigger="change" 
                                                                placeholder="Current Salary" data-parsley-type="number" class="form-control" id="emailAddress">
                                                         
                                                     </div>
@@ -364,8 +364,9 @@ include('database/db_conection.php');
 if(isset($_POST['submit'])){
 
 
-
 if(!empty($_POST["names"]) && !empty($_POST["date_joined"]) && !empty($_POST["residence"]) && !empty($_POST["contact"]) && !empty($_POST["pri_role"]) && !empty($_POST["qualify"]) && !empty($_POST["nok"]) && !empty($_POST["nokc"])  ){
+
+    //if(!empty($_POST["names"]) && !empty($_POST["pri_role"]) ){
         //if($names == null){
 
 
@@ -450,7 +451,7 @@ $message = "Data Save In Database";
 
         // $query = "INSERT INTO `attendant`( `Full_Names`, `Date_Joined`, `Residence`, `Contact`, `Next_Of_Kin_Names`, `Next_Of_Kin_Contact`, `Primary_Role`, `Secondary_Role`, `Qualifications`, `Additional_Training`, `Current_Salary`, `Gender`) VALUES ('$names', '$date_joined', '$residence', '$contact', '$nok', '$nokc', '$pri_role', '$sec_role', '$qualify', '$train', '$sal','$gender') " or die(mysqli_error($dbcon));
 
-         $query = "INSERT INTO `Attendant`( `Full_Names`, `Date_Joined`, `Residence`, `Contact`, `Next_Of_Kin_Names`, `Next_Of_Kin_Contact`, `Primary_Role`, `Secondary_Role`, `Qualifications`, `Additional_Training`, `Current_Salary`, `Gender`, `image_location`) VALUES ('$names', '$date_joined', '$residence', '$contact', '$nok', '$nokc', '$pri_role', '$sec_role', '$qualify', '$train', '$sal','$gender', '$info') " or die(mysqli_error($dbcon));
+        $query = "INSERT INTO `attendant`( `Full_Names`, `Date_Joined`, `Residence`, `Contact`, `Next_Of_Kin_Names`, `Next_Of_Kin_Contact`, `Primary_Role`, `Secondary_Role`, `Qualifications`, `Additional_Training`, `Current_Salary`, `Gender`) VALUES ('$names', '$date_joined', '$residence', '$contact', '$nok', '$nokc', '$pri_role', '$sec_role', '$qualify', '$train', '$sal','$gender') " or die(mysqli_error($dbcon));
 
 
 
